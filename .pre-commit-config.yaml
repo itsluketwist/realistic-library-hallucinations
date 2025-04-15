@@ -15,14 +15,14 @@ repos:
 
 # isort
 -   repo: https://github.com/PyCQA/isort
-    rev: '5.13.2'
+    rev: '6.0.1'
     hooks:
       - id: isort
         args: ["--line-length=88", "--multi-line=3", "--lines-after-imports=2", "--trailing-comma"]
 
 # ruff linter and formatter
 -   repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.6.9
+    rev: v0.11.5
     hooks:
       - id: ruff
         types_or: [ python, pyi, jupyter ]
@@ -32,7 +32,7 @@ repos:
 
 # mypy type-checker
 -   repo: https://github.com/pre-commit/mirrors-mypy
-    rev: 'v1.12.0'
+    rev: 'v1.15.0'
     hooks:
       - id: mypy
         args: ["--show-error-codes", "--ignore-missing-imports"]

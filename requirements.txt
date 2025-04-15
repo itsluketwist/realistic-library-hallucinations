@@ -1,2 +1,3 @@
+git+https://github.com/itsluketwist/llm-codegen-research
 Jupyter
 pre-commit

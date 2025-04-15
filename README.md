@@ -1,4 +1,4 @@
-# **research-template**
+# **code-hallucinations**
 
 <div>
     <!-- badges from : https://shields.io/ -->
@@ -13,7 +13,7 @@
 
 ## *about*
 
-todo
+Just some prototyping and initial code for various code-hallucinations projects!
 
 ## *structure*
 
@@ -24,7 +24,7 @@ todo
 Clone the repository code:
 
 ```shell
-git clone https://github.com/itsluketwist/research-template.git
+git clone https://github.com/itsluketwist/code-hallucinations.git
 ```
 
 Once cloned, install the requirements locally in a virtual environment:
