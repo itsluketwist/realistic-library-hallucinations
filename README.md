@@ -61,3 +61,22 @@ uv pip compile requirements.txt -o requirements.lock
 ## *citation*
 
 todo
+
+
+## *todo*
+
+Research things:
+- how have other projects detected some hallucinations..?
+- maybe some way to construct problems for certain libraries..?
+- worth seeing hallus across domains..?
+- function to get dict of {'hallucinated_library': <responses that include it>}
+
+- constant SEP = "//"
+
+Technical things:
+- way to check if imported package is actually called..?
+- need way to determine halucinated methods..?
+    - can use docs from known libraries from bigcodebench..?
+- need way to determine hallucinated parameters..?
+    - can use docs from known libraries from bigcodebench..?
+-

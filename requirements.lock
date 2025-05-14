@@ -46,9 +46,15 @@ attrs==25.3.0
 babel==2.16.0
     # via jupyterlab-server
 beautifulsoup4==4.12.3
-    # via nbconvert
+    # via
+    #   bs4
+    #   nbconvert
 bleach==6.1.0
     # via nbconvert
+bs4==0.0.2
+    # via
+    #   -r requirements.txt
+    #   pydictionary
 certifi==2025.1.31
     # via
     #   httpcore
@@ -66,6 +72,7 @@ charset-normalizer==3.4.1
 click==8.1.8
     # via
     #   llm-cgr
+    #   pydictionary
     #   together
     #   typer
 comm==0.2.2
@@ -105,6 +112,10 @@ frozenlist==1.5.0
     #   aiohttp
     #   aiosignal
     #   llm-cgr
+futures==3.4.0
+    # via goslate
+goslate==1.5.4
+    # via pydictionary
 h11==0.14.0
     # via
     #   httpcore
@@ -324,6 +335,8 @@ pydantic-core==2.33.0
     # via
     #   llm-cgr
     #   pydantic
+pydictionary==2.0.1
+    # via -r requirements.txt
 pygments==2.19.1
     # via
     #   ipython
@@ -354,8 +367,10 @@ referencing==0.35.1
     #   jupyter-events
 requests==2.32.3
     # via
+    #   -r requirements.txt
     #   jupyterlab-server
     #   llm-cgr
+    #   pydictionary
     #   together
 rfc3339-validator==0.1.4
     # via

@@ -1,3 +1,6 @@
+bs4
 git+https://github.com/itsluketwist/llm-codegen-research
 Jupyter
 pre-commit
+PyDictionary
+requests
