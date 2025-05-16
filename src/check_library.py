@@ -32,8 +32,6 @@ def check_unknown_libraries(response: str) -> set[str]:
     Returns: set of unknown packages.
     """
     pypi_packages = load_packages()
-    # maybe need to check prompt somehow..?
-    # check_prompt = response.lower().replace("-", "_")
 
     unknowns = set()
     for code in Markdown(text=response).code_blocks:

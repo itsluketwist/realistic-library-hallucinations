@@ -5,7 +5,7 @@ from functools import cache
 
 import requests
 from bs4 import BeautifulSoup
-from llm_cgr import read_json, save_json
+from llm_cgr import load_json, save_json
 
 
 PYTHON_STDLIB = getattr(sys, "stdlib_module_names", [])
@@ -62,7 +62,7 @@ def load_packages(
     """
     Loads the package names from a JSON file.
     """
-    packages = read_json(file_path=file_path)
+    packages = load_json(file_path=file_path)
 
     if include_stdlib:
         packages += PYTHON_STDLIB

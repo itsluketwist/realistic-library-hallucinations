@@ -7,26 +7,40 @@ from tqdm import tqdm
 def generate_model_responses(
     models: list[str],
     prompts: dict[str, str],
-    n: int = 3,
+    samples: int = 3,
     temperature: float | None = None,
-) -> dict:
+) -> tuple[dict, list]:
     """
     Generate potential hallucinations for the given model and tasks.
 
-    Returns the dictionary of model generations for each prompt.
+    Returns a tuple containing the dictionary of model generations for each prompt,
+    and the list of errors hit when generating responses.
     """
     results = {}
+    errors = []
     for _id, prompt in tqdm(prompts.items()):
         responses = {}
         for model in models:
-            # query each model
-            client = get_client(model=model)
-            model_responses = client.complete(
-                user=prompt,
-                temperature=temperature,
-                n=n,
-            )
-            responses[model] = model_responses
+            try:
+                # query each model
+                client = get_client(model=model)
+                model_responses = client.generate(
+                    user=prompt,
+                    samples=samples,
+                    temperature=temperature,
+                )
+                responses[model] = model_responses
+
+            except Exception as e:
+                # handle any errors
+                errors.append(
+                    {
+                        "prompt": _id,
+                        "model": model,
+                        "error": str(e),
+                    }
+                )
+                responses[model] = []
 
         # save prompt responses
         results[_id] = {
@@ -34,4 +48,4 @@ def generate_model_responses(
             "responses": responses,
         }
 
-    return results
+    return results, errors

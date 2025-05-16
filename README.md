@@ -34,49 +34,30 @@ python -m venv .venv
 
 . .venv/bin/activate
 
-pip install -r requirements.lock
+pip install -r requirements.txt
 ```
 
 ## *development*
 
-Install and use pre-commit to ensure code is in a good state:
+We use [`pre-commit`](https://pre-commit.com/) for linting the code.
+Install [`pre-commit`](https://pre-commit.com/) and run with:
 
 ```shell
-pre-commit install
-
-pre-commit autoupdate
+pip install pre-commit
 
 pre-commit run --all-files
 ```
 
-Use `uv` for dependency management, first add to `requirements.txt`. Then install `uv` and version lock with:
+We use [`uv`](https://astral.sh/blog/uv) for dependency management.
+First add new dependencies to `requirements.in`.
+Then install [`uv`](https://astral.sh/blog/uv) and version lock with:
 
 ```shell
 pip install uv
 
-uv pip compile requirements.txt -o requirements.lock
+uv pip compile requirements.in -o requirements.txt
 ```
-
 
 ## *citation*
 
 todo
-
-
-## *todo*
-
-Research things:
-- how have other projects detected some hallucinations..?
-- maybe some way to construct problems for certain libraries..?
-- worth seeing hallus across domains..?
-- function to get dict of {'hallucinated_library': <responses that include it>}
-
-- constant SEP = "//"
-
-Technical things:
-- way to check if imported package is actually called..?
-- need way to determine halucinated methods..?
-    - can use docs from known libraries from bigcodebench..?
-- need way to determine hallucinated parameters..?
-    - can use docs from known libraries from bigcodebench..?
--

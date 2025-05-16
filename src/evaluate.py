@@ -2,7 +2,7 @@
 
 from collections import defaultdict
 
-from llm_cgr import read_json, save_json
+from llm_cgr import load_json, save_json
 
 from src.check_library import check_for_library, check_unknown_libraries
 
@@ -16,7 +16,7 @@ def evaluate_library_hallucinations(
     """
     print(f"Evaluating results in {results_file}")
     # load the generations to evaluate
-    results_data = read_json(file_path=results_file)
+    results_data = load_json(file_path=results_file)
     generations = results_data["generations"]
     tasks = results_data["metadata"][
         "tasks"
