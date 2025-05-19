@@ -47,7 +47,7 @@ def run_vary_information_experiment(
     models: list[str],
     dataset_file: str,
     samples: int = 3,
-    temperature: float | None = 1.0,
+    temperature: float | None = None,
 ):
     """
     Run the experiment to see how varying the information given causes hallucinations.
@@ -63,10 +63,10 @@ def run_vary_information_experiment(
     prompts = {
         _id: _get_vary_information_prompt(
             run_id=run_id,
-            function=item["function"],
-            description=item["description"],
-            returns=item["returns"],
-            examples=item["examples"],
+            function=item["parts"]["function"],
+            description=item["parts"]["description"],
+            returns=item["parts"]["returns"],
+            examples=item["parts"]["examples"],
         )
         for _id, item in dataset.items()
     }

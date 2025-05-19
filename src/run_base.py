@@ -14,7 +14,7 @@ def run_base_experiment(
     prompts: dict[str, str],
     dataset_file: str,
     samples: int = 3,
-    temperature: float | None = 1.0,
+    temperature: float | None = None,
 ):
     """
     Base method to run the experiment to find hallucinations when generating code from prompts.
@@ -55,7 +55,7 @@ def run_experiment_from_file(
     models: list[str],
     dataset_file: str,
     samples: int = 3,
-    temperature: float | None = 1.0,
+    temperature: float | None = None,
 ):
     """
     Run a simple experiment to see if hallucinations occur when writing code.

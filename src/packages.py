@@ -1,6 +1,7 @@
 """Code to handle package names and imports."""
 
 import sys
+from datetime import datetime
 from functools import cache
 
 import requests
@@ -12,11 +13,12 @@ PYTHON_STDLIB = getattr(sys, "stdlib_module_names", [])
 
 PYPI_PACKAGES_URL = "https://pypi.org/simple/"
 
-PYPI_PACKAGES_FILE = "output/pypi_packages.json"
+PYPI_PACKAGES_FILE = "data/pypi_packages.json"
 
 
-# list of valid import strings that do not match their package name
-VALID_IMPORTS = [
+# list of known valid import strings that do not match their package name
+# they are not hallucinations, but also not in the pypi package list
+KNOWN_VALID_IMPORTS = [
     # django utils
     "rest_framework",
     "timezone_utils",
@@ -45,12 +47,17 @@ def get_pypi_packages():
     return sorted(packages)
 
 
-def save_pypi_packages():
+def save_pypi_packages(
+    file_path: str = PYPI_PACKAGES_FILE,
+):
     """
     Fetches pypi packages and saves the package names to a JSON file.
     """
     packages = get_pypi_packages()
-    save_json(data=packages, file_path=PYPI_PACKAGES_FILE)
+    save_json(
+        data={"queried_at": datetime.now().isoformat(), "packages": packages},
+        file_path=file_path,
+    )
 
 
 @cache
@@ -62,13 +69,14 @@ def load_packages(
     """
     Loads the package names from a JSON file.
     """
-    packages = load_json(file_path=file_path)
+    pypi_data = load_json(file_path=file_path)
+    packages = pypi_data["packages"]
 
     if include_stdlib:
         packages += PYTHON_STDLIB
 
     if include_valid_imports:
-        packages += VALID_IMPORTS
+        packages += KNOWN_VALID_IMPORTS
 
     packages = list(set(packages))  # remove duplicates
     return sorted(packages)

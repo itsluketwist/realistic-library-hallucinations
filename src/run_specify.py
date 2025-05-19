@@ -19,12 +19,12 @@ SPECIFY_PROMPT = (
 
 
 def run_specify_library_experiment(
-    run_id: Literal["fake", "wrong", "typo"],
+    run_id: Literal["base", "fake", "wrong", "typo"],
     models: list[str],
     dataset_file: str,
     libraries: int = 2,
     samples: int = 3,
-    temperature: float | None = 1.0,
+    temperature: float | None = None,
 ):
     """
     Run the experiment to see if hallucinations occur when incorrect libraries are specified.
