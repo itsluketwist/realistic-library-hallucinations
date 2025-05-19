@@ -56,7 +56,7 @@ def run_vary_information_experiment(
     e.g. {"id": {"parts": {"function": "def task_func():", ... }, ... }, ... }
     """
     print(
-        f"Running VARY-INFORMATION experiment: run_id={run_id}, n={samples}, temp={temperature}, models={models}"
+        f"Running VARY-INFORMATION experiment: {run_id=}, {samples=}, {temperature=}, {models=}"
     )
 
     dataset = load_json(file_path=dataset_file)
@@ -70,7 +70,7 @@ def run_vary_information_experiment(
         )
         for _id, item in dataset.items()
     }
-    print(f"Processing {len(prompts)}x{samples} prompts from dataset: {dataset_file}")
+    print(f"Processing {len(prompts)}x{samples} prompts from {dataset_file=}")
 
     run_base_experiment(
         run_id=VARY_RUN_ID.format(run_id=run_id),

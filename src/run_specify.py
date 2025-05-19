@@ -34,8 +34,7 @@ def run_specify_library_experiment(
     e.g. {"task_id": {"task": "description", "libraries": {"typo": ["numpi", ... ], ...}}, ...}
     """
     print(
-        f"Running SPECIFY-LIBRARY experiment: run_id={run_id}, n={samples}, "
-        f"temp={temperature}, models={models}"
+        f"Running SPECIFY-LIBRARY experiment: {run_id=}, {samples=}, {temperature=}, {models=}"
     )
 
     dataset = load_json(file_path=dataset_file)
@@ -46,7 +45,7 @@ def run_specify_library_experiment(
                 library=_library,
                 task=item["task"],
             )
-    print(f"Processing {len(prompts)}x{samples} prompts from dataset: {dataset_file}")
+    print(f"Processing {len(prompts)}x{samples} prompts from {dataset_file=}")
 
     run_base_experiment(
         run_id=SPECIFY_RUN_ID.format(run_id=run_id),

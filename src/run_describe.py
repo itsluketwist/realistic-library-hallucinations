@@ -95,7 +95,7 @@ def run_describe_library_experiment(
     e.g. {"id": {"task": "description", ... }, ... }
     """
     print(
-        f"Running DESCRIBE-LIBRARY experiment: run_id={run_id}, n={samples}, temp={temperature}, models={models}"
+        f"Running DESCRIBE-LIBRARY experiment: {run_id=}, {samples=}, {temperature=}, {models=}"
     )
 
     dataset = load_json(file_path=dataset_file)
@@ -103,7 +103,7 @@ def run_describe_library_experiment(
         _id: _get_describe_library_prompt(run_id=run_id, task=item["task"])
         for _id, item in dataset.items()
     }
-    print(f"Processing {len(prompts)}x{samples} prompts from dataset: {dataset_file}")
+    print(f"Processing {len(prompts)}x{samples} prompts from {dataset_file=}")
 
     run_base_experiment(
         run_id=DESCRIBE_RUN_ID.format(run_id=run_id),

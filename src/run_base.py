@@ -63,8 +63,7 @@ def run_experiment_from_file(
     Each dataset record must be the task description, or have a "task" key containing it.
     """
     print(
-        f"Running BASE-FROM-FILE experiment: run_id={run_id}, n={samples}, "
-        f"temp={temperature}, models={models}"
+        f"Running BASE-FROM-FILE experiment: {run_id=}, {samples=}, {temperature=}, {models=}"
     )
 
     dataset = load_json(file_path=dataset_file)
@@ -72,7 +71,7 @@ def run_experiment_from_file(
         _id: _data["task"] if isinstance(_data, dict) else _data
         for _id, _data in dataset.items()
     }
-    print(f"Processing {len(prompts)}x{samples} prompts from dataset: {dataset_file}")
+    print(f"Processing {len(prompts)}x{samples} prompts from {dataset_file=}")
 
     run_base_experiment(
         run_id=run_id,
