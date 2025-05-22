@@ -4,7 +4,7 @@ from typing import Literal
 
 from llm_cgr import load_json
 
-from src.constants import ID_SEP
+from src.constants import LIB_SEP
 from src.run_base import run_base_experiment
 
 
@@ -41,7 +41,7 @@ def run_specify_library_experiment(
     prompts = {}
     for _id, item in dataset.items():
         for _library in item["libraries"][run_id][:libraries]:
-            prompts[f"{_id}{ID_SEP}{_library}"] = SPECIFY_PROMPT.format(
+            prompts[f"{_id}{LIB_SEP}{_library}"] = SPECIFY_PROMPT.format(
                 library=_library,
                 task=item["task"],
             )

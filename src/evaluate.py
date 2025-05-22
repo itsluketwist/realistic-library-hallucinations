@@ -5,6 +5,7 @@ from collections import defaultdict
 from llm_cgr import load_json, save_json
 
 from src.check_library import check_for_library, check_unknown_libraries
+from src.constants import LIB_SEP
 
 
 def evaluate_library_hallucinations(
@@ -29,49 +30,64 @@ def evaluate_library_hallucinations(
     libraries: dict[str, set] = {m: set() for m in models}
     task_ids: dict[str, set] = {m: set() for m in models}
     counts = {m: 0 for m in models}
+    fixes = {m: 0 for m in models}
 
     # loop through models and tasks, checking for hallucinations
     for _id, data in generations.items():
+        task_library = _id.split(LIB_SEP)[1] if LIB_SEP in _id else None
         for model, responses in data["responses"].items():
-            if "//" in _id:
-                # check for hallucinations of the given library
-                check_library = _id.split("//")[1]
-                for _response in responses:
+            for chat in responses:
+                if task_library:
+                    # check for hallucinations of the given library
                     imported, _ = check_for_library(
-                        response=_response, library=check_library
+                        response=chat[0],
+                        library=task_library,
                     )
                     if imported:
                         task_ids[model].add(_id)
                         counts[model] += 1
 
-            else:
-                # check for any hallucinated libraries
-                for _response in responses:
-                    if hallus := check_unknown_libraries(response=_response):
+                        # check after rebuttal
+                        if len(chat) == 2:
+                            imported, _ = check_for_library(
+                                response=chat[1],
+                                library=task_library,
+                            )
+                            if not imported:
+                                fixes[model] += 1
+
+                else:
+                    # check for any hallucinated libraries
+                    if hallus := check_unknown_libraries(response=chat[0]):
                         libraries[model].update(hallus)
                         task_ids[model].add(_id)
                         counts[model] += 1
 
                         for hallu in hallus:
-                            hallucinations[hallu].append(_response)
+                            hallucinations[hallu].append(chat)
 
-            # else:
-            #     print(f"Incorrect type for prompt responses: {type(responses)}")
+                        # check after rebuttal
+                        if len(chat) == 2:
+                            if not (
+                                hallus := check_unknown_libraries(response=chat[1])
+                            ):
+                                fixes[model] += 1
 
-    evaluations = {}
-    for model in models:
-        evaluations[model] = {
+    # save the evaluation data
+    results_data["evaluations"] = {
+        model: {
             "total": counts[model],
             "response_rate": counts[model] / (tasks * n),
+            "fixed": fixes[model],
+            "fixed_rate": fixes[model] / counts[model],
             "task_ids": list(task_ids[model]),
             "task_count": len(task_ids[model]),
             "task_rate": len(task_ids[model]) / tasks,
             "libraries": list(libraries[model]),
             "lib_count": len(libraries[model]),
         }
-
-    # save the evaluation data
-    results_data["evaluations"] = evaluations
+        for model in models
+    }
     results_data["hallucinations"] = dict(hallucinations)
     save_json(data=results_data, file_path=results_file)
     return results_data
