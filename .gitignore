@@ -170,8 +170,7 @@ cython_debug/
 todo.txt
 output/archive
 data/raw
-prelim_results.ipynb
-abundance_notes.ipynb
+pre_*.ipynb
 
 # temporary ignore
 output/*

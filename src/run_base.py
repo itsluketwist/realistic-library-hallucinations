@@ -19,7 +19,8 @@ def run_base_experiment(
     """
     Base method to run the experiment to find hallucinations when generating code from prompts.
     """
-
+    print(f"Running experiment: {run_id=}, {samples=} {temperature=}, {models=}")
+    print(f"Processing data: {len(prompts)} prompts from {dataset_file=}")
     generations, errors = generate_model_responses(
         models=models,
         prompts=prompts,
@@ -45,6 +46,7 @@ def run_base_experiment(
     results_file = f"output/{run_id}_{run_time}.json"
     save_json(data=results, file_path=results_file)
 
+    print(f"Evaluating responses: {results_file=}")
     evaluate_library_hallucinations(
         results_file=results_file,
     )

@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 from llm_cgr import load_json, save_json
 
 
-PYTHON_STDLIB = getattr(sys, "stdlib_module_names", [])
+PYTHON_STDLIB: frozenset = getattr(sys, "stdlib_module_names", frozenset())
 
 PYPI_PACKAGES_URL = "https://pypi.org/simple/"
 
@@ -32,7 +32,7 @@ KNOWN_VALID_IMPORTS = [
 ]
 
 
-def get_pypi_packages():
+def get_pypi_packages() -> list[str]:
     """
     Fetches pypi packages and returns a list of package names.
     """
@@ -47,9 +47,9 @@ def get_pypi_packages():
     return sorted(packages)
 
 
-def save_pypi_packages(
+def refresh_pypi_packages(
     file_path: str = PYPI_PACKAGES_FILE,
-):
+) -> list[str]:
     """
     Fetches pypi packages and saves the package names to a JSON file.
     """
@@ -58,6 +58,7 @@ def save_pypi_packages(
         data={"queried_at": datetime.now().isoformat(), "packages": packages},
         file_path=file_path,
     )
+    return packages
 
 
 @cache
@@ -65,12 +66,16 @@ def load_packages(
     file_path: str = PYPI_PACKAGES_FILE,
     include_stdlib: bool = True,
     include_valid_imports: bool = True,
+    refresh: bool = False,
 ) -> list[str]:
     """
     Loads the package names from a JSON file.
     """
-    pypi_data = load_json(file_path=file_path)
-    packages = pypi_data["packages"]
+    if refresh:
+        packages = refresh_pypi_packages(file_path=file_path)
+    else:
+        pypi_data = load_json(file_path=file_path)
+        packages = pypi_data["packages"]
 
     if include_stdlib:
         packages += PYTHON_STDLIB

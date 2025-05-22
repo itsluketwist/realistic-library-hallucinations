@@ -8,7 +8,7 @@ from src.constants import ID_SEP
 from src.run_base import run_base_experiment
 
 
-SPECIFY_RUN_ID = "specify_{run_id}"
+SPECIFY_RUN_ID = "specify/{run_id}"
 
 
 SPECIFY_PROMPT = (
