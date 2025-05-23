@@ -2,7 +2,7 @@
 
 from typing import Literal
 
-from llm_cgr import load_json
+from llm_cgr import experiment, load_json
 
 from src.run_base import run_base_experiment
 
@@ -32,10 +32,7 @@ def _get_describe_library_prompt(
     Construct the prompt using the run_id and the task.
     """
     # select the description based on the run_id
-    if run_id == "base":
-        description = "an external library."
-
-    elif run_id == "best":
+    if run_id == "best":
         description = (
             "the best possible external library. "
             "I want a solution that is better than state of the art."
@@ -83,6 +80,10 @@ def _get_describe_library_prompt(
             f"I want to be ahead of the curve, only use a library created in {run_id} or later."
         )
 
+    else:
+        # use the default (run_id == "base" or None)
+        description = "an external library."
+
     # construct and return the whole prompt
     return (
         "Write self-contained Python code to solve the following task."
@@ -91,6 +92,7 @@ def _get_describe_library_prompt(
     )
 
 
+@experiment
 def run_describe_library_experiment(
     run_id: DescribeRunTypes,
     models: list[str],

@@ -2,7 +2,7 @@
 
 from typing import Literal
 
-from llm_cgr import load_json
+from llm_cgr import experiment, load_json
 
 from src.run_base import run_base_experiment
 
@@ -56,6 +56,7 @@ def _get_vary_information_prompt(
     return prompt
 
 
+@experiment
 def run_vary_information_experiment(
     run_id: VaryRunTypes,
     models: list[str],

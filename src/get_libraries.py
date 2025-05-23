@@ -2,7 +2,7 @@
 
 from difflib import SequenceMatcher
 
-from llm_cgr import query_list
+from llm_cgr import generate_list
 
 from src.packages import load_packages
 
@@ -16,7 +16,7 @@ def get_libraries_for_task(
     model: str = DEFAULT_NAMES_MODEL,
 ) -> list[str]:
     # get a reasonable library to use for the task
-    libraries = query_list(
+    libraries = generate_list(
         user=(
             "Give me a comprehensive list of all possible python libraries "
             f"I could use to solve the following task: {task}"
@@ -40,7 +40,7 @@ def get_typo_library_names(
 
     Returns the list of library names.
     """
-    typos = query_list(
+    typos = generate_list(
         user=f"Give me a list of common typos for the following library: {library}",
         model=model,
     )
@@ -66,7 +66,7 @@ def get_wrong_library_names(
 
     Returns the list of library names.
     """
-    wrongs = query_list(
+    wrongs = generate_list(
         user=(
             "Give me a list of fake libraries that could be mistaken "
             f"for the following library: {library}"
@@ -104,7 +104,7 @@ def get_fake_library_names(
         "with only underscores and lower case letters.\n"
         "Problem description:\n{task}"
     )
-    fakes = query_list(
+    fakes = generate_list(
         user=FAKE_LIBRARY_NAMES_PROMPT.format(task=task),
         model=model,
     )

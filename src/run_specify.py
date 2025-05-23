@@ -2,7 +2,7 @@
 
 from typing import Literal
 
-from llm_cgr import load_json
+from llm_cgr import experiment, load_json
 
 from src.constants import LIB_SEP
 from src.run_base import run_base_experiment
@@ -18,6 +18,7 @@ SPECIFY_PROMPT = (
 )
 
 
+@experiment
 def run_specify_library_experiment(
     run_id: Literal["base", "fake", "wrong", "typo"],
     models: list[str],

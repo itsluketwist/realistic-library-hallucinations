@@ -184,7 +184,7 @@ jupyterlab-server==2.27.3
     #   notebook
 jupyterlab-widgets==3.0.15
     # via ipywidgets
-llm-codegen-research==1.5
+llm-codegen-research==1.6
     # via -r requirements.in
 markdown-it-py==3.0.0
     # via rich

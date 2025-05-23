@@ -22,6 +22,7 @@ def evaluate_library_hallucinations(
     n = results_data["metadata"]["n"]
 
     # extract models from generations
+    models = []
     for _gen in generations.values():
         models = list(_gen["responses"].keys())
         break
