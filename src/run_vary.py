@@ -4,6 +4,7 @@ from typing import Literal
 
 from llm_cgr import experiment, load_json
 
+from src.generate import RebuttalType
 from src.run_base import run_base_experiment
 
 
@@ -61,6 +62,7 @@ def run_vary_information_experiment(
     run_id: VaryRunTypes,
     models: list[str],
     dataset_file: str,
+    rebuttal_type: RebuttalType | None,
     samples: int = 3,
     temperature: float | None = None,
 ):
@@ -70,10 +72,6 @@ def run_vary_information_experiment(
     Each dataset record must have a "parts" containing a dictionary of task parts for each run_id.
     e.g. {"id": {"parts": {"function": "def task_func():", ... }, ... }, ... }
     """
-    print(
-        f"Running VARY-INFORMATION experiment: {run_id=}, {samples=}, {temperature=}, {models=}"
-    )
-
     dataset = load_json(file_path=dataset_file)
     if run_id == "split":
         prompts = {}
@@ -105,13 +103,13 @@ def run_vary_information_experiment(
             )
             for _id, item in dataset.items()
         }
-    print(f"Processing {len(prompts)}x{samples} prompts from {dataset_file=}")
 
     run_base_experiment(
         run_id=VARY_RUN_ID.format(run_id=run_id),
         models=models,
         prompts=prompts,
         dataset_file=dataset_file,
+        rebuttal_type=rebuttal_type,
         samples=samples,
         temperature=temperature,
     )

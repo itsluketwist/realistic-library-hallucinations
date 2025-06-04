@@ -170,11 +170,12 @@ cython_debug/
 todo.txt
 output/archive
 data/raw
+data/archive
 pre_*.ipynb
+prototype.ipynb
 
 # temporary ignore
 output/*
-data/*
 data.ipynb
 run.ipynb
 view.ipynb

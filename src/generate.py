@@ -1,15 +1,21 @@
 """Code to generate responses from LLMs."""
 
+from typing import Literal
+
 from llm_cgr import get_llm
 from tqdm import tqdm
 
-from src.check_library import check_for_library, check_unknown_libraries
 from src.constants import LIB_SEP
+from src.libraries.check import check_for_library, check_unknown_libraries
+
+
+RebuttalType = Literal["explicit", "check"]
 
 
 def generate_model_responses(
     models: list[str],
     prompts: dict[str, str],
+    rebuttal_type: RebuttalType | None = None,
     samples: int = 3,
     temperature: float | None = None,
 ) -> tuple[dict, list]:
@@ -38,7 +44,7 @@ def generate_model_responses(
 
                     # check for hallucinations
                     if task_library:
-                        imported, _ = check_for_library(
+                        imported = check_for_library(
                             response=response_one,
                             library=task_library,
                         )
@@ -46,10 +52,12 @@ def generate_model_responses(
                     else:
                         hallus = check_unknown_libraries(response=response_one)
 
-                    if hallus:
+                    if hallus and rebuttal_type is not None:
                         # give the model a chance to fix its mistake
                         response_two = llm.chat(
-                            user=_get_rebuttal_prompt(hallus=hallus),
+                            user=_get_rebuttal_prompt(
+                                type=rebuttal_type, hallus=hallus
+                            ),
                             temperature=temperature,
                         )
                         _responses.append(response_two)
@@ -75,16 +83,28 @@ def generate_model_responses(
     return results, errors
 
 
-def _get_rebuttal_prompt(hallus: set[str]) -> str:
+def _get_rebuttal_prompt(
+    type: Literal["explicit", "check"],
+    hallus: set[str],
+) -> str:
     """
     Create the rebuttal prompt for the hallucinated libraries.
     """
-    if len(hallus) == 1:
-        libraries = f"library {hallus.pop()} does"
-    elif len(hallus) == 2:
-        libraries = f"libraries {hallus.pop()} and {hallus.pop()} do"
-    else:
-        _hallu = hallus.pop()
-        libraries = f"libraries {', '.join(hallus)}, and {_hallu} do"
+    if type == "check":
+        return "Please double-check your code and correct any errors you find."
 
-    return f"The imported Python {libraries} not seem to exist, can you try again?"
+    elif type == "explicit":
+        if len(hallus) == 1:
+            libraries = f"library {hallus.pop()} does"
+        elif len(hallus) == 2:
+            libraries = f"libraries {hallus.pop()} and {hallus.pop()} do"
+        else:
+            _hallu = hallus.pop()
+            libraries = f"libraries {', '.join(hallus)}, and {_hallu} do"
+
+        return f"The imported Python {libraries} not seem to exist, can you try again?"
+
+    else:
+        raise ValueError(
+            f"Unknown rebuttal type: {type}. Must be 'explicit' or 'check'."
+        )

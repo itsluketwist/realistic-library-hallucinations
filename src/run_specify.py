@@ -5,6 +5,7 @@ from typing import Literal
 from llm_cgr import experiment, load_json
 
 from src.constants import LIB_SEP
+from src.generate import RebuttalType
 from src.run_base import run_base_experiment
 
 
@@ -23,6 +24,7 @@ def run_specify_library_experiment(
     run_id: Literal["base", "fake", "wrong", "typo"],
     models: list[str],
     dataset_file: str,
+    rebuttal_type: RebuttalType | None,
     libraries: int = 2,
     samples: int = 3,
     temperature: float | None = None,
@@ -34,10 +36,6 @@ def run_specify_library_experiment(
     containing a dictionary of library names for each run_id.
     e.g. {"task_id": {"task": "description", "libraries": {"typo": ["numpi", ... ], ...}}, ...}
     """
-    print(
-        f"Running SPECIFY-LIBRARY experiment: {run_id=}, {samples=}, {temperature=}, {models=}"
-    )
-
     dataset = load_json(file_path=dataset_file)
     prompts = {}
     for _id, item in dataset.items():
@@ -46,13 +44,13 @@ def run_specify_library_experiment(
                 library=_library,
                 task=item["task"],
             )
-    print(f"Processing {len(prompts)}x{samples} prompts from {dataset_file=}")
 
     run_base_experiment(
         run_id=SPECIFY_RUN_ID.format(run_id=run_id),
         models=models,
         prompts=prompts,
         dataset_file=dataset_file,
+        rebuttal_type=rebuttal_type,
         samples=samples,
         temperature=temperature,
     )

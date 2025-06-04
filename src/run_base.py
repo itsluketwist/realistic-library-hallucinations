@@ -5,7 +5,7 @@ from datetime import datetime
 from llm_cgr import load_json, save_json
 
 from src.evaluate import evaluate_library_hallucinations
-from src.generate import generate_model_responses
+from src.generate import RebuttalType, generate_model_responses
 
 
 def run_base_experiment(
@@ -13,6 +13,7 @@ def run_base_experiment(
     models: list[str],
     prompts: dict[str, str],
     dataset_file: str,
+    rebuttal_type: RebuttalType | None = None,
     samples: int = 3,
     temperature: float | None = None,
 ):
@@ -24,6 +25,7 @@ def run_base_experiment(
     generations, errors = generate_model_responses(
         models=models,
         prompts=prompts,
+        rebuttal_type=rebuttal_type,
         samples=samples,
         temperature=temperature,
     )
@@ -37,6 +39,7 @@ def run_base_experiment(
             "n": samples,
             "temp": temperature,
             "datetime": run_time,
+            "rebuttal": rebuttal_type,
         },
         "evaluations": {},
         "generations": generations,
@@ -56,6 +59,7 @@ def run_experiment_from_file(
     run_id: str,
     models: list[str],
     dataset_file: str,
+    rebuttal_type: RebuttalType | None = None,
     samples: int = 3,
     temperature: float | None = None,
 ):
@@ -80,6 +84,7 @@ def run_experiment_from_file(
         models=models,
         prompts=prompts,
         dataset_file=dataset_file,
+        rebuttal_type=rebuttal_type,
         samples=samples,
         temperature=temperature,
     )

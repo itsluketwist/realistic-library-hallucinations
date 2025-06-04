@@ -1,4 +1,4 @@
-# **code-hallucinations**
+# **library-hallucinations**
 
 <div>
     <!-- badges from : https://shields.io/ -->
@@ -19,12 +19,23 @@ Just some prototyping and initial code for various code-hallucinations projects!
 
 todo
 
+- `data/` - The data used in the project.
+- `output/` - The generated results.
+- `src/` - The main project code.
+
 ## *installation*
 
-Clone the repository code:
+The code requires Python 3.11 or later to run.
+Ensure you have it installed with the command below, otherwise download and install it from [here](https://www.python.org/downloads/).
 
 ```shell
-git clone https://github.com/itsluketwist/code-hallucinations.git
+python --version
+```
+
+Now clone the repository code:
+
+```shell
+git clone **redacted**
 ```
 
 Once cloned, install the requirements locally in a virtual environment:
@@ -35,6 +46,22 @@ python -m venv .venv
 . .venv/bin/activate
 
 pip install -r requirements.txt
+```
+
+## *usage*
+
+todo
+
+## *tests*
+
+This project includes unit tests for the hallucination detection functions,
+to ensure LLM responses will be correctly processed.
+Install [`pytest`](https://docs.pytest.org/en/stable/), and run the tests with:
+
+```shell
+pip install pytest
+
+pytest tests
 ```
 
 ## *development*
@@ -55,8 +82,12 @@ Then install [`uv`](https://astral.sh/blog/uv) and version lock with:
 ```shell
 pip install uv
 
-uv pip compile requirements.in -o requirements.txt
+uv pip compile requirements.in --output-file requirements.txt --upgrade
 ```
+
+## *paper*
+
+todo
 
 ## *citation*
 

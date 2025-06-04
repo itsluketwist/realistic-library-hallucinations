@@ -2,10 +2,17 @@
 
 from collections import defaultdict
 
-from llm_cgr import load_json, save_json
+from llm_cgr import Markdown, load_json, save_json
 
-from src.check_library import check_for_library, check_unknown_libraries
 from src.constants import LIB_SEP
+from src.libraries.check import check_for_library, check_unknown_libraries
+
+
+def _contains_code(text: str) -> bool:
+    """
+    Check if some text contains a code block.
+    """
+    return len(Markdown(text=text).code_blocks) > 0
 
 
 def evaluate_library_hallucinations(
@@ -38,28 +45,21 @@ def evaluate_library_hallucinations(
         task_library = _id.split(LIB_SEP)[1] if LIB_SEP in _id else None
         for model, responses in data["responses"].items():
             for chat in responses:
+                seen_hallucination = False
                 if task_library:
                     # check for hallucinations of the given library
-                    imported, _ = check_for_library(
+                    if check_for_library(
                         response=chat[0],
                         library=task_library,
-                    )
-                    if imported:
+                    ):
+                        seen_hallucination = True
                         task_ids[model].add(_id)
                         counts[model] += 1
-
-                        # check after rebuttal
-                        if len(chat) == 2:
-                            imported, _ = check_for_library(
-                                response=chat[1],
-                                library=task_library,
-                            )
-                            if not imported:
-                                fixes[model] += 1
 
                 else:
                     # check for any hallucinated libraries
                     if hallus := check_unknown_libraries(response=chat[0]):
+                        seen_hallucination = True
                         libraries[model].update(hallus)
                         task_ids[model].add(_id)
                         counts[model] += 1
@@ -67,12 +67,13 @@ def evaluate_library_hallucinations(
                         for hallu in hallus:
                             hallucinations[hallu].append(chat)
 
-                        # check after rebuttal
-                        if len(chat) == 2:
-                            if not (
-                                hallus := check_unknown_libraries(response=chat[1])
-                            ):
-                                fixes[model] += 1
+                # check for hallucnations in a rebuttal
+                if seen_hallucination and len(chat) == 2:
+                    # only fixed if response contains code and no hallucinations
+                    if _contains_code(text=chat[1]) and not (
+                        hallus := check_unknown_libraries(response=chat[1])
+                    ):
+                        fixes[model] += 1
 
     # save the evaluation data
     results_data["evaluations"] = {
@@ -80,7 +81,7 @@ def evaluate_library_hallucinations(
             "total": counts[model],
             "response_rate": counts[model] / (tasks * n),
             "fixed": fixes[model],
-            "fixed_rate": fixes[model] / counts[model],
+            "fixed_rate": fixes[model] / counts[model] if counts[model] > 0 else 1.0,
             "task_ids": list(task_ids[model]),
             "task_count": len(task_ids[model]),
             "task_rate": len(task_ids[model]) / tasks,

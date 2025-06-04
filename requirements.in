@@ -1,4 +1,6 @@
 bs4
+datasets
 Jupyter
+levenshtein
 llm-codegen-research
 requests
