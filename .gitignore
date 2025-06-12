@@ -176,6 +176,5 @@ prototype.ipynb
 
 # temporary ignore
 output/*
-data.ipynb
 run.ipynb
 view.ipynb

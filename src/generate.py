@@ -5,11 +5,11 @@ from typing import Literal
 from llm_cgr import get_llm
 from tqdm import tqdm
 
-from src.constants import LIB_SEP
+from src.constants import LIB_SEP, MODEL_DEFAULTS
 from src.libraries.check import check_for_library, check_unknown_libraries
 
 
-RebuttalType = Literal["explicit", "check"]
+RebuttalType = Literal["explicit", "check", "simple"]
 
 
 def generate_model_responses(
@@ -18,6 +18,8 @@ def generate_model_responses(
     rebuttal_type: RebuttalType | None = None,
     samples: int = 3,
     temperature: float | None = None,
+    top_p: float | None = None,
+    max_tokens: int | None = None,
 ) -> tuple[dict, list]:
     """
     Generate responses for the given model and tasks.
@@ -31,15 +33,22 @@ def generate_model_responses(
         task_library = _id.split(LIB_SEP)[1] if LIB_SEP in _id else None
         responses: dict[str, list[list[str]]] = {}  # model -> [responses]
         for model in models:
+            # configure model parameters
+            _temperature = temperature or MODEL_DEFAULTS[model].get("temperature")
+            _top_p = top_p or MODEL_DEFAULTS[model].get("top_p")
+            _max_tokens = max_tokens or MODEL_DEFAULTS[model].get("max_tokens")
+
             responses[model] = []
             for _ in range(samples):
                 try:
                     # do each query in a new session
-                    llm = get_llm(model=model)
-                    response_one = llm.chat(
-                        user=prompt,
-                        temperature=temperature,
+                    llm = get_llm(
+                        model=model,
+                        temperature=_temperature,
+                        top_p=_top_p,
+                        max_tokens=_max_tokens,
                     )
+                    response_one = llm.chat(user=prompt)
                     _responses = [response_one]
 
                     # check for hallucinations
@@ -56,9 +65,9 @@ def generate_model_responses(
                         # give the model a chance to fix its mistake
                         response_two = llm.chat(
                             user=_get_rebuttal_prompt(
-                                type=rebuttal_type, hallus=hallus
+                                type=rebuttal_type,
+                                hallus=hallus,
                             ),
-                            temperature=temperature,
                         )
                         _responses.append(response_two)
 
@@ -70,7 +79,7 @@ def generate_model_responses(
                         {
                             "prompt": _id,
                             "model": model,
-                            "error": str(e),
+                            "error": f"{type(e).__name__}: {str(e)}",
                         }
                     )
 
@@ -84,7 +93,7 @@ def generate_model_responses(
 
 
 def _get_rebuttal_prompt(
-    type: Literal["explicit", "check"],
+    type: RebuttalType,
     hallus: set[str],
 ) -> str:
     """
@@ -92,6 +101,9 @@ def _get_rebuttal_prompt(
     """
     if type == "check":
         return "Please double-check your code and correct any errors you find."
+
+    elif type == "simple":
+        return "Are you sure? Fix any errors you find."
 
     elif type == "explicit":
         if len(hallus) == 1:
