@@ -21,6 +21,7 @@ def run_experiment(
     top_p: float | None = None,
     max_tokens: int | None = None,
     timeout_seconds: int = 60,
+    output_dir: str = "../output",
 ):
     """
     Base method to run the experiment to find hallucinations when generating code from prompts.
@@ -33,7 +34,7 @@ def run_experiment(
     )
 
     _start = datetime.now().isoformat()
-    results_file = f"output/{run_id}_{_start}.json"
+    results_file = f"{output_dir.rstrip('/')}/{run_id}_{_start}.json"
     results = {
         "metadata": {
             "run_id": run_id,

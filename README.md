@@ -45,43 +45,47 @@ python -m venv .venv
 
 . .venv/bin/activate
 
-pip install -r requirements.txt
+pip install .
 ```
 
 ## *usage*
 
 todo
 
-## *tests*
+## *development*
 
-This project includes unit tests for the hallucination detection functions,
-to ensure LLM responses will be correctly processed.
-Install [`pytest`](https://docs.pytest.org/en/stable/), and run the tests with:
+We use a few extra processes to ensure the code maintains a high quality.
+First clone the project and create a virtual environment - as described above.
+Now install the editable version of the project, with the development dependencies.
 
 ```shell
-pip install pytest
+pip install --editable ".[dev]"
+```
 
+### *tests*
+
+This project includes unit tests to ensure correct functionality.
+Use [`pytest`](https://docs.pytest.org/en/stable/) to run the tests with:
+
+```shell
 pytest tests
 ```
 
-## *development*
+### *linting*
 
-We use [`pre-commit`](https://pre-commit.com/) for linting the code.
-Install [`pre-commit`](https://pre-commit.com/) and run with:
+We use [`pre-commit`](https://pre-commit.com/) to lint the code, run it using:
 
 ```shell
-pip install pre-commit
-
 pre-commit run --all-files
 ```
 
+### *dependencies*
+
 We use [`uv`](https://astral.sh/blog/uv) for dependency management.
 First add new dependencies to `requirements.in`.
-Then install [`uv`](https://astral.sh/blog/uv) and version lock with:
+Then version lock with [`uv`](https://astral.sh/blog/uv) using:
 
 ```shell
-pip install uv
-
 uv pip compile requirements.in --output-file requirements.txt --upgrade
 ```
 
