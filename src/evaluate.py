@@ -17,6 +17,7 @@ def _contains_code(text: str) -> bool:
 
 def evaluate_library_hallucinations(
     results_file: str,
+    pypi_packages_file: str | None = None,
 ) -> dict:
     """
     Evaluate the libraries found in model responses, identifying any hallucinations.
@@ -25,8 +26,8 @@ def evaluate_library_hallucinations(
     # load the generations to evaluate
     results_data = load_json(file_path=results_file)
     generations = results_data["generations"]
-    tasks = results_data["metadata"]["tasks"]
-    n = results_data["metadata"]["n"]
+    tasks = results_data["metadata"]["total_tasks"]
+    samples = results_data["metadata"]["samples"]
 
     # extract models from generations
     models = []
@@ -58,7 +59,10 @@ def evaluate_library_hallucinations(
 
                 else:
                     # check for any hallucinated libraries
-                    if hallus := check_unknown_libraries(response=chat[0]):
+                    if hallus := check_unknown_libraries(
+                        response=chat[0],
+                        pypi_packages_file=pypi_packages_file,
+                    ):
                         seen_hallucination = True
                         libraries[model].update(hallus)
                         task_ids[model].add(_id)
@@ -71,7 +75,10 @@ def evaluate_library_hallucinations(
                 if seen_hallucination and len(chat) == 2:
                     # only fixed if response contains code and no hallucinations
                     if _contains_code(text=chat[1]) and not (
-                        hallus := check_unknown_libraries(response=chat[1])
+                        hallus := check_unknown_libraries(
+                            response=chat[1],
+                            pypi_packages_file=pypi_packages_file,
+                        )
                     ):
                         fixes[model] += 1
 
@@ -79,7 +86,7 @@ def evaluate_library_hallucinations(
     results_data["evaluations"] = {
         model: {
             "total": counts[model],
-            "response_rate": counts[model] / (tasks * n),
+            "response_rate": counts[model] / (tasks * samples),
             "fixed": fixes[model],
             "fixed_rate": fixes[model] / counts[model] if counts[model] > 0 else 1.0,
             "task_ids": list(task_ids[model]),

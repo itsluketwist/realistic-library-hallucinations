@@ -21,6 +21,7 @@ def generate_model_responses(
     top_p: float | None = None,
     max_tokens: int | None = None,
     timeout_seconds: int = 60,
+    pypi_packages_file: str | None = None,
 ) -> tuple[dict, list]:
     """
     Generate responses for the given model and tasks.
@@ -59,7 +60,10 @@ def generate_model_responses(
                     )
                     hallus = {library} if imported else set()
                 else:
-                    hallus = check_unknown_libraries(response=response_one)
+                    hallus = check_unknown_libraries(
+                        response=response_one,
+                        pypi_packages_file=pypi_packages_file,
+                    )
 
                 if hallus and rebuttal_type is not None:
                     # give the model a chance to fix its mistake

@@ -13,7 +13,7 @@ PYTHON_STDLIB: frozenset = getattr(sys, "stdlib_module_names", frozenset())
 
 PYPI_PACKAGES_URL = "https://pypi.org/simple/"
 
-DEFAULT_PYPI_PACKAGES_FILE = "data/pypi_packages.json"
+DEFAULT_PYPI_PACKAGES_FILE = "../data/pypi_packages.json"
 
 
 # list of known valid import strings that do not match their package name
