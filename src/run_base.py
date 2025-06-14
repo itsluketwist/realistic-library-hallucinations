@@ -12,10 +12,8 @@ def run_base_experiment(
     models: list[str],
     dataset_file: str,
     wrap_task: bool = True,
-    rebuttal_type: RebuttalType | None = None,
-    samples: int = 3,
-    temperature: float | None = None,
-    top_p: float | None = None,
+    rebuttal_type: RebuttalType | None = "check",
+    **kwargs,  # see run_experiment for details
 ):
     """
     Run a simple experiment to see if hallucinations occur when writing code.
@@ -39,7 +37,5 @@ def run_base_experiment(
         prompts=prompts,
         dataset_file=dataset_file,
         rebuttal_type=rebuttal_type,
-        samples=samples,
-        temperature=temperature,
-        top_p=top_p,
+        **kwargs,
     )

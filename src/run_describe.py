@@ -4,8 +4,8 @@ from typing import Literal
 
 from llm_cgr import experiment, load_json
 
+from src.experiment import run_experiment
 from src.generate import RebuttalType
-from src.run_base import run_base_experiment
 
 
 DESCRIBE_RUN_ID = "describe/{run_id}"
@@ -51,11 +51,23 @@ def _get_describe_library_prompt(
             "I want the fastest possible library used, with no compromises."
         )
 
-    elif run_id == "hidden":
+    elif run_id == "unknown_hidden":  # the og prompt
         description = (
             "an external library that is not widely known or used.\n"
             "I want you to find and use a hidden gem of a library."
         )
+
+    elif run_id == "hidden_unknown":
+        description = (
+            "a hidden gem of an external library.\n"
+            "I want you to find a library that is not widely known or used."
+        )
+
+    elif run_id == "unknown":
+        description = "an external library that is not widely known or used."
+
+    elif run_id == "hidden":
+        description = "a hidden gem of an external library."
 
     elif run_id == "secure":
         description = (
@@ -81,9 +93,9 @@ def _get_describe_library_prompt(
 
     # construct and return the whole prompt
     return (
-        "Write self-contained Python code to solve the following task."
-        f"You should import and use {description}\n\n"
-        f"Task:\n{task}"
+        "Write self-contained Python code to solve the following task.\n"
+        f"You should import and use {description}\n"
+        f"Task: {task}"
     )
 
 
@@ -92,9 +104,8 @@ def run_describe_library_experiment(
     run_id: DescribeRunTypes,
     models: list[str],
     dataset_file: str,
-    rebuttal_type: RebuttalType | None,
-    samples: int = 3,
-    temperature: float | None = None,
+    rebuttal_type: RebuttalType | None = "check",
+    **kwargs,  # see run_experiment for details
 ):
     """
     Run the experiment to see which library descriptions cause the most hallucinations.
@@ -108,12 +119,11 @@ def run_describe_library_experiment(
         for _id, item in dataset.items()
     }
 
-    run_base_experiment(
+    run_experiment(
         run_id=DESCRIBE_RUN_ID.format(run_id=run_id),
         models=models,
         prompts=prompts,
         dataset_file=dataset_file,
         rebuttal_type=rebuttal_type,
-        samples=samples,
-        temperature=temperature,
+        **kwargs,
     )

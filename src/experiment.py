@@ -1,6 +1,7 @@
 """Base experiments to look for hallucinations when generating code."""
 
 from datetime import datetime
+from pathlib import Path
 
 from llm_cgr import save_json
 from tqdm import tqdm
@@ -22,6 +23,7 @@ def run_experiment(
     max_tokens: int | None = None,
     timeout_seconds: int = 60,
     output_dir: str = "../output",
+    start_index: int = 0,
 ):
     """
     Base method to run the experiment to find hallucinations when generating code from prompts.
@@ -34,7 +36,7 @@ def run_experiment(
     )
 
     _start = datetime.now().isoformat()
-    results_file = f"{output_dir.rstrip('/')}/{run_id}_{_start}.json"
+    results_file = str(Path(output_dir) / f"{run_id}_{_start}.json")
     results = {
         "metadata": {
             "run_id": run_id,
@@ -53,7 +55,7 @@ def run_experiment(
         "errors": {},
     }
 
-    for prompt_id, prompt in tqdm(prompts.items()):
+    for prompt_id, prompt in tqdm(list(prompts.items())[start_index:]):
         library = prompt_id.split(LIB_SEP)[1] if LIB_SEP in prompt_id else None
         responses, errors = generate_model_responses(
             prompt=prompt,

@@ -1,17 +1,35 @@
 """Code to look for hallucinations when certain descriptions are used."""
 
+from typing import Literal
+
 from llm_cgr import experiment, load_json
 
+from src.experiment import run_experiment
 from src.generate import RebuttalType
-from src.run_base import run_base_experiment
 
 
-TEMPORAL_RUN_ID = "temporal/{run_id}"
+TEMPORAL_RUN_ID = "temporal/{year}_{type}"
 
-TEMPORAL_PROMPT = (
-    "Write self-contained Python code to solve the following task."
+TemporalPromptTypes = Literal["simple", "curve", "recent"]
+
+SIMPLE_TEMPORAL_PROMPT = (
+    "Write self-contained Python code to solve the following task.\n"
     "You should import and use an up-to-date external library,"
-    "released in {release_year} or later.\n\n"
+    "released in {year} or later.\n\n"
+    "Task:\n{task}"
+)
+
+CURVE_TEMPORAL_PROMPT = (
+    "Write self-contained Python code to solve the following task.\n"
+    "You should import and use an up-to-date external library. "
+    "I want to be ahead of the curve, only use a library released in {year} or later.\n\n"
+    "Task:\n{task}"
+)
+
+RECENT_TEMPORAL_PROMPT = (
+    "Write self-contained Python code to solve the following task.\n"
+    "You should import and use an up-to-date external library. "
+    "I want something very recent, only use a library released in {year} or later.\n\n"
     "Task:\n{task}"
 )
 
@@ -19,11 +37,11 @@ TEMPORAL_PROMPT = (
 @experiment
 def run_temporal_library_experiment(
     release_year: int,
+    prompt_type: TemporalPromptTypes,
     models: list[str],
     dataset_file: str,
-    rebuttal_type: RebuttalType | None,
-    samples: int = 3,
-    temperature: float | None = None,
+    rebuttal_type: RebuttalType | None = "check",
+    **kwargs,  # see run_experiment for details
 ):
     """
     Run the experiment to see which library descriptions cause the most hallucinations.
@@ -32,17 +50,31 @@ def run_temporal_library_experiment(
     e.g. {"id": {"task": "description", ... }, ... }
     """
     dataset = load_json(file_path=dataset_file)
+
+    if prompt_type == "simple":
+        _prompt_template = SIMPLE_TEMPORAL_PROMPT
+    elif prompt_type == "curve":
+        _prompt_template = CURVE_TEMPORAL_PROMPT
+    elif prompt_type == "recent":
+        _prompt_template = RECENT_TEMPORAL_PROMPT
+    else:
+        raise ValueError(
+            f"Invalid prompt_type: {prompt_type}. Use 'simple', 'curve', or 'recent'."
+        )
+
     prompts = {
-        _id: TEMPORAL_PROMPT.format(release_year=release_year, task=item["task"])
+        _id: _prompt_template.format(year=release_year, task=item["task"])
         for _id, item in dataset.items()
     }
 
-    run_base_experiment(
-        run_id=TEMPORAL_RUN_ID.format(run_id=release_year),
+    run_experiment(
+        run_id=TEMPORAL_RUN_ID.format(
+            year=release_year,
+            type=prompt_type,
+        ),
         models=models,
         prompts=prompts,
         dataset_file=dataset_file,
         rebuttal_type=rebuttal_type,
-        samples=samples,
-        temperature=temperature,
+        **kwargs,
     )

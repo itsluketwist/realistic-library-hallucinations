@@ -5,11 +5,13 @@ from typing import Literal
 from llm_cgr import experiment, load_json
 
 from src.constants import LIB_SEP
+from src.experiment import run_experiment
 from src.generate import RebuttalType
-from src.run_base import run_base_experiment
 
 
 SPECIFY_RUN_ID = "specify/{run_id}"
+
+SpecifyRunTypes = Literal["base", "fake", "wrong", "typo"]
 
 
 SPECIFY_PROMPT = (
@@ -21,13 +23,12 @@ SPECIFY_PROMPT = (
 
 @experiment
 def run_specify_library_experiment(
-    run_id: Literal["base", "fake", "wrong", "typo"],
+    run_id: SpecifyRunTypes,
     models: list[str],
     dataset_file: str,
-    rebuttal_type: RebuttalType | None,
     libraries: int = 2,
-    samples: int = 3,
-    temperature: float | None = None,
+    rebuttal_type: RebuttalType | None = None,
+    **kwargs,  # see run_experiment for details
 ):
     """
     Run the experiment to see if hallucinations occur when incorrect libraries are specified.
@@ -45,12 +46,11 @@ def run_specify_library_experiment(
                 task=item["task"],
             )
 
-    run_base_experiment(
+    run_experiment(
         run_id=SPECIFY_RUN_ID.format(run_id=run_id),
         models=models,
         prompts=prompts,
         dataset_file=dataset_file,
         rebuttal_type=rebuttal_type,
-        samples=samples,
-        temperature=temperature,
+        **kwargs,
     )
