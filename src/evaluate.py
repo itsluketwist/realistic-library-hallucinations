@@ -85,15 +85,15 @@ def evaluate_library_hallucinations(
     # save the evaluation data
     results_data["evaluations"] = {
         model: {
-            "total": counts[model],
+            "response_count": counts[model],
             "response_rate": counts[model] / (tasks * samples),
-            "fixed": fixes[model],
-            "fixed_rate": fixes[model] / counts[model] if counts[model] > 0 else 1.0,
             "task_ids": list(task_ids[model]),
             "task_count": len(task_ids[model]),
             "task_rate": len(task_ids[model]) / tasks,
             "libraries": list(libraries[model]),
             "lib_count": len(libraries[model]),
+            "fixed": fixes[model] if counts[model] > 0 else None,
+            "fixed_rate": fixes[model] / counts[model] if counts[model] > 0 else None,
         }
         for model in models
     }

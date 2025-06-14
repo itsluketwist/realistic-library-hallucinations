@@ -80,8 +80,9 @@ def run_experiment(
             "prompt": prompt,
             "responses": responses,
         }
-        results["errors"][prompt_id] = errors
         results["metadata"]["end_datetime"] = datetime.now().isoformat()
+        if errors:
+            results["errors"][prompt_id] = errors
 
         # save the results on each iteration to avoid losing data
         save_json(data=results, file_path=results_file)

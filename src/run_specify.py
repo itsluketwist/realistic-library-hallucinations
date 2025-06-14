@@ -4,21 +4,16 @@ from typing import Literal
 
 from llm_cgr import experiment, load_json
 
-from src.constants import LIB_SEP
+from src.constants import BASE_PROMPT, LIB_SEP
 from src.experiment import run_experiment
 from src.generate import RebuttalType
 
 
 SPECIFY_RUN_ID = "specify/{run_id}"
 
+SPECIFY_BASE_RUN_ID = "control/base"
+
 SpecifyRunTypes = Literal["base", "fake", "wrong", "typo"]
-
-
-SPECIFY_PROMPT = (
-    "Write self-contained Python code to solve the following task.\n"
-    "You should import and use the {library} external library.\n\n"
-    "Task:\n{task}"
-)
 
 
 @experiment
@@ -41,13 +36,15 @@ def run_specify_library_experiment(
     prompts = {}
     for _id, item in dataset.items():
         for _library in item["libraries"][run_id][:libraries]:
-            prompts[f"{_id}{LIB_SEP}{_library}"] = SPECIFY_PROMPT.format(
-                library=_library,
+            key = f"{_id}{LIB_SEP}{_library}"
+            prompts[key] = BASE_PROMPT.format(
+                library=f"the {_library} external library.",
                 task=item["task"],
             )
 
+    _run_id = SPECIFY_BASE_RUN_ID if run_id == "base" else SPECIFY_RUN_ID
     run_experiment(
-        run_id=SPECIFY_RUN_ID.format(run_id=run_id),
+        run_id=_run_id.format(run_id=run_id),
         models=models,
         prompts=prompts,
         dataset_file=dataset_file,
