@@ -6,7 +6,6 @@ from pathlib import Path
 from llm_cgr import save_json
 from tqdm import tqdm
 
-from src.constants import LIB_SEP
 from src.evaluate import evaluate_library_hallucinations
 from src.generate import RebuttalType, generate_model_responses
 
@@ -61,11 +60,9 @@ def run_experiment(
     }
 
     for prompt_id, prompt in tqdm(tasks):
-        library = prompt_id.split(LIB_SEP)[1] if LIB_SEP in prompt_id else None
         responses, errors = generate_model_responses(
             prompt=prompt,
             models=models,
-            library=library,
             rebuttal_type=rebuttal_type,
             samples=samples,
             temperature=temperature,

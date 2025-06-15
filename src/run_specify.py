@@ -11,7 +11,7 @@ from src.generate import RebuttalType
 
 SPECIFY_RUN_ID = "specify/{run_id}"
 
-SPECIFY_BASE_RUN_ID = "control/base"
+SPECIFY_BASE_RUN_ID = "control/specify"
 
 SpecifyRunTypes = Literal["base", "fake", "wrong", "typo"]
 

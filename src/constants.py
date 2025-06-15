@@ -8,6 +8,15 @@ BASE_PROMPT = (
     "Task: {task}"
 )
 
+CHOOSE_PROMPT = BASE_PROMPT.format(
+    library="an external library.",
+    task="{task}",
+)
+
+SPECIFY_PROMPT = BASE_PROMPT.format(
+    library="the {library} external library.",
+    task="{task}",
+)
 
 MODEL_DEFAULTS = {
     "meta-llama/llama-3.2-3b-instruct-turbo": {

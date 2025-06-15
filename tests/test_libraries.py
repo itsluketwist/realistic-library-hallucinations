@@ -1,8 +1,8 @@
 """Test library utility methods."""
 
-from src.libraries.check import check_for_library, check_unknown_libraries
+from src.libraries.check import check_for_library, check_for_unknown_imports
 from src.libraries.format import format_library_names
-from src.libraries.load import load_packages
+from src.libraries.load import load_known_imports
 
 
 def test_check_for_library():
@@ -56,7 +56,7 @@ def test_check_unknown_libraries(test_pypi_packages_file):
         "```\n"
     )
     assert (
-        check_unknown_libraries(
+        check_for_unknown_imports(
             response=response,
             pypi_packages_file=test_pypi_packages_file,
         )
@@ -74,7 +74,7 @@ def test_check_unknown_libraries(test_pypi_packages_file):
         "print(x)\n"
         "```\n"
     )
-    assert check_unknown_libraries(
+    assert check_for_unknown_imports(
         response=response,
         pypi_packages_file=test_pypi_packages_file,
     ) == {
@@ -93,7 +93,7 @@ def test_check_unknown_libraries(test_pypi_packages_file):
         "print(x)\n"
         "```\n"
     )
-    assert check_unknown_libraries(
+    assert check_for_unknown_imports(
         response=response,
         pypi_packages_file=test_pypi_packages_file,
     ) == {
@@ -106,14 +106,14 @@ def test_check_unknown_libraries(test_pypi_packages_file):
 def test_load_packages():
     """Test the load_packages function."""
     # load full package list
-    full_packages = load_packages()
+    full_packages = load_known_imports()
     assert len(full_packages) > 500000
     assert "numpy" in full_packages  # common
     assert "sktensor" in full_packages  # not from pypi
     assert "os" in full_packages  # stdlib
 
     # load packages without stdlib, check smaller
-    no_stdlib_packages = load_packages(
+    no_stdlib_packages = load_known_imports(
         include_stdlib=False,
     )
     assert len(no_stdlib_packages) > 500000
@@ -123,7 +123,7 @@ def test_load_packages():
     assert len(no_stdlib_packages) < len(full_packages)
 
     # load packages without valid extra imports, check smaller
-    no_valid_extras_packages = load_packages(
+    no_valid_extras_packages = load_known_imports(
         include_valid_extras=False,
     )
     assert len(no_valid_extras_packages) > 500000
@@ -133,7 +133,7 @@ def test_load_packages():
     assert len(no_valid_extras_packages) < len(full_packages)
 
     # load only pypi packages
-    pypi_packages = load_packages(
+    pypi_packages = load_known_imports(
         include_stdlib=False,
         include_valid_extras=False,
     )

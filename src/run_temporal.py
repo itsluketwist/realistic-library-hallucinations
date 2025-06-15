@@ -1,6 +1,6 @@
 """Code to look for hallucinations when certain descriptions are used."""
 
-from typing import Literal
+from typing import Literal, get_args
 
 from llm_cgr import experiment, load_json
 
@@ -59,7 +59,7 @@ def run_temporal_library_experiment(
         _prompt_template = RECENT_TEMPORAL_PROMPT
     else:
         raise ValueError(
-            f"Invalid prompt_type: {prompt_type}. Use 'simple', 'curve', or 'recent'."
+            f"Invalid prompt_type: {prompt_type}. Use one of {get_args(TemporalPromptTypes)}."
         )
 
     prompts = {

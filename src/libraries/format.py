@@ -1,6 +1,17 @@
 """Methods for formatting library names."""
 
-from src.libraries.load import load_packages
+import re
+
+from src.libraries.load import load_known_imports
+
+
+def python_normalise(name: str) -> str:
+    """
+    Normalise a python package name to a consistent format, as per the Python Packaging User Guide.
+
+    Website: https://packaging.python.org/en/latest/specifications/name-normalization/
+    """
+    return re.sub(r"[-_.]+", "_", name).lower().strip()
 
 
 def format_library_names(
@@ -14,16 +25,13 @@ def format_library_names(
     Returns the formatted list of library names.
     """
     # clean up each library name
-    libraries = [
-        lib.replace(" ", "_").replace("-", "_").lower().strip().strip("._")
-        for lib in libraries
-    ]
+    libraries = [python_normalise(lib).strip("_") for lib in libraries]
 
-    # remove duplicates (preserving order) and empty strings
+    # remove duplicates and empty strings (preserving order)
     libraries = list(dict.fromkeys([lib for lib in libraries if lib]))
 
     # remove valid / invalid libraries
-    valid_libraries = load_packages(
+    valid_libraries = load_known_imports(
         file_path=pypi_packages_file,
     )
     libraries = [lib for lib in libraries if (lib in valid_libraries) == valid]
