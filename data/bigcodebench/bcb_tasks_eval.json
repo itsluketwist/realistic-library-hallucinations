@@ -443,7 +443,6 @@
             ],
             "typo": [
                 "scikitlearn",
-                "scikit__learn",
                 "scik_learn",
                 "sci_kit_learn",
                 "scikit_learnn"
@@ -1910,8 +1909,7 @@
                 "pandasbokeh",
                 "pandas_boke",
                 "pandas_bokhe",
-                "pandas_bbokeh",
-                "pandas__bokeh"
+                "pandas_bbokeh"
             ],
             "wrong": [
                 "pandas_bokehcharts",
@@ -2495,7 +2493,6 @@
             ],
             "typo": [
                 "tensorflowprobability",
-                "tensorflow.probability",
                 "tensorflow_probabilty",
                 "tensorflow_probablity",
                 "tensorflow_probabillity"
@@ -2711,7 +2708,6 @@
             ],
             "typo": [
                 "chartstudio",
-                "chart.studio",
                 "char_studio",
                 "chat_studio",
                 "chart_studo"
@@ -4690,7 +4686,6 @@
                 "auto_sklearn"
             ],
             "typo": [
-                "autosklearn",
                 "atou_sklearn",
                 "auto_slklearn",
                 "auto_sklearnn",
@@ -5286,8 +5281,8 @@
                 "jax"
             ],
             "typo": [
-                "jaxx",
-                "jaax"
+                "jaax",
+                "jxx"
             ],
             "wrong": [
                 "jaxcore",
@@ -6999,7 +6994,6 @@
                 "scikit_plot"
             ],
             "typo": [
-                "scikitplot",
                 "scitkit_plot",
                 "scikt_plot",
                 "skicit_plot",
@@ -8009,7 +8003,6 @@
             "typo": [
                 "sklearnpandas",
                 "sklearn_panda",
-                "sklearn__pandas",
                 "sklearn_pndas",
                 "sklearn_padnas"
             ],
@@ -8751,7 +8744,6 @@
             "wrong": [
                 "gnuplotter",
                 "gnuplotkit",
-                "gnuplot.py",
                 "gnuplotpp",
                 "gnuplotplus"
             ],
@@ -9137,7 +9129,6 @@
                 "gnuplot_py"
             ],
             "typo": [
-                "gnuplot__py",
                 "gnuplto_py",
                 "gnupot_py",
                 "gnuplot_p",
@@ -10081,8 +10072,7 @@
                 "pyrefa",
                 "pyeraf",
                 "perfa",
-                "pyefa",
-                "erfa"
+                "pyefa"
             ],
             "wrong": [
                 "pyerfast",
@@ -10296,10 +10286,8 @@
             ],
             "typo": [
                 "featherformat",
-                "feather.format",
                 "feater_format",
-                "feather_formt",
-                "feather__format"
+                "feather_formt"
             ],
             "wrong": [
                 "feather_frame",
@@ -10333,7 +10321,6 @@
             ],
             "typo": [
                 "chartstudio",
-                "chart.studio",
                 "charstudio",
                 "char_studio",
                 "chart_stduio"
@@ -10440,7 +10427,6 @@
             ],
             "typo": [
                 "mklfft",
-                "mkl__fft",
                 "mki_fft",
                 "mll_fft",
                 "mkl_ffft"
@@ -10808,7 +10794,6 @@
             ],
             "fake": [
                 "csv_stats",
-                "csv_analyzer",
                 "num_csv_stats",
                 "csv_stat_tools",
                 "anova_csv"
@@ -11119,18 +11104,17 @@
                 "backports.zoneinfo"
             ],
             "typo": [
-                "backport.zoneinfo",
+                "backport_zoneinfo",
                 "backportszoneinfo",
-                "backports_zoneinfo",
-                "backports.zoninfo",
-                "backports.zoneinfor"
+                "backports_zoninfo",
+                "backports_zoneinfor"
             ],
             "wrong": [
-                "backports.timezoneinfo",
-                "backports.tzinfo",
-                "backports.datetimezone",
-                "backports.localzoneinfo",
-                "backports.zoneutils"
+                "backports_timezoneinfo",
+                "backports_tzinfo",
+                "backports_datetimezone",
+                "backports_localzoneinfo",
+                "backports_zoneutils"
             ],
             "fake": [
                 "timestamp_formatter",
@@ -11382,10 +11366,9 @@
             ],
             "typo": [
                 "github3py",
-                "github3.p",
-                "github3_py",
-                "gitub3.py",
-                "gihub3.py"
+                "github3_p",
+                "gitub3_py",
+                "gihub3_py"
             ],
             "wrong": [
                 "githubpy3",

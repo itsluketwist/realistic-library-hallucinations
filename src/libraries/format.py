@@ -20,7 +20,7 @@ def format_library_names(
     pypi_packages_file: str | None = None,
 ) -> list[str]:
     """
-    Format queried list of libraries by replacing spaces and hyphens, and removing duplicates.
+    Format queried list of libraries by normalising them, and removing duplicates.
 
     Returns the formatted list of library names.
     """
