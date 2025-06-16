@@ -23,10 +23,19 @@ KNOWN_VALID_IMPORTS = [
     "sklearn_extra",
     "sktensor",
     "skdiscovery",
+    "skbio",
+    "autosklearn",
     # other mismatches
     "simplecrypt",
     "string_utils",
     "mpl_toolkits",
+    "agateremote",
+    "github3",
+    "cairo",
+    "erfa",
+    "gnuplot",
+    "pyximport",
+    "scikitplot",
 ]
 
 
