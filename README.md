@@ -15,18 +15,11 @@
 
 Just some prototyping and initial code for various code-hallucinations projects!
 
-## *structure*
-
-todo
-
-- `data/` - The data used in the project.
-- `output/` - The generated results.
-- `src/` - The main project code.
-
 ## *installation*
 
 The code requires Python 3.11 or later to run.
-Ensure you have it installed with the command below, otherwise download and install it from [here](https://www.python.org/downloads/).
+Ensure you have it installed with the command below, otherwise download and install it from
+[here](https://www.python.org/downloads/).
 
 ```shell
 python --version
@@ -50,7 +43,30 @@ pip install .
 
 ## *usage*
 
+After [*installation*](#installation), there are 2 ways to run the experiment code.
+The easiest of which is via the the [`main.ipynb`](main.ipynb) notebook, which fully describes
+each experiment and provides the methods to run them.
+
+You can also use the `run` command from your terminal - this is likely best if you want to
+reproduce the experiments on an external server or in a [docker](https://www.docker.com/)
+container.
+
+```shell
+run --dataset-file data/example.json
+```
+
+All other non-experiment code that likely only needed to be ran a single time is explained in,
+and can be interfaced with, via it's corresponding Jupyter notebook.
+These notebooks are contained in the [`notebooks/`](notebooks/) directory, and are described in the
+[*structure*](#structure) section.
+
+## *structure*
+
 todo
+
+- [`data/`](data/) - The data used in the project.
+- [`output/`](output/) - The generated results.
+- [`src/`](src/) - The main project code.
 
 ## *development*
 

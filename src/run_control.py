@@ -6,7 +6,6 @@ from llm_cgr import experiment, load_json
 
 from src.constants import CHOOSE_PROMPT, SPECIFY_PROMPT
 from src.experiment import run_experiment
-from src.generate import RebuttalType
 
 
 CONTROL_RUN_ID = "control/{run_id}"
@@ -19,7 +18,6 @@ def run_control_experiment(
     run_id: ControlRunTypes,
     models: list[str],
     dataset_file: str,
-    rebuttal_type: RebuttalType | None = "check",
     **kwargs,  # see run_experiment for details
 ):
     """
@@ -59,6 +57,5 @@ def run_control_experiment(
         models=models,
         prompts=prompts,
         dataset_file=dataset_file,
-        rebuttal_type=rebuttal_type,
         **kwargs,
     )

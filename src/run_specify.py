@@ -6,7 +6,6 @@ from llm_cgr import experiment, load_json
 
 from src.constants import BASE_PROMPT, LIB_SEP
 from src.experiment import run_experiment
-from src.generate import RebuttalType
 
 
 SPECIFY_RUN_ID = "specify/{run_id}"
@@ -22,7 +21,6 @@ def run_specify_library_experiment(
     models: list[str],
     dataset_file: str,
     libraries: int = 2,
-    rebuttal_type: RebuttalType | None = None,
     **kwargs,  # see run_experiment for details
 ):
     """
@@ -48,6 +46,5 @@ def run_specify_library_experiment(
         models=models,
         prompts=prompts,
         dataset_file=dataset_file,
-        rebuttal_type=rebuttal_type,
         **kwargs,
     )

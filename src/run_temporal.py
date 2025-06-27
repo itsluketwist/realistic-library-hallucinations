@@ -5,7 +5,6 @@ from typing import Literal, get_args
 from llm_cgr import experiment, load_json
 
 from src.experiment import run_experiment
-from src.generate import RebuttalType
 
 
 TEMPORAL_RUN_ID = "temporal/{year}_{type}"
@@ -40,7 +39,6 @@ def run_temporal_library_experiment(
     prompt_type: TemporalPromptTypes,
     models: list[str],
     dataset_file: str,
-    rebuttal_type: RebuttalType | None = "check",
     **kwargs,  # see run_experiment for details
 ):
     """
@@ -75,6 +73,5 @@ def run_temporal_library_experiment(
         models=models,
         prompts=prompts,
         dataset_file=dataset_file,
-        rebuttal_type=rebuttal_type,
         **kwargs,
     )

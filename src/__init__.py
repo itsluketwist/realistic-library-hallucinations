@@ -5,7 +5,6 @@ from src.run_control import run_control_experiment
 from src.run_describe import run_describe_library_experiment
 from src.run_specify import run_specify_library_experiment
 from src.run_temporal import run_temporal_library_experiment
-from src.run_vary import run_vary_information_experiment
 
 
 __all__ = [
@@ -14,5 +13,4 @@ __all__ = [
     "run_describe_library_experiment",
     "run_specify_library_experiment",
     "run_temporal_library_experiment",
-    "run_vary_information_experiment",
 ]

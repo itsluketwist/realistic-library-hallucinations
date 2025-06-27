@@ -5,7 +5,6 @@ from typing import Literal
 from llm_cgr import experiment, load_json
 
 from src.experiment import run_experiment
-from src.generate import RebuttalType
 
 
 DESCRIBE_RUN_ID = "describe/{run_id}"
@@ -104,7 +103,6 @@ def run_describe_library_experiment(
     run_id: DescribeRunTypes,
     models: list[str],
     dataset_file: str,
-    rebuttal_type: RebuttalType | None = "check",
     **kwargs,  # see run_experiment for details
 ):
     """
@@ -124,6 +122,5 @@ def run_describe_library_experiment(
         models=models,
         prompts=prompts,
         dataset_file=dataset_file,
-        rebuttal_type=rebuttal_type,
         **kwargs,
     )
