@@ -11,7 +11,7 @@ def python_normalise(name: str) -> str:
 
     Website: https://packaging.python.org/en/latest/specifications/name-normalization/
     """
-    return re.sub(r"[-_.]+", "_", name).lower().strip()
+    return re.sub(r"[-_. ]+", "_", name).lower().strip()
 
 
 def format_library_names(

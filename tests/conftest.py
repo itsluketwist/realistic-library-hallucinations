@@ -8,8 +8,8 @@ from llm_cgr import save_json
 
 
 TEST_PYPI_PACKAGE_DATA = {
-    "queried_at": "2025-05-20T14:51:33.223210",
-    "packages": [
+    "datetime": "2025-05-20T14:51:33.223210",
+    "data": [
         "numpy",
         "pandas",
         "tensorflow",
