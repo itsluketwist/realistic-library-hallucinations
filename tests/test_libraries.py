@@ -12,35 +12,39 @@ def test_check_for_library():
         "```python\n"
         "import numpy as np\n"
         "from pandas import DataFrame\n"
+        "import matplotlib\n"
         "x = DataFrame(np.array([1, 2, 3]))\n"
         "print(x)\n"
         "```\n"
     )
 
     # check for both import types
-    assert (
-        check_for_library(
-            response=response,
-            library="numpy",
-        )
-        is True
+    imported, used = check_for_library(
+        response=response,
+        library="numpy",
     )
-    assert (
-        check_for_library(
-            response=response,
-            library="pandas",
-        )
-        is True
+    assert imported is True
+    assert used is True
+    imported, used = check_for_library(
+        response=response,
+        library="pandas",
     )
+    assert imported is True
+    assert used is True
+    imported, used = check_for_library(
+        response=response,
+        library="matplotlib",
+    )
+    assert imported is True
+    assert used is False
 
     # check for a library that is not imported
-    assert (
-        check_for_library(
-            response=response,
-            library="sklearn",
-        )
-        is False
+    imported, used = check_for_library(
+        response=response,
+        library="sklearn",
     )
+    assert imported is False
+    assert used is False
 
 
 def test_check_unknown_libraries(test_pypi_packages_file):

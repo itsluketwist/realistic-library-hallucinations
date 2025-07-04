@@ -25,9 +25,9 @@ def generate_model_responses(
 
     for model in models:
         # configure model parameters
-        _temperature = temperature or MODEL_DEFAULTS[model].get("temperature")
-        _top_p = top_p or MODEL_DEFAULTS[model].get("top_p")
-        _max_tokens = max_tokens or MODEL_DEFAULTS[model].get("max_tokens")
+        _temperature = temperature or MODEL_DEFAULTS.get(model, {}).get("temperature")
+        _top_p = top_p or MODEL_DEFAULTS.get(model, {}).get("top_p")
+        _max_tokens = max_tokens or MODEL_DEFAULTS.get(model, {}).get("max_tokens")
 
         responses[model] = []
         for _iter in range(samples):

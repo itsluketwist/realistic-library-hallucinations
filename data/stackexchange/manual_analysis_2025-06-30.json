@@ -1,0 +1,2756 @@
+{
+    "84729": {
+        "title": "Template engine?",
+        "tags": [
+            "templating"
+        ],
+        "creation_date": 1670439023,
+        "link": "https://softwarerecs.stackexchange.com/questions/84729/template-engine",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "83509": {
+        "title": "Font Display Comparison Software",
+        "tags": [
+            "windows",
+            "linux",
+            "font-utility",
+            "font"
+        ],
+        "creation_date": 1657814626,
+        "link": "https://softwarerecs.stackexchange.com/questions/83509/font-display-comparison-software",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "87742": {
+        "title": "any software similar to my lockbox to lock particular file or software without encryption.similar to andriod applock for windows",
+        "tags": [
+            "open-source",
+            "lockscreen"
+        ],
+        "creation_date": 1692781691,
+        "link": "https://softwarerecs.stackexchange.com/questions/87742/any-software-similar-to-my-lockbox-to-lock-particular-file-or-software-without-e",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "87357": {
+        "title": "Browser extension to suggest forums, tailor questions, and post questions for AIs",
+        "tags": [
+            "stack-exchange",
+            "reddit"
+        ],
+        "creation_date": 1687600411,
+        "link": "https://softwarerecs.stackexchange.com/questions/87357/browser-extension-to-suggest-forums-tailor-questions-and-post-questions-for-ai",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "87064": {
+        "title": "Frontend to AI system (LLM) plugin for transforming longer text chunks to simple modern language",
+        "tags": [
+            "web-apps",
+            "text-processing",
+            "artificial-intelligence",
+            "web-apis",
+            "llm"
+        ],
+        "creation_date": 1684226877,
+        "link": "https://softwarerecs.stackexchange.com/questions/87064/frontend-to-ai-system-llm-plugin-for-transforming-longer-text-chunks-to-simple",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "85045": {
+        "title": "On-Prem Securities Investment Tracking of &quot;tax lots&quot; (accounting, stocks, LIFO, bitcoin)",
+        "tags": [
+            "open-source",
+            "finance"
+        ],
+        "creation_date": 1674103478,
+        "link": "https://softwarerecs.stackexchange.com/questions/85045/on-prem-securities-investment-tracking-of-tax-lots-accounting-stocks-lifo",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "84578": {
+        "title": "EMF Transformer Modelling Software",
+        "tags": [
+            "electronics"
+        ],
+        "creation_date": 1668646522,
+        "link": "https://softwarerecs.stackexchange.com/questions/84578/emf-transformer-modelling-software",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "91852": {
+        "title": "Ebook reader for language learners (quick tap-to-translate words and phrases)",
+        "tags": [
+            "language",
+            "translation",
+            "ebooks",
+            "epub"
+        ],
+        "creation_date": 1738024478,
+        "link": "https://softwarerecs.stackexchange.com/questions/91852/ebook-reader-for-language-learners-quick-tap-to-translate-words-and-phrases",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "84334": {
+        "title": "Set Google Photos source to OneDrive storage",
+        "tags": [
+            "gallery",
+            "google"
+        ],
+        "creation_date": 1666504477,
+        "link": "https://softwarerecs.stackexchange.com/questions/84334/set-google-photos-source-to-onedrive-storage",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "92297": {
+        "title": "What\u2019s the Cheapest or Best Online Postcard &amp; Greeting Card Service?",
+        "tags": [
+            "web-services"
+        ],
+        "creation_date": 1747391426,
+        "link": "https://softwarerecs.stackexchange.com/questions/92297/what-s-the-cheapest-or-best-online-postcard-greeting-card-service",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "90696": {
+        "title": "CMS (Content Manager System) or own crud manager system for a web app",
+        "tags": [
+            "web-apps",
+            "cms",
+            "crm"
+        ],
+        "creation_date": 1718901755,
+        "link": "https://softwarerecs.stackexchange.com/questions/90696/cms-content-manager-system-or-own-crud-manager-system-for-a-web-app",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "83586": {
+        "title": "Software to manage divisions and inventory on a building",
+        "tags": [
+            "open-source",
+            "3d",
+            "educational"
+        ],
+        "creation_date": 1658488357,
+        "link": "https://softwarerecs.stackexchange.com/questions/83586/software-to-manage-divisions-and-inventory-on-a-building",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "83566": {
+        "title": "Audio streaming service to broadcast songs and metadata",
+        "tags": [
+            "audio",
+            "web-server",
+            "streaming"
+        ],
+        "creation_date": 1658354690,
+        "link": "https://softwarerecs.stackexchange.com/questions/83566/audio-streaming-service-to-broadcast-songs-and-metadata",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "84444": {
+        "title": "Tool that detects violation of backwards-compatibility in Python code",
+        "tags": [
+            "python",
+            "software-development",
+            "version-control",
+            "static-analysis",
+            "lint"
+        ],
+        "creation_date": 1667604270,
+        "link": "https://softwarerecs.stackexchange.com/questions/84444/tool-that-detects-violation-of-backwards-compatibility-in-python-code",
+        "is_library_related": {
+            "manual": true,
+            "auto": true
+        }
+    },
+    "86984": {
+        "title": "ChatGPT clients on Android, and storing and sharing conversations",
+        "tags": [
+            "android",
+            "chat",
+            "search"
+        ],
+        "creation_date": 1683524140,
+        "link": "https://softwarerecs.stackexchange.com/questions/86984/chatgpt-clients-on-android-and-storing-and-sharing-conversations",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "87173": {
+        "title": "Remapping Mouse Clicks with Keystrokes on macOS",
+        "tags": [
+            "macos",
+            "keyboard-shortcuts"
+        ],
+        "creation_date": 1685473180,
+        "link": "https://softwarerecs.stackexchange.com/questions/87173/remapping-mouse-clicks-with-keystrokes-on-macos",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "91479": {
+        "title": "An SQL tool for Linux where the ad-hoc data editing is as seamless as pgAdmin III",
+        "tags": [
+            "linux",
+            "database",
+            "postgresql",
+            "spreadsheet"
+        ],
+        "creation_date": 1731502787,
+        "link": "https://softwarerecs.stackexchange.com/questions/91479/an-sql-tool-for-linux-where-the-ad-hoc-data-editing-is-as-seamless-as-pgadmin-ii",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "93389": {
+        "title": "Software supporting bank accounts where home banking is disabled and tax keeping calculations, via receipts",
+        "tags": [
+            "gui",
+            "iphone-app",
+            "finance",
+            "android-app",
+            "accessibility"
+        ],
+        "creation_date": 1750067706,
+        "link": "https://softwarerecs.stackexchange.com/questions/93389/software-supporting-bank-accounts-where-home-banking-is-disabled-and-tax-keeping",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "83526": {
+        "title": "Is there any software to create seamless timeline notes?",
+        "tags": [
+            "note-taking"
+        ],
+        "creation_date": 1658033010,
+        "link": "https://softwarerecs.stackexchange.com/questions/83526/is-there-any-software-to-create-seamless-timeline-notes",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "92009": {
+        "title": "Best Android app for 3D scanning larger structures?",
+        "tags": [
+            "3d",
+            "android-app",
+            "cad",
+            "modeling",
+            "scanning"
+        ],
+        "creation_date": 1740963402,
+        "link": "https://softwarerecs.stackexchange.com/questions/92009/best-android-app-for-3d-scanning-larger-structures",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "86751": {
+        "title": "Recommendations for tooling to extract scripts using table hierarchy",
+        "tags": [
+            "sql",
+            "postgresql",
+            "etl"
+        ],
+        "creation_date": 1680656937,
+        "link": "https://softwarerecs.stackexchange.com/questions/86751/recommendations-for-tooling-to-extract-scripts-using-table-hierarchy",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "91850": {
+        "title": "Free software to improve low FPS videos",
+        "tags": [
+            "gratis",
+            "video",
+            "video-editing",
+            "software"
+        ],
+        "creation_date": 1737985856,
+        "link": "https://softwarerecs.stackexchange.com/questions/91850/free-software-to-improve-low-fps-videos",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "90674": {
+        "title": "AI for dubbing across languages",
+        "tags": [
+            "artificial-intelligence",
+            "translation",
+            "speech-synthesis"
+        ],
+        "creation_date": 1718385004,
+        "link": "https://softwarerecs.stackexchange.com/questions/90674/ai-for-dubbing-across-languages",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "87015": {
+        "title": "Is there a service which will make google calendar more frequently pull updates from the urls it&#39;s subscribed to?",
+        "tags": [
+            "google-calendar"
+        ],
+        "creation_date": 1683738551,
+        "link": "https://softwarerecs.stackexchange.com/questions/87015/is-there-a-service-which-will-make-google-calendar-more-frequently-pull-updates",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "90975": {
+        "title": "Flask file manager",
+        "tags": [
+            "file-management"
+        ],
+        "creation_date": 1723309006,
+        "link": "https://softwarerecs.stackexchange.com/questions/90975/flask-file-manager",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "92287": {
+        "title": "Fixing cases in references (LaTeX + BibTeX)",
+        "tags": [
+            "latex",
+            "research",
+            "academia",
+            "bibtex",
+            "case"
+        ],
+        "creation_date": 1747188862,
+        "link": "https://softwarerecs.stackexchange.com/questions/92287/fixing-cases-in-references-latex-bibtex",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "87794": {
+        "title": "Monitoring software for production software?",
+        "tags": [
+            "monitoring"
+        ],
+        "creation_date": 1693293987,
+        "link": "https://softwarerecs.stackexchange.com/questions/87794/monitoring-software-for-production-software",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "83296": {
+        "title": "Command line tool to draw very simple GUI windows?",
+        "tags": [
+            "gui",
+            "shell-scripting"
+        ],
+        "creation_date": 1655582885,
+        "link": "https://softwarerecs.stackexchange.com/questions/83296/command-line-tool-to-draw-very-simple-gui-windows",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "85224": {
+        "title": "Is there a taskbar system monitoring tool on Windows 11?",
+        "tags": [
+            "network-monitor",
+            "windows-11",
+            "taskbar"
+        ],
+        "creation_date": 1675778658,
+        "link": "https://softwarerecs.stackexchange.com/questions/85224/is-there-a-taskbar-system-monitoring-tool-on-windows-11",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "90699": {
+        "title": "Live translator for computer screen",
+        "tags": [
+            "artificial-intelligence",
+            "translation"
+        ],
+        "creation_date": 1718908975,
+        "link": "https://softwarerecs.stackexchange.com/questions/90699/live-translator-for-computer-screen",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "88652": {
+        "title": "Alternatives to Figma for Collaborative Online UI/UX Design?",
+        "tags": [
+            "collaboration"
+        ],
+        "creation_date": 1704725296,
+        "link": "https://softwarerecs.stackexchange.com/questions/88652/alternatives-to-figma-for-collaborative-online-ui-ux-design",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "87793": {
+        "title": "QR code scanner with screenshot support on Linux Desktop?",
+        "tags": [
+            "linux",
+            "screenshot",
+            "qr-code",
+            "arch-linux"
+        ],
+        "creation_date": 1693290254,
+        "link": "https://softwarerecs.stackexchange.com/questions/87793/qr-code-scanner-with-screenshot-support-on-linux-desktop",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "85185": {
+        "title": "Best tool for visualizing results of test runs and integrating with Jenkins",
+        "tags": [
+            "python",
+            "automation",
+            "user-interface",
+            "reporting",
+            "jenkins"
+        ],
+        "creation_date": 1675464924,
+        "link": "https://softwarerecs.stackexchange.com/questions/85185/best-tool-for-visualizing-results-of-test-runs-and-integrating-with-jenkins",
+        "is_library_related": {
+            "manual": true,
+            "auto": true
+        }
+    },
+    "86943": {
+        "title": "Video upscaling for Linux",
+        "tags": [
+            "linux",
+            "video"
+        ],
+        "creation_date": 1682968498,
+        "link": "https://softwarerecs.stackexchange.com/questions/86943/video-upscaling-for-linux",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "88603": {
+        "title": "Seeking Free Task and Project Organization Software for R&amp;D Work",
+        "tags": [
+            "software-development",
+            "time-management",
+            "task-management"
+        ],
+        "creation_date": 1703589460,
+        "link": "https://softwarerecs.stackexchange.com/questions/88603/seeking-free-task-and-project-organization-software-for-rd-work",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "84572": {
+        "title": "Free time-tracking app",
+        "tags": [
+            "gratis",
+            "project-management",
+            "time-management"
+        ],
+        "creation_date": 1668595010,
+        "link": "https://softwarerecs.stackexchange.com/questions/84572/free-time-tracking-app",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "84432": {
+        "title": "All tasks has their own lifecycle | What methodology and tool suits?",
+        "tags": [
+            "jira"
+        ],
+        "creation_date": 1667550958,
+        "link": "https://softwarerecs.stackexchange.com/questions/84432/all-tasks-has-their-own-lifecycle-what-methodology-and-tool-suits",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "90170": {
+        "title": "Is there any kind of IPv6/4 admin software that allocates IP addresses within a subnet range based on rules related to rules derived host names?",
+        "tags": [
+            "network-administration"
+        ],
+        "creation_date": 1711367285,
+        "link": "https://softwarerecs.stackexchange.com/questions/90170/is-there-any-kind-of-ipv6-4-admin-software-that-allocates-ip-addresses-within-a",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "84499": {
+        "title": "Is there an additional method to check for human interaction alongside google reCaptcha?",
+        "tags": [
+            "spam"
+        ],
+        "creation_date": 1668010429,
+        "link": "https://softwarerecs.stackexchange.com/questions/84499/is-there-an-additional-method-to-check-for-human-interaction-alongside-google-re",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "88919": {
+        "title": "Need a software where I write in markdown and it gets published in my domain name hosted on github?",
+        "tags": [
+            "blog"
+        ],
+        "creation_date": 1708319544,
+        "link": "https://softwarerecs.stackexchange.com/questions/88919/need-a-software-where-i-write-in-markdown-and-it-gets-published-in-my-domain-nam",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "88698": {
+        "title": "Collaborative space for uploading and annotating pdfs",
+        "tags": [
+            "pdf"
+        ],
+        "creation_date": 1705368527,
+        "link": "https://softwarerecs.stackexchange.com/questions/88698/collaborative-space-for-uploading-and-annotating-pdfs",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "93397": {
+        "title": "Unique group theory (learning, and interacting) memory game, based, on, the game Simon Says",
+        "tags": [
+            "math",
+            "algorithms",
+            "symbolic-algebra",
+            "physics"
+        ],
+        "creation_date": 1750296233,
+        "link": "https://softwarerecs.stackexchange.com/questions/93397/unique-group-theory-learning-and-interacting-memory-game-based-on-the-game",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "87604": {
+        "title": "How to fastly concatenate videos with C# or Python",
+        "tags": [
+            "python",
+            "c#",
+            "video-editing"
+        ],
+        "creation_date": 1691070953,
+        "link": "https://softwarerecs.stackexchange.com/questions/87604/how-to-fastly-concatenate-videos-with-c-or-python",
+        "is_library_related": {
+            "manual": true,
+            "auto": true
+        }
+    },
+    "83731": {
+        "title": "Cheap cloud functions with database",
+        "tags": [
+            "amazon",
+            "google"
+        ],
+        "creation_date": 1660188895,
+        "link": "https://softwarerecs.stackexchange.com/questions/83731/cheap-cloud-functions-with-database",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "91049": {
+        "title": "Movable Windows in React",
+        "tags": [
+            "react"
+        ],
+        "creation_date": 1724687283,
+        "link": "https://softwarerecs.stackexchange.com/questions/91049/movable-windows-in-react",
+        "is_library_related": {
+            "manual": true,
+            "auto": false
+        }
+    },
+    "91777": {
+        "title": "Resources for learning Concurrency",
+        "tags": [
+            "c++",
+            "books"
+        ],
+        "creation_date": 1736746469,
+        "link": "https://softwarerecs.stackexchange.com/questions/91777/resources-for-learning-concurrency",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "84905": {
+        "title": "What platform can I use to perform a machine-learning-based string matching process with a human-in-the-loop (HIL) aspect using python?",
+        "tags": [
+            "python",
+            "cloud-service",
+            "text-processing",
+            "nlp",
+            "machine-learning"
+        ],
+        "creation_date": 1672680196,
+        "link": "https://softwarerecs.stackexchange.com/questions/84905/what-platform-can-i-use-to-perform-a-machine-learning-based-string-matching-proc",
+        "is_library_related": {
+            "manual": true,
+            "auto": true
+        }
+    },
+    "90156": {
+        "title": "Cross platform vector interface in C",
+        "tags": [
+            "c"
+        ],
+        "creation_date": 1711062976,
+        "link": "https://softwarerecs.stackexchange.com/questions/90156/cross-platform-vector-interface-in-c",
+        "is_library_related": {
+            "manual": true,
+            "auto": true
+        }
+    },
+    "84196": {
+        "title": "Is there a programming language that is just math?",
+        "tags": [
+            "linux",
+            "programming",
+            "language"
+        ],
+        "creation_date": 1665105702,
+        "link": "https://softwarerecs.stackexchange.com/questions/84196/is-there-a-programming-language-that-is-just-math",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "91920": {
+        "title": "An alternative to new Outlook that actually works. Or a fix for new outlook",
+        "tags": [
+            "email",
+            "outlook",
+            "microsoft-office"
+        ],
+        "creation_date": 1739211889,
+        "link": "https://softwarerecs.stackexchange.com/questions/91920/an-alternative-to-new-outlook-that-actually-works-or-a-fix-for-new-outlook",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "87998": {
+        "title": "Calculator with separate history window",
+        "tags": [
+            "windows",
+            "calculator"
+        ],
+        "creation_date": 1696132232,
+        "link": "https://softwarerecs.stackexchange.com/questions/87998/calculator-with-separate-history-window",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "89953": {
+        "title": "Implementations of Jakarta XML Binding API (formerly JAXB)",
+        "tags": [
+            "xml"
+        ],
+        "creation_date": 1708901946,
+        "link": "https://softwarerecs.stackexchange.com/questions/89953/implementations-of-jakarta-xml-binding-api-formerly-jaxb",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "92155": {
+        "title": "App that reads text and prompts children to read aloud when images are encountered (and uses voice recognition to ensure the kid says the right thing)",
+        "tags": [
+            "android",
+            "educational",
+            "android-app",
+            "reading",
+            "children"
+        ],
+        "creation_date": 1744551026,
+        "link": "https://softwarerecs.stackexchange.com/questions/92155/app-that-reads-text-and-prompts-children-to-read-aloud-when-images-are-encounter",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "86659": {
+        "title": "how to display WPF window from a server?",
+        "tags": [
+            "html",
+            "wpf"
+        ],
+        "creation_date": 1679764887,
+        "link": "https://softwarerecs.stackexchange.com/questions/86659/how-to-display-wpf-window-from-a-server",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "84088": {
+        "title": "Is there a calendar for MacOS that supports a one-day view with a very narrow window?",
+        "tags": [
+            "calendar",
+            "macos"
+        ],
+        "creation_date": 1663953212,
+        "link": "https://softwarerecs.stackexchange.com/questions/84088/is-there-a-calendar-for-macos-that-supports-a-one-day-view-with-a-very-narrow-wi",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "83765": {
+        "title": "Library to do &quot;feature highlighting&quot; in web app",
+        "tags": [
+            "library",
+            "javascript",
+            "html",
+            "css"
+        ],
+        "creation_date": 1660559521,
+        "link": "https://softwarerecs.stackexchange.com/questions/83765/library-to-do-feature-highlighting-in-web-app",
+        "is_library_related": {
+            "manual": true,
+            "auto": true
+        }
+    },
+    "87113": {
+        "title": "Push Notifications to PWA on Android in closed off intranet",
+        "tags": [
+            "android",
+            "intranet",
+            "progressive-web-application",
+            "push-notifications"
+        ],
+        "creation_date": 1684761224,
+        "link": "https://softwarerecs.stackexchange.com/questions/87113/push-notifications-to-pwa-on-android-in-closed-off-intranet",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "87964": {
+        "title": "Seeking Software Solution to Recreate a 90s CRT TV Experience for My Vintage TV Shows",
+        "tags": [
+            "open-source",
+            "video"
+        ],
+        "creation_date": 1695645027,
+        "link": "https://softwarerecs.stackexchange.com/questions/87964/seeking-software-solution-to-recreate-a-90s-crt-tv-experience-for-my-vintage-tv",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "84210": {
+        "title": "Ways to automate data in excel from various websites",
+        "tags": [
+            "automation",
+            "microsoft-excel",
+            "scraping"
+        ],
+        "creation_date": 1665227598,
+        "link": "https://softwarerecs.stackexchange.com/questions/84210/ways-to-automate-data-in-excel-from-various-websites",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "87174": {
+        "title": "GIS tools accessible online for personalized function implementation",
+        "tags": [
+            "gis"
+        ],
+        "creation_date": 1685480998,
+        "link": "https://softwarerecs.stackexchange.com/questions/87174/gis-tools-accessible-online-for-personalized-function-implementation",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "84550": {
+        "title": "What software to use for online screening of candidates?",
+        "tags": [
+            "windows",
+            "linux",
+            "open-source",
+            "web-apps",
+            "gui"
+        ],
+        "creation_date": 1668405481,
+        "link": "https://softwarerecs.stackexchange.com/questions/84550/what-software-to-use-for-online-screening-of-candidates",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "91010": {
+        "title": "Which database is suitable to store LLM generated data?",
+        "tags": [
+            "database",
+            "sql",
+            "cloud-storage",
+            "nosql",
+            "llm"
+        ],
+        "creation_date": 1724085514,
+        "link": "https://softwarerecs.stackexchange.com/questions/91010/which-database-is-suitable-to-store-llm-generated-data",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "89987": {
+        "title": "360 video stabilizer",
+        "tags": [
+            "video",
+            "vr"
+        ],
+        "creation_date": 1709314740,
+        "link": "https://softwarerecs.stackexchange.com/questions/89987/360-video-stabilizer",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "85249": {
+        "title": "Software that sniffs my internet connection and tests failed packages",
+        "tags": [
+            "monitoring",
+            "internet"
+        ],
+        "creation_date": 1675973083,
+        "link": "https://softwarerecs.stackexchange.com/questions/85249/software-that-sniffs-my-internet-connection-and-tests-failed-packages",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "90071": {
+        "title": "Software for sharing/exchanging locations? Visual location survey",
+        "tags": [
+            "maps",
+            "collaboration",
+            "sharing",
+            "polls",
+            "visualization"
+        ],
+        "creation_date": 1709969121,
+        "link": "https://softwarerecs.stackexchange.com/questions/90071/software-for-sharing-exchanging-locations-visual-location-survey",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "88863": {
+        "title": "Site or app to type in two languages at the same time?",
+        "tags": [
+            "translation"
+        ],
+        "creation_date": 1707573207,
+        "link": "https://softwarerecs.stackexchange.com/questions/88863/site-or-app-to-type-in-two-languages-at-the-same-time",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "86874": {
+        "title": "Full text Search for pdfs downloaded in my machine In Windows 10?",
+        "tags": [
+            "search",
+            "text-search"
+        ],
+        "creation_date": 1681962427,
+        "link": "https://softwarerecs.stackexchange.com/questions/86874/full-text-search-for-pdfs-downloaded-in-my-machine-in-windows-10",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "87634": {
+        "title": "Visual on-screen program for typing using mouse movement",
+        "tags": [
+            "linux",
+            "mouse",
+            "accessibility",
+            "virtual-keyboard"
+        ],
+        "creation_date": 1691484197,
+        "link": "https://softwarerecs.stackexchange.com/questions/87634/visual-on-screen-program-for-typing-using-mouse-movement",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "84108": {
+        "title": "Playing audio and video files when boat is in a gps position",
+        "tags": [
+            "video-player",
+            "localization",
+            "audio-player"
+        ],
+        "creation_date": 1664146692,
+        "link": "https://softwarerecs.stackexchange.com/questions/84108/playing-audio-and-video-files-when-boat-is-in-a-gps-position",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "93441": {
+        "title": "Seeking a C/C++ UTF-8 wrapper for Windows ANSI C Standard Library functions",
+        "tags": [
+            "windows",
+            "linux",
+            "c++",
+            "c",
+            "unicode"
+        ],
+        "creation_date": 1751216225,
+        "link": "https://softwarerecs.stackexchange.com/questions/93441/seeking-a-c-c-utf-8-wrapper-for-windows-ansi-c-standard-library-functions",
+        "is_library_related": {
+            "manual": true,
+            "auto": true
+        }
+    },
+    "85369": {
+        "title": "Is there a non-legacy application for Windows to read Xdebug profiling files (&quot;cachegrind&quot;)?",
+        "tags": [
+            "windows",
+            "php",
+            "profiling"
+        ],
+        "creation_date": 1676932108,
+        "link": "https://softwarerecs.stackexchange.com/questions/85369/is-there-a-non-legacy-application-for-windows-to-read-xdebug-profiling-files-c",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "91757": {
+        "title": "SMTP client with sendmail compatible CLI implemented in Go",
+        "tags": [
+            "email",
+            "go",
+            "smtp"
+        ],
+        "creation_date": 1736463470,
+        "link": "https://softwarerecs.stackexchange.com/questions/91757/smtp-client-with-sendmail-compatible-cli-implemented-in-go",
+        "is_library_related": {
+            "manual": true,
+            "auto": true
+        }
+    },
+    "87356": {
+        "title": "Seeking USB-to-USB Emulation Software for Keyboard and Mouse Input During Boot Process (Windows)",
+        "tags": [
+            "windows",
+            "keyboard",
+            "emulator",
+            "mouse"
+        ],
+        "creation_date": 1687575635,
+        "link": "https://softwarerecs.stackexchange.com/questions/87356/seeking-usb-to-usb-emulation-software-for-keyboard-and-mouse-input-during-boot-p",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "85260": {
+        "title": "Looking for a collaborative document management system with version control and tagging",
+        "tags": [
+            "collaboration",
+            "document-management"
+        ],
+        "creation_date": 1676074254,
+        "link": "https://softwarerecs.stackexchange.com/questions/85260/looking-for-a-collaborative-document-management-system-with-version-control-and",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "91073": {
+        "title": "Chrome extension to hide elements based on keywords/text",
+        "tags": [
+            "chrome"
+        ],
+        "creation_date": 1724999119,
+        "link": "https://softwarerecs.stackexchange.com/questions/91073/chrome-extension-to-hide-elements-based-on-keywords-text",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "90163": {
+        "title": "Linux tool to automatically grab and store URLs from clipboard",
+        "tags": [
+            "linux",
+            "automation",
+            "bookmark",
+            "clipboard"
+        ],
+        "creation_date": 1711281767,
+        "link": "https://softwarerecs.stackexchange.com/questions/90163/linux-tool-to-automatically-grab-and-store-urls-from-clipboard",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "87690": {
+        "title": "Graphical File Manager for Linux with Fuzzy Search for Navigation",
+        "tags": [
+            "linux",
+            "file-management"
+        ],
+        "creation_date": 1692093949,
+        "link": "https://softwarerecs.stackexchange.com/questions/87690/graphical-file-manager-for-linux-with-fuzzy-search-for-navigation",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "91968": {
+        "title": "Show my personal access and edit history across all Google Docs?",
+        "tags": [
+            "google-apps"
+        ],
+        "creation_date": 1740046322,
+        "link": "https://softwarerecs.stackexchange.com/questions/91968/show-my-personal-access-and-edit-history-across-all-google-docs",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "86998": {
+        "title": "An open-source note-taking app that facilitates drawing/handwriting?",
+        "tags": [
+            "gratis",
+            "linux",
+            "open-source",
+            "note-taking",
+            "ocr"
+        ],
+        "creation_date": 1683615214,
+        "link": "https://softwarerecs.stackexchange.com/questions/86998/an-open-source-note-taking-app-that-facilitates-drawing-handwriting",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "88434": {
+        "title": "Android FTP server app that preserves original date modified of files and folders?",
+        "tags": [
+            "android",
+            "time-management",
+            "ftp",
+            "directories",
+            "file-sharing"
+        ],
+        "creation_date": 1700985593,
+        "link": "https://softwarerecs.stackexchange.com/questions/88434/android-ftp-server-app-that-preserves-original-date-modified-of-files-and-folder",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "83906": {
+        "title": "portable keylogger for windows 10",
+        "tags": [
+            "portable",
+            "keyboard",
+            "keylogger"
+        ],
+        "creation_date": 1661876700,
+        "link": "https://softwarerecs.stackexchange.com/questions/83906/portable-keylogger-for-windows-10",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "87127": {
+        "title": "Which app for &quot;B30 Wifi Video Doorbell&quot; on Android 12?",
+        "tags": [
+            "android",
+            "iot"
+        ],
+        "creation_date": 1684911554,
+        "link": "https://softwarerecs.stackexchange.com/questions/87127/which-app-for-b30-wifi-video-doorbell-on-android-12",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "83591": {
+        "title": "How can I move the mouse with just a physical keyboard?",
+        "tags": [
+            "windows",
+            "mouse"
+        ],
+        "creation_date": 1658503315,
+        "link": "https://softwarerecs.stackexchange.com/questions/83591/how-can-i-move-the-mouse-with-just-a-physical-keyboard",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "88316": {
+        "title": "How to Recover Data from RAID1 or RAID0 (QNAP TS-219P+)?",
+        "tags": [
+            "windows",
+            "linux",
+            "server",
+            "data-recovery"
+        ],
+        "creation_date": 1699620369,
+        "link": "https://softwarerecs.stackexchange.com/questions/88316/how-to-recover-data-from-raid1-or-raid0-qnap-ts-219p",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "90458": {
+        "title": "Sharing part of a screen on Linux",
+        "tags": [
+            "linux",
+            "screen-sharing"
+        ],
+        "creation_date": 1715066468,
+        "link": "https://softwarerecs.stackexchange.com/questions/90458/sharing-part-of-a-screen-on-linux",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "87659": {
+        "title": "Windows CLI tool to take full ownership of a file",
+        "tags": [
+            "windows",
+            "file-management",
+            "command-line",
+            "sysadmin"
+        ],
+        "creation_date": 1691712847,
+        "link": "https://softwarerecs.stackexchange.com/questions/87659/windows-cli-tool-to-take-full-ownership-of-a-file",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "84040": {
+        "title": "Manage files across external SSDs",
+        "tags": [
+            "file-management",
+            "file-search"
+        ],
+        "creation_date": 1663501193,
+        "link": "https://softwarerecs.stackexchange.com/questions/84040/manage-files-across-external-ssds",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "86886": {
+        "title": "Timetable / schedule planner",
+        "tags": [
+            "time-management"
+        ],
+        "creation_date": 1682065637,
+        "link": "https://softwarerecs.stackexchange.com/questions/86886/timetable-schedule-planner",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "92055": {
+        "title": "Minimal webserver providing the equivalent of api operations save(key, data) and load(key) -&gt; data",
+        "tags": [
+            "web-server"
+        ],
+        "creation_date": 1741858637,
+        "link": "https://softwarerecs.stackexchange.com/questions/92055/minimal-webserver-providing-the-equivalent-of-api-operations-savekey-data-and",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "88296": {
+        "title": "Autostart App for Android",
+        "tags": [
+            "android-app",
+            "auto-start"
+        ],
+        "creation_date": 1699486505,
+        "link": "https://softwarerecs.stackexchange.com/questions/88296/autostart-app-for-android",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "86901": {
+        "title": "What\u2019s your recommendation for implementing a single authentication system across two websites with download analytics?",
+        "tags": [
+            "authentication",
+            "analytics",
+            "two-factor-authentication"
+        ],
+        "creation_date": 1682331744,
+        "link": "https://softwarerecs.stackexchange.com/questions/86901/what-s-your-recommendation-for-implementing-a-single-authentication-system-acros",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "91430": {
+        "title": "Is there a website similar to Wikipedia which I can use only for me for personal purpose?",
+        "tags": [
+            "wiki"
+        ],
+        "creation_date": 1730847683,
+        "link": "https://softwarerecs.stackexchange.com/questions/91430/is-there-a-website-similar-to-wikipedia-which-i-can-use-only-for-me-for-personal",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "90386": {
+        "title": "Image generation/editing AI which is good at prompts related to glyphs/text",
+        "tags": [
+            "image-processing",
+            "artificial-intelligence"
+        ],
+        "creation_date": 1713980662,
+        "link": "https://softwarerecs.stackexchange.com/questions/90386/image-generation-editing-ai-which-is-good-at-prompts-related-to-glyphs-text",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "91044": {
+        "title": "I want a basic text editor that executes regex search and replace for Linux Mint, Cinnamon",
+        "tags": [
+            "linux",
+            "text-editor",
+            "regex"
+        ],
+        "creation_date": 1724661826,
+        "link": "https://softwarerecs.stackexchange.com/questions/91044/i-want-a-basic-text-editor-that-executes-regex-search-and-replace-for-linux-mint",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "85071": {
+        "title": "Counterpart of &#39;SwiftKey&#39; for Windows?",
+        "tags": [
+            "keyboard"
+        ],
+        "creation_date": 1674281567,
+        "link": "https://softwarerecs.stackexchange.com/questions/85071/counterpart-of-swiftkey-for-windows",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "87606": {
+        "title": "UI libraries that are framework independent",
+        "tags": [
+            "library",
+            "web-development"
+        ],
+        "creation_date": 1691080157,
+        "link": "https://softwarerecs.stackexchange.com/questions/87606/ui-libraries-that-are-framework-independent",
+        "is_library_related": {
+            "manual": true,
+            "auto": true
+        }
+    },
+    "87374": {
+        "title": "Media player with specific features",
+        "tags": [
+            "windows",
+            "media-player",
+            "chromecast",
+            "subtitles"
+        ],
+        "creation_date": 1687865434,
+        "link": "https://softwarerecs.stackexchange.com/questions/87374/media-player-with-specific-features",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "92010": {
+        "title": "Replacement for Stack Exchange Deleted Answer Manager",
+        "tags": [
+            "chrome",
+            "browser-extension",
+            "stack-exchange"
+        ],
+        "creation_date": 1741023458,
+        "link": "https://softwarerecs.stackexchange.com/questions/92010/replacement-for-stack-exchange-deleted-answer-manager",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "91800": {
+        "title": "A good bulletin-board like collaboration tool",
+        "tags": [
+            "collaboration"
+        ],
+        "creation_date": 1737005806,
+        "link": "https://softwarerecs.stackexchange.com/questions/91800/a-good-bulletin-board-like-collaboration-tool",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "87583": {
+        "title": "How to batch highlight keywords on PDFs for free?",
+        "tags": [
+            "pdf",
+            "automation",
+            "pdf-editor"
+        ],
+        "creation_date": 1690748796,
+        "link": "https://softwarerecs.stackexchange.com/questions/87583/how-to-batch-highlight-keywords-on-pdfs-for-free",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "92242": {
+        "title": "Apps for washing reminders",
+        "tags": [
+            "calendar",
+            "android-app",
+            "google-apps",
+            "accessibility",
+            "alarm-clock"
+        ],
+        "creation_date": 1746005463,
+        "link": "https://softwarerecs.stackexchange.com/questions/92242/apps-for-washing-reminders",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "90772": {
+        "title": "Web-based group chat with minimal onboarding",
+        "tags": [
+            "web-apps",
+            "chat"
+        ],
+        "creation_date": 1720380234,
+        "link": "https://softwarerecs.stackexchange.com/questions/90772/web-based-group-chat-with-minimal-onboarding",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "92232": {
+        "title": "Spreadsheet software with first-class functions",
+        "tags": [
+            "linux",
+            "programming",
+            "spreadsheet"
+        ],
+        "creation_date": 1745849992,
+        "link": "https://softwarerecs.stackexchange.com/questions/92232/spreadsheet-software-with-first-class-functions",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "90423": {
+        "title": "How to open a motherboard .cad file?",
+        "tags": [
+            "cad",
+            "documentation-viewer",
+            "pcb-design"
+        ],
+        "creation_date": 1714712327,
+        "link": "https://softwarerecs.stackexchange.com/questions/90423/how-to-open-a-motherboard-cad-file",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "89955": {
+        "title": "Game with insect hybrids, path selection, and points",
+        "tags": [
+            "android",
+            "game"
+        ],
+        "creation_date": 1708912973,
+        "link": "https://softwarerecs.stackexchange.com/questions/89955/game-with-insect-hybrids-path-selection-and-points",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "86992": {
+        "title": "Edge (or other browser) extension to notify if a site I&#39;m trying to open is already open in another tab and make it quick/easy to switch to that tab",
+        "tags": [
+            "web-browser"
+        ],
+        "creation_date": 1683567881,
+        "link": "https://softwarerecs.stackexchange.com/questions/86992/edge-or-other-browser-extension-to-notify-if-a-site-im-trying-to-open-is-alre",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "85037": {
+        "title": "App for doing abstract algebra through drawings pictures fonts and sounds for kids",
+        "tags": [
+            "android",
+            "math",
+            "drawing",
+            "educational",
+            "text"
+        ],
+        "creation_date": 1674013391,
+        "link": "https://softwarerecs.stackexchange.com/questions/85037/app-for-doing-abstract-algebra-through-drawings-pictures-fonts-and-sounds-for-ki",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "91516": {
+        "title": "Are there any email clients with scheduled delete?",
+        "tags": [
+            "email-client",
+            "scheduling"
+        ],
+        "creation_date": 1732290168,
+        "link": "https://softwarerecs.stackexchange.com/questions/91516/are-there-any-email-clients-with-scheduled-delete",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "91388": {
+        "title": "Language bar alternative, Win 10",
+        "tags": [
+            "windows",
+            "windows-10"
+        ],
+        "creation_date": 1730119011,
+        "link": "https://softwarerecs.stackexchange.com/questions/91388/language-bar-alternative-win-10",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "84398": {
+        "title": "Is there a way to bulk extract .WTV programme-descriptions, from TV and radio files, into a spreadsheet",
+        "tags": [
+            "windows",
+            "video-recording"
+        ],
+        "creation_date": 1667217454,
+        "link": "https://softwarerecs.stackexchange.com/questions/84398/is-there-a-way-to-bulk-extract-wtv-programme-descriptions-from-tv-and-radio-fi",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "83779": {
+        "title": "Interdependent Organization charts, Relationship maps and Business process diagrams",
+        "tags": [
+            "project-management",
+            "charts",
+            "uml"
+        ],
+        "creation_date": 1660735473,
+        "link": "https://softwarerecs.stackexchange.com/questions/83779/interdependent-organization-charts-relationship-maps-and-business-process-diagr",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "84693": {
+        "title": ".E01 and .EX01 format file Extraction",
+        "tags": [
+            "c#"
+        ],
+        "creation_date": 1670058457,
+        "link": "https://softwarerecs.stackexchange.com/questions/84693/e01-and-ex01-format-file-extraction",
+        "is_library_related": {
+            "manual": true,
+            "auto": true
+        }
+    },
+    "85170": {
+        "title": "Where can I see how many comments a user wrote on Reddit?",
+        "tags": [
+            "reddit"
+        ],
+        "creation_date": 1675403206,
+        "link": "https://softwarerecs.stackexchange.com/questions/85170/where-can-i-see-how-many-comments-a-user-wrote-on-reddit",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "85227": {
+        "title": "Open source FHIR server recommendation needed",
+        "tags": [
+            "server"
+        ],
+        "creation_date": 1675787102,
+        "link": "https://softwarerecs.stackexchange.com/questions/85227/open-source-fhir-server-recommendation-needed",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "90697": {
+        "title": "Build specific website (kind of a portfolio) - which tools should I use?",
+        "tags": [
+            "java",
+            "web-development",
+            "cms",
+            "ecommerce"
+        ],
+        "creation_date": 1718907601,
+        "link": "https://softwarerecs.stackexchange.com/questions/90697/build-specific-website-kind-of-a-portfolio-which-tools-should-i-use",
+        "is_library_related": {
+            "manual": true,
+            "auto": true
+        }
+    },
+    "93340": {
+        "title": "Which Linux distro works best as a Proxmox VM and supports Network browsing and VNC or RDP out of the box?",
+        "tags": [
+            "linux",
+            "ubuntu",
+            "linux-distribution",
+            "virtual-machine"
+        ],
+        "creation_date": 1748461665,
+        "link": "https://softwarerecs.stackexchange.com/questions/93340/which-linux-distro-works-best-as-a-proxmox-vm-and-supports-network-browsing-and",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "83999": {
+        "title": "Remove some given text from every tag field of MP3 files in a batch process on Linux",
+        "tags": [
+            "linux",
+            "mp3"
+        ],
+        "creation_date": 1662932219,
+        "link": "https://softwarerecs.stackexchange.com/questions/83999/remove-some-given-text-from-every-tag-field-of-mp3-files-in-a-batch-process-on-l",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "90228": {
+        "title": "Software for programming classes (for teacher)",
+        "tags": [
+            "programming",
+            "educational"
+        ],
+        "creation_date": 1712087420,
+        "link": "https://softwarerecs.stackexchange.com/questions/90228/software-for-programming-classes-for-teacher",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "90189": {
+        "title": "How to find URL of YouTube video being played by an Android app?",
+        "tags": [
+            "video",
+            "networking",
+            "network-monitor",
+            "youtube",
+            "android-app"
+        ],
+        "creation_date": 1711596974,
+        "link": "https://softwarerecs.stackexchange.com/questions/90189/how-to-find-url-of-youtube-video-being-played-by-an-android-app",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "93331": {
+        "title": "Best cloud storage solution for managing Go-native fuzzing seed corpora?",
+        "tags": [
+            "cloud-storage",
+            "go",
+            "google",
+            "aws"
+        ],
+        "creation_date": 1748256754,
+        "link": "https://softwarerecs.stackexchange.com/questions/93331/best-cloud-storage-solution-for-managing-go-native-fuzzing-seed-corpora",
+        "is_library_related": {
+            "manual": true,
+            "auto": true
+        }
+    },
+    "91127": {
+        "title": "What Is the Best Way to Persist ML Models Outside a K8S Cluster with Local Directory Like Interface?",
+        "tags": [
+            "python",
+            "cloud-storage",
+            "machine-learning",
+            "kubernetes"
+        ],
+        "creation_date": 1725793850,
+        "link": "https://softwarerecs.stackexchange.com/questions/91127/what-is-the-best-way-to-persist-ml-models-outside-a-k8s-cluster-with-local-direc",
+        "is_library_related": {
+            "manual": true,
+            "auto": true
+        }
+    },
+    "91710": {
+        "title": "Find a multi-process test driver framework on linux/windows (handle exit code, signal, stdio, file, ipc, window system event)",
+        "tags": [
+            "windows",
+            "linux",
+            "software-development",
+            "automation",
+            "software-testing"
+        ],
+        "creation_date": 1735725635,
+        "link": "https://softwarerecs.stackexchange.com/questions/91710/find-a-multi-process-test-driver-framework-on-linux-windows-handle-exit-code-s",
+        "is_library_related": {
+            "manual": true,
+            "auto": true
+        }
+    },
+    "87443": {
+        "title": "Facebook group saving",
+        "tags": [
+            "facebook",
+            "archiving"
+        ],
+        "creation_date": 1688839097,
+        "link": "https://softwarerecs.stackexchange.com/questions/87443/facebook-group-saving",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "91930": {
+        "title": "Is there any circuit simulation software that is NOT based on SPICE?",
+        "tags": [
+            "simulation",
+            "software"
+        ],
+        "creation_date": 1739368299,
+        "link": "https://softwarerecs.stackexchange.com/questions/91930/is-there-any-circuit-simulation-software-that-is-not-based-on-spice",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "83347": {
+        "title": "Open source resource manager and reservation system for complex hardware setups",
+        "tags": [
+            "open-source",
+            "networking",
+            "scheduling",
+            "cloud",
+            "resource-management"
+        ],
+        "creation_date": 1656287144,
+        "link": "https://softwarerecs.stackexchange.com/questions/83347/open-source-resource-manager-and-reservation-system-for-complex-hardware-setups",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "84770": {
+        "title": "Open Source IDE for C/C++ on Ubuntu with native dark theme",
+        "tags": [
+            "linux",
+            "software-development",
+            "c++",
+            "ubuntu",
+            "ide"
+        ],
+        "creation_date": 1670998250,
+        "link": "https://softwarerecs.stackexchange.com/questions/84770/open-source-ide-for-c-c-on-ubuntu-with-native-dark-theme",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "91782": {
+        "title": "C++ class data persistence library",
+        "tags": [
+            "c++",
+            "serialization"
+        ],
+        "creation_date": 1736795096,
+        "link": "https://softwarerecs.stackexchange.com/questions/91782/c-class-data-persistence-library",
+        "is_library_related": {
+            "manual": true,
+            "auto": true
+        }
+    },
+    "87632": {
+        "title": "color blindness simulator",
+        "tags": [
+            "color"
+        ],
+        "creation_date": 1691428938,
+        "link": "https://softwarerecs.stackexchange.com/questions/87632/color-blindness-simulator",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "88004": {
+        "title": "I need an audio duplicate finder with 100% accuracy (acoustic fingerprinting?)",
+        "tags": [
+            "windows",
+            "audio",
+            "file-management",
+            "duplicate-files"
+        ],
+        "creation_date": 1696225683,
+        "link": "https://softwarerecs.stackexchange.com/questions/88004/i-need-an-audio-duplicate-finder-with-100-accuracy-acoustic-fingerprinting",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "90830": {
+        "title": "Tool to modernize C89 codebase",
+        "tags": [
+            "c"
+        ],
+        "creation_date": 1721201858,
+        "link": "https://softwarerecs.stackexchange.com/questions/90830/tool-to-modernize-c89-codebase",
+        "is_library_related": {
+            "manual": true,
+            "auto": true
+        }
+    },
+    "85214": {
+        "title": "Two-pane outliner / note-taking application, WYSIWYG, Windows, gratis or open source",
+        "tags": [
+            "windows",
+            "gratis",
+            "open-source",
+            "note-taking"
+        ],
+        "creation_date": 1675676094,
+        "link": "https://softwarerecs.stackexchange.com/questions/85214/two-pane-outliner-note-taking-application-wysiwyg-windows-gratis-or-open-so",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "91012": {
+        "title": "Advice for what API style in Vue I should use to build an app about learning spoken languages",
+        "tags": [
+            "android",
+            "ios",
+            "educational",
+            "language",
+            "vue.js"
+        ],
+        "creation_date": 1724098724,
+        "link": "https://softwarerecs.stackexchange.com/questions/91012/advice-for-what-api-style-in-vue-i-should-use-to-build-an-app-about-learning-spo",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "83248": {
+        "title": "What kind of stack combination to use for vue.js development[vite/nuxt/fastify]?",
+        "tags": [
+            "node.js",
+            "web-server",
+            "vue.js"
+        ],
+        "creation_date": 1654977922,
+        "link": "https://softwarerecs.stackexchange.com/questions/83248/what-kind-of-stack-combination-to-use-for-vue-js-developmentvite-nuxt-fastify",
+        "is_library_related": {
+            "manual": true,
+            "auto": false
+        }
+    },
+    "87590": {
+        "title": "Is there an AI-powered tool that will act as a code-reviewer on Gitlab in the form of comments and suggestions?",
+        "tags": [
+            "git",
+            "artificial-intelligence",
+            "github"
+        ],
+        "creation_date": 1690882818,
+        "link": "https://softwarerecs.stackexchange.com/questions/87590/is-there-an-ai-powered-tool-that-will-act-as-a-code-reviewer-on-gitlab-in-the-fo",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "91445": {
+        "title": "Android keyboard that recognizes typos instead of adding them to autocorrect?",
+        "tags": [
+            "artificial-intelligence",
+            "keyboard",
+            "android-app",
+            "autocomplete",
+            "virtual-keyboard"
+        ],
+        "creation_date": 1731015538,
+        "link": "https://softwarerecs.stackexchange.com/questions/91445/android-keyboard-that-recognizes-typos-instead-of-adding-them-to-autocorrect",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "85468": {
+        "title": "VDI setup from any OS (e.g. Windows) to Linux machines",
+        "tags": [
+            "remote-access",
+            "remote-desktop",
+            "desktop-environment",
+            "cloud-computing",
+            "virtual-desktop"
+        ],
+        "creation_date": 1677617716,
+        "link": "https://softwarerecs.stackexchange.com/questions/85468/vdi-setup-from-any-os-e-g-windows-to-linux-machines",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "91500": {
+        "title": "Does any JMESPath/JQ query linter/validator tool exist at all?",
+        "tags": [
+            "command-line",
+            "ide",
+            "json",
+            "visual-studio-code"
+        ],
+        "creation_date": 1731887255,
+        "link": "https://softwarerecs.stackexchange.com/questions/91500/does-any-jmespath-jq-query-linter-validator-tool-exist-at-all",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "84626": {
+        "title": "GUI for source code documenting system, that can resolve references to comments in dual pane window?",
+        "tags": [
+            "gui",
+            "text-editor",
+            "programming",
+            "text-processing",
+            "source-code"
+        ],
+        "creation_date": 1669203973,
+        "link": "https://softwarerecs.stackexchange.com/questions/84626/gui-for-source-code-documenting-system-that-can-resolve-references-to-comments",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "88066": {
+        "title": "How would I run my python code every day without having my computer open?",
+        "tags": [
+            "python"
+        ],
+        "creation_date": 1696942049,
+        "link": "https://softwarerecs.stackexchange.com/questions/88066/how-would-i-run-my-python-code-every-day-without-having-my-computer-open",
+        "is_library_related": {
+            "manual": false,
+            "auto": true
+        }
+    },
+    "93440": {
+        "title": "Looking for CMS to create a simple website fast, and maintain it with least effort",
+        "tags": [
+            "web-development",
+            "web",
+            "cms",
+            "wordpress",
+            "website"
+        ],
+        "creation_date": 1751113521,
+        "link": "https://softwarerecs.stackexchange.com/questions/93440/looking-for-cms-to-create-a-simple-website-fast-and-maintain-it-with-least-effo",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "90103": {
+        "title": "I want to log hours studied every day on desktop, how do I do it?",
+        "tags": [
+            "time-management"
+        ],
+        "creation_date": 1710340067,
+        "link": "https://softwarerecs.stackexchange.com/questions/90103/i-want-to-log-hours-studied-every-day-on-desktop-how-do-i-do-it",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "85238": {
+        "title": "Any software to prevent an executable from closing others executables?",
+        "tags": [
+            "windows",
+            "sandbox"
+        ],
+        "creation_date": 1675856124,
+        "link": "https://softwarerecs.stackexchange.com/questions/85238/any-software-to-prevent-an-executable-from-closing-others-executables",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "91805": {
+        "title": "Are there any tools that I can use to show popup suggestions while typing in Linux?",
+        "tags": [
+            "linux",
+            "api",
+            "command-line",
+            "keyboard-shortcuts"
+        ],
+        "creation_date": 1737115271,
+        "link": "https://softwarerecs.stackexchange.com/questions/91805/are-there-any-tools-that-i-can-use-to-show-popup-suggestions-while-typing-in-lin",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "91719": {
+        "title": "Beep sound every half hour Android phone application",
+        "tags": [
+            "time-management",
+            "productivity",
+            "android-app"
+        ],
+        "creation_date": 1735854639,
+        "link": "https://softwarerecs.stackexchange.com/questions/91719/beep-sound-every-half-hour-android-phone-application",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "83206": {
+        "title": "App like Pocket but for listening in car, including audio, video, and text-to-speech",
+        "tags": [
+            "speech-synthesis",
+            "bluetooth",
+            "podcast",
+            "car",
+            "audio-player"
+        ],
+        "creation_date": 1654635309,
+        "link": "https://softwarerecs.stackexchange.com/questions/83206/app-like-pocket-but-for-listening-in-car-including-audio-video-and-text-to-sp",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "93363": {
+        "title": "App for finding a font supporting given set of Unicode characters",
+        "tags": [
+            "windows",
+            "gratis",
+            "offline",
+            "unicode",
+            "font"
+        ],
+        "creation_date": 1749236690,
+        "link": "https://softwarerecs.stackexchange.com/questions/93363/app-for-finding-a-font-supporting-given-set-of-unicode-characters",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "88432": {
+        "title": "Android app to view the network usage history over the past 12 hours",
+        "tags": [
+            "android",
+            "network-monitor",
+            "internet"
+        ],
+        "creation_date": 1700966288,
+        "link": "https://softwarerecs.stackexchange.com/questions/88432/android-app-to-view-the-network-usage-history-over-the-past-12-hours",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "91329": {
+        "title": "technologies to consider for developing a research portal",
+        "tags": [
+            "framework",
+            "django",
+            "research",
+            "drupal"
+        ],
+        "creation_date": 1729057470,
+        "link": "https://softwarerecs.stackexchange.com/questions/91329/technologies-to-consider-for-developing-a-research-portal",
+        "is_library_related": {
+            "manual": true,
+            "auto": true
+        }
+    },
+    "83444": {
+        "title": "Open source blog hosting platform",
+        "tags": [
+            "open-source",
+            "wordpress",
+            "blog",
+            "newsletter"
+        ],
+        "creation_date": 1657378092,
+        "link": "https://softwarerecs.stackexchange.com/questions/83444/open-source-blog-hosting-platform",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "84732": {
+        "title": "Download both Oracle Java and open-source JDK on same computer?",
+        "tags": [
+            "java"
+        ],
+        "creation_date": 1670444478,
+        "link": "https://softwarerecs.stackexchange.com/questions/84732/download-both-oracle-java-and-open-source-jdk-on-same-computer",
+        "is_library_related": {
+            "manual": false,
+            "auto": true
+        }
+    },
+    "89961": {
+        "title": "Linux code/text editor with specific features (open-source)",
+        "tags": [
+            "gratis",
+            "linux",
+            "open-source",
+            "software-development",
+            "text-editor"
+        ],
+        "creation_date": 1708992069,
+        "link": "https://softwarerecs.stackexchange.com/questions/89961/linux-code-text-editor-with-specific-features-open-source",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "88192": {
+        "title": "Something like doxygen which can generate documentation for CSS?",
+        "tags": [
+            "linux",
+            "css",
+            "documentation-generator"
+        ],
+        "creation_date": 1698159715,
+        "link": "https://softwarerecs.stackexchange.com/questions/88192/something-like-doxygen-which-can-generate-documentation-for-css",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "87263": {
+        "title": "Is there a browser which encrypts completely the user data?",
+        "tags": [
+            "web-browser",
+            "security",
+            "encryption",
+            "privacy"
+        ],
+        "creation_date": 1686601169,
+        "link": "https://softwarerecs.stackexchange.com/questions/87263/is-there-a-browser-which-encrypts-completely-the-user-data",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "83936": {
+        "title": "Completely Web based bastion/jump host for SSH/HTTPs",
+        "tags": [
+            "linux",
+            "web-apps",
+            "remote-access"
+        ],
+        "creation_date": 1662242305,
+        "link": "https://softwarerecs.stackexchange.com/questions/83936/completely-web-based-bastion-jump-host-for-ssh-https",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "87286": {
+        "title": "Clip/Image embedding API",
+        "tags": [
+            "api",
+            "machine-learning",
+            "web-apis"
+        ],
+        "creation_date": 1686742287,
+        "link": "https://softwarerecs.stackexchange.com/questions/87286/clip-image-embedding-api",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "84311": {
+        "title": "Device and app to help sleep",
+        "tags": [
+            "iphone-app",
+            "ipad-app",
+            "apple"
+        ],
+        "creation_date": 1666232586,
+        "link": "https://softwarerecs.stackexchange.com/questions/84311/device-and-app-to-help-sleep",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "91306": {
+        "title": "Gratis Android email client with good spam filtering",
+        "tags": [
+            "gratis",
+            "android",
+            "email-client"
+        ],
+        "creation_date": 1728673841,
+        "link": "https://softwarerecs.stackexchange.com/questions/91306/gratis-android-email-client-with-good-spam-filtering",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "84086": {
+        "title": "How can I take a screenshot of only the client area of a window?",
+        "tags": [
+            "windows",
+            "screenshot"
+        ],
+        "creation_date": 1663949768,
+        "link": "https://softwarerecs.stackexchange.com/questions/84086/how-can-i-take-a-screenshot-of-only-the-client-area-of-a-window",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "91742": {
+        "title": "Best Websites to Download Rainmeter Skins",
+        "tags": [
+            "desktop-environment"
+        ],
+        "creation_date": 1736186972,
+        "link": "https://softwarerecs.stackexchange.com/questions/91742/best-websites-to-download-rainmeter-skins",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "84912": {
+        "title": "Is there a library/API like Leaflet available for Starmaps?",
+        "tags": [
+            "python",
+            "javascript",
+            "r",
+            "astronomy"
+        ],
+        "creation_date": 1672759707,
+        "link": "https://softwarerecs.stackexchange.com/questions/84912/is-there-a-library-api-like-leaflet-available-for-starmaps",
+        "is_library_related": {
+            "manual": true,
+            "auto": true
+        }
+    },
+    "84933": {
+        "title": "A standalone webserver with document filtering support",
+        "tags": [
+            "file-synchronization",
+            "web-server"
+        ],
+        "creation_date": 1673027469,
+        "link": "https://softwarerecs.stackexchange.com/questions/84933/a-standalone-webserver-with-document-filtering-support",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "91207": {
+        "title": "Cold Turkey alternative for Linux (self control/time wasting/productivity software)",
+        "tags": [
+            "linux",
+            "productivity"
+        ],
+        "creation_date": 1727056288,
+        "link": "https://softwarerecs.stackexchange.com/questions/91207/cold-turkey-alternative-for-linux-self-control-time-wasting-productivity-softwa",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "91894": {
+        "title": "Document-indexing software which understands dates",
+        "tags": [
+            "file-search",
+            "document-indexing",
+            "accounting"
+        ],
+        "creation_date": 1738607204,
+        "link": "https://softwarerecs.stackexchange.com/questions/91894/document-indexing-software-which-understands-dates",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "85291": {
+        "title": "Full Page image zoom overlay like in this article:",
+        "tags": [
+            "javascript",
+            "web",
+            "react"
+        ],
+        "creation_date": 1676306821,
+        "link": "https://softwarerecs.stackexchange.com/questions/85291/full-page-image-zoom-overlay-like-in-this-article",
+        "is_library_related": {
+            "manual": true,
+            "auto": true
+        }
+    },
+    "87616": {
+        "title": "Tagging software that is friendly to moving to another computer",
+        "tags": [
+            "file-management"
+        ],
+        "creation_date": 1691236201,
+        "link": "https://softwarerecs.stackexchange.com/questions/87616/tagging-software-that-is-friendly-to-moving-to-another-computer",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "91700": {
+        "title": "Moving forward from wordpress and php",
+        "tags": [
+            "web-development"
+        ],
+        "creation_date": 1735501275,
+        "link": "https://softwarerecs.stackexchange.com/questions/91700/moving-forward-from-wordpress-and-php",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "93413": {
+        "title": "Cooking application that downloads recipes and checks them against eating user profiles for compatibility",
+        "tags": [
+            "android-app",
+            "accessibility",
+            "health",
+            "cooking"
+        ],
+        "creation_date": 1750571787,
+        "link": "https://softwarerecs.stackexchange.com/questions/93413/cooking-application-that-downloads-recipes-and-checks-them-against-eating-user-p",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "90708": {
+        "title": "Cost-effective fulltext search",
+        "tags": [
+            "search"
+        ],
+        "creation_date": 1719055921,
+        "link": "https://softwarerecs.stackexchange.com/questions/90708/cost-effective-fulltext-search",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "86890": {
+        "title": "Is there a standalone color picker utility that uses this style of a colour picking dialog?",
+        "tags": [
+            "windows",
+            "color",
+            "utility"
+        ],
+        "creation_date": 1682092118,
+        "link": "https://softwarerecs.stackexchange.com/questions/86890/is-there-a-standalone-color-picker-utility-that-uses-this-style-of-a-colour-pick",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "91802": {
+        "title": "Identifying duplicate photo &quot;sets&quot;",
+        "tags": [
+            "windows",
+            "duplicate-files"
+        ],
+        "creation_date": 1737066909,
+        "link": "https://softwarerecs.stackexchange.com/questions/91802/identifying-duplicate-photo-sets",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "86773": {
+        "title": "TortoiseCVS client or similar GUI that runs on Windows 11?",
+        "tags": [
+            "version-control",
+            "windows-11"
+        ],
+        "creation_date": 1680871632,
+        "link": "https://softwarerecs.stackexchange.com/questions/86773/tortoisecvs-client-or-similar-gui-that-runs-on-windows-11",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "88250": {
+        "title": "Android camera app to get latitude &amp; longitude without SIM or Wi-Fi (i.e. no internet)?",
+        "tags": [
+            "camera",
+            "geo-location",
+            "exif",
+            "android-app"
+        ],
+        "creation_date": 1698832685,
+        "link": "https://softwarerecs.stackexchange.com/questions/88250/android-camera-app-to-get-latitude-longitude-without-sim-or-wi-fi-i-e-no-int",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "90416": {
+        "title": "Means for verifying files copied from PC to Android",
+        "tags": [
+            "android",
+            "backup",
+            "data-verification"
+        ],
+        "creation_date": 1714485042,
+        "link": "https://softwarerecs.stackexchange.com/questions/90416/means-for-verifying-files-copied-from-pc-to-android",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "90101": {
+        "title": "I am looking for a service management software like Linux systemctl for Windows",
+        "tags": [
+            "windows",
+            "gratis"
+        ],
+        "creation_date": 1710332275,
+        "link": "https://softwarerecs.stackexchange.com/questions/90101/i-am-looking-for-a-service-management-software-like-linux-systemctl-for-windows",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "90869": {
+        "title": "Self-hosted dashboard service for glueing together pre-made Vega plots",
+        "tags": [
+            "web-apps",
+            "charts",
+            "dashboard"
+        ],
+        "creation_date": 1721755397,
+        "link": "https://softwarerecs.stackexchange.com/questions/90869/self-hosted-dashboard-service-for-glueing-together-pre-made-vega-plots",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "91594": {
+        "title": "Extract the last few seconds of a GoPro video losslessly while keeping the telemetry info and the original stream order",
+        "tags": [
+            "windows",
+            "linux",
+            "video",
+            "gopro"
+        ],
+        "creation_date": 1733783260,
+        "link": "https://softwarerecs.stackexchange.com/questions/91594/extract-the-last-few-seconds-of-a-gopro-video-losslessly-while-keeping-the-telem",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "90992": {
+        "title": "Software to run LLMs locally offline",
+        "tags": [
+            "windows",
+            "gratis",
+            "artificial-intelligence",
+            "llm"
+        ],
+        "creation_date": 1723664065,
+        "link": "https://softwarerecs.stackexchange.com/questions/90992/software-to-run-llms-locally-offline",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "84858": {
+        "title": "Software to randomly mix and randomly rename files on a scammer&#39;s computer",
+        "tags": [
+            "file"
+        ],
+        "creation_date": 1672113008,
+        "link": "https://softwarerecs.stackexchange.com/questions/84858/software-to-randomly-mix-and-randomly-rename-files-on-a-scammers-computer",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "87389": {
+        "title": "Android SMS spam blocker with part of spam&#39;s text",
+        "tags": [
+            "android",
+            "sms",
+            "spam"
+        ],
+        "creation_date": 1688038357,
+        "link": "https://softwarerecs.stackexchange.com/questions/87389/android-sms-spam-blocker-with-part-of-spams-text",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "87085": {
+        "title": "Windows web browser which supports offline migration of all stored data",
+        "tags": [
+            "windows",
+            "web-browser",
+            "migration"
+        ],
+        "creation_date": 1684431703,
+        "link": "https://softwarerecs.stackexchange.com/questions/87085/windows-web-browser-which-supports-offline-migration-of-all-stored-data",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "84006": {
+        "title": "TODO with Reminder management",
+        "tags": [
+            "workflow",
+            "reminders"
+        ],
+        "creation_date": 1662989317,
+        "link": "https://softwarerecs.stackexchange.com/questions/84006/todo-with-reminder-management",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "88627": {
+        "title": "Software to compare two folders recursively",
+        "tags": [
+            "windows",
+            "comparison",
+            "directories",
+            "file"
+        ],
+        "creation_date": 1704345401,
+        "link": "https://softwarerecs.stackexchange.com/questions/88627/software-to-compare-two-folders-recursively",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "83463": {
+        "title": "Apps to cast android videos to firestick",
+        "tags": [
+            "android",
+            "amazon"
+        ],
+        "creation_date": 1657532337,
+        "link": "https://softwarerecs.stackexchange.com/questions/83463/apps-to-cast-android-videos-to-firestick",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "92280": {
+        "title": "Task/organization management",
+        "tags": [
+            "open-source",
+            "web-apps",
+            "self-hosted",
+            "task-management"
+        ],
+        "creation_date": 1747064869,
+        "link": "https://softwarerecs.stackexchange.com/questions/92280/task-organization-management",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "91936": {
+        "title": "Looking for a form generator",
+        "tags": [
+            "web-apps",
+            "library",
+            "form-generator"
+        ],
+        "creation_date": 1739405630,
+        "link": "https://softwarerecs.stackexchange.com/questions/91936/looking-for-a-form-generator",
+        "is_library_related": {
+            "manual": true,
+            "auto": true
+        }
+    },
+    "87147": {
+        "title": "Microsoft Edge&#39;s &quot;Improved copy and paste of URLs&quot; feature in other browsers",
+        "tags": [
+            "web-browser",
+            "microsoft-edge"
+        ],
+        "creation_date": 1685109124,
+        "link": "https://softwarerecs.stackexchange.com/questions/87147/microsoft-edges-improved-copy-and-paste-of-urls-feature-in-other-browsers",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "92281": {
+        "title": "Best strategy to migrate away from Tuist to native Xcode project setup?",
+        "tags": [
+            "ios"
+        ],
+        "creation_date": 1747118671,
+        "link": "https://softwarerecs.stackexchange.com/questions/92281/best-strategy-to-migrate-away-from-tuist-to-native-xcode-project-setup",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "83299": {
+        "title": "Are there any Android keyboards with swipe functionality available that are more precise than the main options?",
+        "tags": [
+            "android",
+            "keyboard"
+        ],
+        "creation_date": 1655564312,
+        "link": "https://softwarerecs.stackexchange.com/questions/83299/are-there-any-android-keyboards-with-swipe-functionality-available-that-are-more",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "84103": {
+        "title": "Find duplicated or similar sentences from text in English",
+        "tags": [
+            "text-processing"
+        ],
+        "creation_date": 1664106052,
+        "link": "https://softwarerecs.stackexchange.com/questions/84103/find-duplicated-or-similar-sentences-from-text-in-english",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "83942": {
+        "title": "Android app that shows start date of yearly recurring calendar events",
+        "tags": [
+            "android",
+            "calendar"
+        ],
+        "creation_date": 1662290068,
+        "link": "https://softwarerecs.stackexchange.com/questions/83942/android-app-that-shows-start-date-of-yearly-recurring-calendar-events",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "87124": {
+        "title": "Freeware File Auditing Software for File Access",
+        "tags": [
+            "gratis",
+            "windows-10",
+            "security"
+        ],
+        "creation_date": 1684855713,
+        "link": "https://softwarerecs.stackexchange.com/questions/87124/freeware-file-auditing-software-for-file-access",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "84063": {
+        "title": "Is there an Android app that can comfortably reduce the resolution of built-in camera shots?",
+        "tags": [
+            "android",
+            "image-processing",
+            "camera"
+        ],
+        "creation_date": 1663753587,
+        "link": "https://softwarerecs.stackexchange.com/questions/84063/is-there-an-android-app-that-can-comfortably-reduce-the-resolution-of-built-in-c",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "83580": {
+        "title": "Converting a city street map into a graph (2D array) for graph traversal/navigation",
+        "tags": [
+            "graphs",
+            "maps",
+            "google-maps"
+        ],
+        "creation_date": 1658445253,
+        "link": "https://softwarerecs.stackexchange.com/questions/83580/converting-a-city-street-map-into-a-graph-2d-array-for-graph-traversal-navigat",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "88514": {
+        "title": "Software for stitching together many short videos, and basic editing",
+        "tags": [
+            "video"
+        ],
+        "creation_date": 1702165791,
+        "link": "https://softwarerecs.stackexchange.com/questions/88514/software-for-stitching-together-many-short-videos-and-basic-editing",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "91564": {
+        "title": "Free folder music player for Windows",
+        "tags": [
+            "windows",
+            "gratis",
+            "music"
+        ],
+        "creation_date": 1733221737,
+        "link": "https://softwarerecs.stackexchange.com/questions/91564/free-folder-music-player-for-windows",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "87250": {
+        "title": "Photo slideshow that plays a list of images from top to bottom seamlessly",
+        "tags": [
+            "windows",
+            "open-source",
+            "image-viewer",
+            "slideshow"
+        ],
+        "creation_date": 1686410427,
+        "link": "https://softwarerecs.stackexchange.com/questions/87250/photo-slideshow-that-plays-a-list-of-images-from-top-to-bottom-seamlessly",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "87795": {
+        "title": "Finding a Fitting Ticket-System",
+        "tags": [
+            "software-development",
+            "task-management",
+            "help-desk"
+        ],
+        "creation_date": 1693296213,
+        "link": "https://softwarerecs.stackexchange.com/questions/87795/finding-a-fitting-ticket-system",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "91303": {
+        "title": "Pattern matching for Go AST",
+        "tags": [
+            "go"
+        ],
+        "creation_date": 1728650905,
+        "link": "https://softwarerecs.stackexchange.com/questions/91303/pattern-matching-for-go-ast",
+        "is_library_related": {
+            "manual": true,
+            "auto": true
+        }
+    },
+    "86930": {
+        "title": "What is a software to handle large amount of Google form responses?",
+        "tags": [
+            "database",
+            "data-analysis",
+            "forms",
+            "spreadsheet"
+        ],
+        "creation_date": 1682654626,
+        "link": "https://softwarerecs.stackexchange.com/questions/86930/what-is-a-software-to-handle-large-amount-of-google-form-responses",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    },
+    "84984": {
+        "title": "Automatically order videos",
+        "tags": [
+            "video"
+        ],
+        "creation_date": 1673493209,
+        "link": "https://softwarerecs.stackexchange.com/questions/84984/automatically-order-videos",
+        "is_library_related": {
+            "manual": false,
+            "auto": false
+        }
+    }
+}

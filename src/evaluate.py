@@ -56,15 +56,17 @@ def evaluate_library_hallucinations(
                 for _hallu in _hallus:
                     responses_per_library[_hallu].append(chat[0])
 
-                if check_library and check_library in _hallus:
+                if check_library:
                     # update stats if the given library is hallucinated
-                    response_ids[model].add(f"{task_id}-{_idx}")
-                    task_ids[model].add(task_id)
+                    if check_library in _hallus:
+                        response_ids[model].add(f"{task_id}-{_idx}")
+                        task_ids[model].add(task_id)
 
-                elif not check_library and _hallus:
+                else:
                     # otherwise update stats if any library is hallucinated
-                    response_ids[model].add(f"{task_id}-{_idx}")
-                    task_ids[model].add(task_id)
+                    if _hallus:
+                        response_ids[model].add(f"{task_id}-{_idx}")
+                        task_ids[model].add(task_id)
 
     # save the evaluation data
     results_data["evaluations"] = {

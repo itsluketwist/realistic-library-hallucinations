@@ -173,6 +173,7 @@ data/raw
 data/archive
 pre_*.ipynb
 prototype.ipynb
+my_notebooks/
 
 # temporary ignore
 output/*

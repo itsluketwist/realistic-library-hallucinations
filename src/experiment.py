@@ -23,7 +23,7 @@ def run_experiment(
     output_dir: str = "../output",
     start_index: int = 0,
     pypi_packages_file: str | None = None,
-):
+) -> None:
     """
     Base method to run the experiment to find hallucinations when generating code from prompts.
     """
@@ -37,7 +37,7 @@ def run_experiment(
 
     _start = datetime.now().isoformat()
     results_file = str(Path(output_dir) / f"{run_id}_{_start}.json")
-    results = {
+    results: dict[str, dict] = {
         "metadata": {
             "run_id": run_id,
             "dataset_file": dataset_file,
@@ -46,7 +46,7 @@ def run_experiment(
             "samples": samples,
             "configured_temperature": temperature or "None - used default",
             "configured_top_p": top_p or "None - used default",
-            "max_tokens": max_tokens,
+            "configured_max_tokens": max_tokens or "None - used default",
             "start_datetime": _start,
             "end_datetime": datetime.now().isoformat(),
         },

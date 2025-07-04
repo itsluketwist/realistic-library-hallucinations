@@ -3,4 +3,6 @@ datasets
 Jupyter
 levenshtein
 llm-codegen-research
+scikit-learn
+sentence-transformers
 stackapi
