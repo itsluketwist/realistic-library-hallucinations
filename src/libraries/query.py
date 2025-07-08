@@ -4,46 +4,17 @@ import Levenshtein
 from llm_cgr import generate_list
 
 from src.libraries.format import format_library_names
-from src.libraries.load import PYTHON_STDLIB
 
 
 # default to a modern reasoning model for creating library names
 DEFAULT_LIST_MODEL = "o4-mini-2025-04-16"
 
 
-def get_libraries_for_task(
-    task: str,
-    model: str = DEFAULT_LIST_MODEL,
-    allow_stdlib: bool = False,
-) -> list[str]:
-    """
-    Get a list of libraries that could be used to solve the given task.
-
-    Returns the list of library names.
-    """
-    libraries = generate_list(
-        model=model,
-        user=(
-            "Give me a comprehensive list of all possible external python libraries "
-            f"I could use to solve the following task: {task}"
-        ),
-    )
-
-    libraries = format_library_names(
-        libraries=libraries,
-        valid=True,
-    )
-
-    if not allow_stdlib:
-        libraries = [lib for lib in libraries if lib not in PYTHON_STDLIB]
-
-    return libraries
-
-
 def get_typo_library_names(
     library: str,
     model: str = DEFAULT_LIST_MODEL,
     limit: int = 5,
+    pypi_packages_file: str | None = None,
 ) -> list[str]:
     """
     Get a list of library names that are small typos of the given library name.
@@ -62,15 +33,20 @@ def get_typo_library_names(
     typos = format_library_names(
         libraries=typos,
         valid=False,
+        pypi_packages_file=pypi_packages_file,
     )
+
+    # ensure typos are a single edit away from the library name
+    typos = [lib for lib in typos if Levenshtein.distance(lib, library) <= 1]
 
     return typos[:limit]
 
 
-def get_wrong_library_names(
+def get_nearmiss_library_names(
     library: str,
     model: str = DEFAULT_LIST_MODEL,
     limit: int = 5,
+    pypi_packages_file: str | None = None,
 ) -> list[str]:
     """
     Get a list of library names that could be confused with the given library name.
@@ -93,10 +69,11 @@ def get_wrong_library_names(
     wrongs = format_library_names(
         libraries=wrongs,
         valid=False,
+        pypi_packages_file=pypi_packages_file,
     )
 
     # need to be more than one edit away from the library name to differentiate from typos
-    wrongs = [lib for lib in wrongs if Levenshtein.distance(lib, library) > 1]
+    wrongs = [lib for lib in wrongs if 1 < Levenshtein.distance(lib, library) <= 8]
 
     return wrongs[:limit]
 
@@ -105,6 +82,7 @@ def get_fake_library_names(
     task: str,
     model: str = DEFAULT_LIST_MODEL,
     limit: int = 5,
+    pypi_packages_file: str | None = None,
 ) -> list[str]:
     """
     Get a list of fabricated library names that sound like they could realistically
@@ -127,5 +105,7 @@ def get_fake_library_names(
     fakes = format_library_names(
         libraries=fakes,
         valid=False,
+        pypi_packages_file=pypi_packages_file,
     )
+
     return fakes[:limit]

@@ -175,6 +175,9 @@ pre_*.ipynb
 prototype.ipynb
 my_notebooks/
 
+# too large to upload to github
+data/stackexchange/ngram_embeddings_2025-07-04.json
+
 # temporary ignore
 output/*
 run.ipynb

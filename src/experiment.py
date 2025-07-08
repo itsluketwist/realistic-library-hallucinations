@@ -20,7 +20,7 @@ def run_experiment(
     top_p: float | None = None,
     max_tokens: int | None = None,
     timeout_seconds: int = 60,
-    output_dir: str = "../output",
+    output_dir: str = "output",
     start_index: int = 0,
     pypi_packages_file: str | None = None,
 ) -> None:
