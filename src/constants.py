@@ -1,23 +1,24 @@
 """Constants used across the project."""
 
-LIB_SEP = "||"
+from enum import StrEnum
 
-BASE_PROMPT = (
-    "Write self-contained Python code to solve the following task.\n"
-    "You should import and use {library}\n"
-    "Task: {task}"
-)
 
-CHOOSE_PROMPT = BASE_PROMPT.format(
-    library="an external library.",
-    task="{task}",
-)
+class HallucinationLevel(StrEnum):
+    """Enum for the different levels of hallucinations to be tested."""
 
-SPECIFY_PROMPT = BASE_PROMPT.format(
-    library="the {library} external library.",
-    task="{task}",
-)
+    LIBRARY = "library"
+    MEMBER = "member"
 
+    def __str__(self) -> str:
+        return str.__str__(self)
+
+    @classmethod
+    def options(cls) -> str:
+        """Return a list of all experiment types."""
+        return ", ".join([type.value for type in cls])
+
+
+# the default model parameters for the experiments
 MODEL_DEFAULTS = {
     "meta-llama/llama-3.2-3b-instruct-turbo": {
         "temperature": 0.6,

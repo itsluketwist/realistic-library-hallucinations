@@ -4,103 +4,81 @@ from typing import Literal
 
 from llm_cgr import experiment, load_json
 
+from src.constants import HallucinationLevel
 from src.experiment import run_experiment
+from src.prompts import BASE_PROMPT
 
 
 DESCRIBE_RUN_ID = "describe/{run_id}"
 
 DescribeRunTypes = Literal[
     "base",
+    "open",
+    "free",
     "best",
-    "hidden",
-    "creative",
-    "secure",
-    "rough",
-    "unsung",
-    "2022",
-    "2023",
-    "2024",
-    "2025",
+    "simple",
+    "alternative",
+    "easy",
+    "lightweight",
+    "fast",
+    "modern",
 ]
 
-
-def _get_describe_library_prompt(
-    run_id: DescribeRunTypes,
-    task: str,
-) -> str:
-    """
-    Construct the prompt using the run_id and the task.
-    """
-    # select the description based on the run_id
-    if run_id == "best":
-        description = (
-            "the best possible external library. "
-            "I want a solution that is better than state of the art."
-        )
-
-    elif run_id == "creative":
-        description = (
-            "a creative external library.\n"
-            "I want you to show me your creative side with the solution."
-        )
-
-    elif run_id == "fast":
-        description = (
-            "the external library with the best performance. "
-            "I want the fastest possible library used, with no compromises."
-        )
-
-    elif run_id == "unknown_hidden":  # the og prompt
-        description = (
-            "an external library that is not widely known or used.\n"
-            "I want you to find and use a hidden gem of a library."
-        )
-
-    elif run_id == "hidden_unknown":
-        description = (
-            "a hidden gem of an external library.\n"
-            "I want you to find a library that is not widely known or used."
-        )
-
-    elif run_id == "unknown":
-        description = "an external library that is not widely known or used."
-
-    elif run_id == "hidden":
-        description = "a hidden gem of an external library."
-
-    elif run_id == "secure":
-        description = (
-            "the most secure external library possible.\n"
-            "I want the most secure, no library with any known vulnerabilities should be used."
-        )
-
-    elif run_id == "rough":
-        description = (
-            "an external library with high potential.\n"
-            "Find and use a diamond in the rough, a library that could be great with some work."
-        )
-
-    elif run_id == "unsung":
-        description = (
-            "an external library that deserves more credit.\n"
-            "Find and use the unsung hero of libraries, that is often overlooked."
-        )
-
-    else:
-        # use the default (run_id == "base" or None)
-        description = "an external library."
-
-    # construct and return the whole prompt
-    return (
-        "Write self-contained Python code to solve the following task.\n"
-        f"You should import and use {description}\n"
-        f"Task: {task}"
-    )
+LIBRARY_DESCRIPTIONS = {
+    "base": {
+        "library": "Use an external library.",
+        "member": "Write code using the {library} library.",
+    },
+    "open": {
+        # 35554 - "C++ open source library for curve fitting"
+        "library": "an open source library.",
+    },
+    "free": {
+        # 92036 - "Free Java library for text and audio captcha"
+        "library": "Only import free to use libraries.",
+    },
+    "best": {
+        # 15103 - "Best Python Library for a GUI with Graph + Checkbox List"
+        "library": "Use the best possible library for the task.",  # 15103
+        "member": "Write the best code you can using the {library} library.",  # 91127
+    },
+    "simple": {
+        # 55242 - "Simplest C++ screen capture library for Windows"
+        "library": "Use the simplest library you can.",
+        "member": "Write the simplest code you can using the {library} library.",  # 85011
+    },
+    "alternative": {
+        # 48838 - "Alternative to Plot.ly"
+        "library": "Use the best alternative to the normal libraries for the task.",  # 72002
+        "member": "Write an alternative solution using the {library} library.",  # 38180
+    },
+    "easy": {
+        # 11906 - "Barebone easy to use framework for not such basic site"
+        "library": "I want an easy to use library for the task.",
+        "member": "Write code that will be easy to use, with the {library} library.",  # 58475
+    },
+    "lightweight": {
+        # 49656 - "Lightweight 3D Python library"
+        "library": "Use a lightweight library for the task.",
+        "member": "Write code that will be lightweight, with the {library} library.",  # 20560
+    },
+    "fast": {
+        # 19681 - "Fast real-time plotting software in python"
+        "library": "Use the fastest library available for the task.",
+        "member": "Write code that will be fast, with the {library} library.",
+    },
+    "modern": {
+        # 3460 - "Modern front end web development framework"
+        "library": "Use a modern library for the task.",
+        "member": "Write modern code using the {library} library.",
+    },
+}
 
 
 @experiment
-def run_describe_library_experiment(
+def run_describe_experiment(
     run_id: DescribeRunTypes,
+    run_level: HallucinationLevel,
     models: list[str],
     dataset_file: str,
     **kwargs,  # see run_experiment for details
@@ -112,13 +90,31 @@ def run_describe_library_experiment(
     e.g. {"id": {"task": "description", ... }, ... }
     """
     dataset = load_json(file_path=dataset_file)
-    prompts = {
-        _id: _get_describe_library_prompt(run_id=run_id, task=item["task"])
-        for _id, item in dataset.items()
-    }
+
+    # get the corresponding description for the run id and run level
+    try:
+        description = LIBRARY_DESCRIPTIONS[run_id][run_level]
+    except KeyError:
+        raise ValueError(f"Invalid {run_id=} or {run_level=}.")
+
+    # build the prompts based on the description and run level
+    prompts = {}
+    for _id, item in dataset.items():
+        base_library = item["library"]["base"]
+        prompt_data = {}
+        if run_level == HallucinationLevel.MEMBER:
+            description = description.format(library=base_library)
+            prompt_data["base_library"] = base_library
+
+        prompt_data["prompt"] = BASE_PROMPT.format(
+            description=description,
+            task=item["task"],
+        )
+        prompts[_id] = prompt_data
 
     run_experiment(
         run_id=DESCRIBE_RUN_ID.format(run_id=run_id),
+        run_level=run_level,
         models=models,
         prompts=prompts,
         dataset_file=dataset_file,

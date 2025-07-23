@@ -9,6 +9,7 @@ def generate_model_responses(
     prompt: str,
     models: list[str],
     samples: int = 3,
+    system_prompt: str | None = None,
     temperature: float | None = None,
     top_p: float | None = None,
     max_tokens: int | None = None,
@@ -35,13 +36,14 @@ def generate_model_responses(
                 # do each query in a new session
                 llm = get_llm(
                     model=model,
+                    system=system_prompt,
                     temperature=_temperature,
                     top_p=_top_p,
                     max_tokens=_max_tokens,
                 )
                 with timeout(seconds=timeout_seconds):
                     _response = llm.chat(user=prompt)
-                    responses[model].append([_response])
+                    responses[model].append(_response)
 
             except Exception as e:
                 # handle any errors

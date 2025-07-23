@@ -4,23 +4,28 @@ from typing import Literal
 
 from llm_cgr import experiment, load_json
 
-from src.constants import BASE_PROMPT, LIB_SEP
+from src.constants import HallucinationLevel
 from src.experiment import run_experiment
+from src.prompts import BASE_PROMPT
 
 
 SPECIFY_RUN_ID = "specify/{run_id}"
 
-SPECIFY_BASE_RUN_ID = "control/specify"
-
-SpecifyRunTypes = Literal["base", "fake", "wrong", "typo"]
+SpecifyRunTypes = Literal[
+    "base",
+    "typo",
+    "nearmiss",
+    "fabricated",
+]
 
 
 @experiment
-def run_specify_library_experiment(
+def run_specify_experiment(
     run_id: SpecifyRunTypes,
+    run_level: HallucinationLevel,
     models: list[str],
     dataset_file: str,
-    libraries: int = 2,
+    n: int = 2,
     **kwargs,  # see run_experiment for details
 ):
     """
@@ -31,18 +36,45 @@ def run_specify_library_experiment(
     e.g. {"task_id": {"task": "description", "libraries": {"typo": ["numpi", ... ], ...}}, ...}
     """
     dataset = load_json(file_path=dataset_file)
+
+    # build the prompts based on the description, run id and run level
     prompts = {}
     for _id, item in dataset.items():
-        for _library in item["libraries"][run_id][:libraries]:
-            key = f"{_id}{LIB_SEP}{_library}"
-            prompts[key] = BASE_PROMPT.format(
-                library=f"the {_library} external library.",
+        # extract the target libraries or members
+        if run_id == "base":
+            targets = [item[run_level][run_id]]
+        else:
+            targets = item[run_level][run_id][:n]
+
+        for _target in targets:
+            # get the corresponding description for the run level
+            if run_level == HallucinationLevel.LIBRARY:
+                description = f"Use the {_target} library."
+                prompt_data = {
+                    "target_library": _target,
+                }
+
+            elif run_level == HallucinationLevel.MEMBER:
+                base_library = item["library"]["base"]
+                description = f"Use {_target} from the {base_library} library."
+                prompt_data = {
+                    "base_library": base_library,
+                    "target_member": _target,
+                }
+            else:
+                raise ValueError(
+                    f"Invalid {run_level=}, must be one of: {HallucinationLevel.options()}"
+                )
+
+            prompt_data["prompt"] = BASE_PROMPT.format(
+                description=description,
                 task=item["task"],
             )
+            prompts[f"{_id} | {_target}"] = prompt_data
 
-    _run_id = SPECIFY_BASE_RUN_ID if run_id == "base" else SPECIFY_RUN_ID
     run_experiment(
-        run_id=_run_id.format(run_id=run_id),
+        run_id=SPECIFY_RUN_ID.format(run_id=run_id),
+        run_level=run_level,
         models=models,
         prompts=prompts,
         dataset_file=dataset_file,
