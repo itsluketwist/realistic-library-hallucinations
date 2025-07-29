@@ -9,7 +9,9 @@ from llm_cgr import load_json
 PYTHON_STDLIB: frozenset = getattr(sys, "stdlib_module_names", frozenset())
 
 
-DEFAULT_PYPI_PACKAGES_FILE = "data/pypi/package_names.json"
+DEFAULT_PYPI_PACKAGES_FILE = "data/libraries/pypi.json"
+
+DEFAULT_DOCUMENTATION_FILE = "data/libraries/documentation.json"
 
 
 # list of known valid import strings that do not match their package name
