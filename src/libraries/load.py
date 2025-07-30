@@ -1,4 +1,4 @@
-"""Methods for loading valid library names from PyPI."""
+"""Methods for loading valid libraries and library members."""
 
 import sys
 from functools import cache
@@ -42,7 +42,7 @@ KNOWN_VALID_IMPORTS = [
 
 
 @cache
-def load_known_imports(
+def load_known_libraries(
     file_path: str | None = None,
     include_stdlib: bool = True,
     include_valid_extras: bool = True,
@@ -50,9 +50,8 @@ def load_known_imports(
     """
     Loads the package names from a JSON file.
     """
-    # use default file path if not provided
+    # use default file path if not provided, load the data
     file_path = file_path or DEFAULT_PYPI_PACKAGES_FILE
-
     pypi_data = load_json(file_path=file_path)
     packages = pypi_data["data"]
 
@@ -64,3 +63,22 @@ def load_known_imports(
 
     packages = set(packages)  # remove duplicates
     return sorted(packages)
+
+
+@cache
+def load_known_members(
+    file_path: str | None = None,
+) -> dict[str, dict[str, set[str]]]:
+    """
+    Loads the library documentation data from a JSON file.
+    """
+    # use default file path if not provided, load the data
+    file_path = file_path or DEFAULT_DOCUMENTATION_FILE
+    file_data = load_json(file_path=file_path)
+    documentation = file_data["data"]
+
+    members = {
+        _lib: {"modules": set(_data["modules"]), "members": set(_data["members"])}
+        for _lib, _data in documentation.items()
+    }
+    return members

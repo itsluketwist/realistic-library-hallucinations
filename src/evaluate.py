@@ -5,7 +5,7 @@ from collections import defaultdict
 from llm_cgr import load_json, save_json
 
 from src.constants import HallucinationLevel
-from src.libraries.check import check_for_unknown_imports
+from src.libraries.check import check_for_unknown_libraries
 
 
 def evaluate_hallucinations(
@@ -47,7 +47,7 @@ def evaluate_hallucinations(
                 # handle library hallucinations
                 if run_level == HallucinationLevel.LIBRARY:
                     # check for any hallucinated libraries
-                    _hallus = check_for_unknown_imports(
+                    _hallus = check_for_unknown_libraries(
                         response=_response,
                         pypi_packages_file=pypi_packages_file,
                     )
