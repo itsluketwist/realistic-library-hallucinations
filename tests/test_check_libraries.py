@@ -99,6 +99,15 @@ def test_check_for_unknown_libraries(test_pypi_packages_file):
     assert (
         check_for_unknown_libraries(
             response=response,
+            installs_only=False,
+            pypi_packages_file=test_pypi_packages_file,
+        )
+        == set()
+    )
+    assert (
+        check_for_unknown_libraries(
+            response=response,
+            installs_only=True,
             pypi_packages_file=test_pypi_packages_file,
         )
         == set()
@@ -107,7 +116,6 @@ def test_check_for_unknown_libraries(test_pypi_packages_file):
     # a single hallucinated library
     response = (
         "Here is some code that imports libraries:\n"
-        "First do this `pip install numpy`\n"
         "And then run the code:\n"
         "```python\n"
         "import numpy as np\n"
@@ -119,6 +127,14 @@ def test_check_for_unknown_libraries(test_pypi_packages_file):
     )
     assert check_for_unknown_libraries(
         response=response,
+        installs_only=False,
+        pypi_packages_file=test_pypi_packages_file,
+    ) == {
+        "hallucinated_lib",
+    }
+    assert check_for_unknown_libraries(
+        response=response,
+        installs_only=True,
         pypi_packages_file=test_pypi_packages_file,
     ) == {
         "hallucinated_lib",
@@ -132,6 +148,7 @@ def test_check_for_unknown_libraries(test_pypi_packages_file):
         "```bash\n"
         "pip install hallucinated_lib\n"
         "pip install hallucinated_numpy\n"
+        "pip install numpy pandas\n"
         "```\n"
         "And then run the code:\n"
         "```python\n"
@@ -144,11 +161,21 @@ def test_check_for_unknown_libraries(test_pypi_packages_file):
     )
     assert check_for_unknown_libraries(
         response=response,
+        installs_only=False,
         pypi_packages_file=test_pypi_packages_file,
     ) == {
         "hallucinated_lib",
         "really_bad_hallucination",
         "this_cant_be_real",
         "another_bad_hallucination",
+        "hallucinated_numpy",
+    }
+    assert check_for_unknown_libraries(
+        response=response,
+        installs_only=True,
+        pypi_packages_file=test_pypi_packages_file,
+    ) == {
+        "hallucinated_lib",
+        "really_bad_hallucination",
         "hallucinated_numpy",
     }

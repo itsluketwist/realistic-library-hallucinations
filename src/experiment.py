@@ -27,6 +27,7 @@ def run_experiment(
     pypi_packages_file: str | None = None,
     system_prompt: str | None = None,
     post_prompt: str | None = None,
+    check_installs_only: bool = False,
 ) -> None:
     """
     Base method to run the experiment to find hallucinations when generating code from prompts.
@@ -89,5 +90,6 @@ def run_experiment(
     print(f"Evaluating responses: {results_file=}")
     evaluate_hallucinations(
         results_file=results_file,
+        check_installs_only=check_installs_only,
         pypi_packages_file=pypi_packages_file,
     )

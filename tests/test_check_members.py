@@ -90,3 +90,17 @@ def test_check_for_unknown_members():
     ) == {
         "pandas.DataFramingStuff",
     }
+
+    # check for unknown member when module is different than expected
+    response = (
+        "Here is some code that uses a specific member:\n"
+        "```python\n"
+        "from mpl_toolkits import hallucination\n"
+        "```\n"
+    )
+    assert check_for_unknown_members(
+        response=response,
+        library="matplotlib",
+    ) == {
+        "mpl_toolkits.hallucination",
+    }

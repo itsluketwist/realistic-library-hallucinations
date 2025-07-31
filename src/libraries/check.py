@@ -66,6 +66,7 @@ def check_for_member(
 
 def check_for_unknown_libraries(
     response: str,
+    installs_only: bool = False,
     pypi_packages_file: str | None = None,
 ) -> set[str]:
     """
@@ -74,15 +75,20 @@ def check_for_unknown_libraries(
     Returns a set of unknown libraries.
     """
     installs, imports, _ = extract_libraries(response=response)
-    response_libraries = installs | imports
+    valid_libraries = load_known_libraries(file_path=pypi_packages_file)
 
-    valid_libraries = load_known_libraries(
-        file_path=pypi_packages_file,
-    )
+    # not every response has installs, so only check installs if requested and they exist
+    if installs_only and installs:
+        invalid = {library for library in installs if library not in valid_libraries}
 
-    invalid = {
-        library for library in response_libraries if library not in valid_libraries
-    }
+    # if not installs_only, or no installs, then check all libraries
+    else:
+        invalid = {
+            library
+            for library in (installs | imports)
+            if library not in valid_libraries
+        }
+
     return invalid
 
 

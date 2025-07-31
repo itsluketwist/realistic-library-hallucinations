@@ -10,6 +10,7 @@ from src.libraries.check import check_for_unknown_libraries
 
 def evaluate_hallucinations(
     results_file: str,
+    check_installs_only: bool = False,
     pypi_packages_file: str | None = None,
 ) -> dict:
     """
@@ -49,6 +50,7 @@ def evaluate_hallucinations(
                     # check for any hallucinated libraries
                     _hallus = check_for_unknown_libraries(
                         response=_response,
+                        installs_only=check_installs_only,
                         pypi_packages_file=pypi_packages_file,
                     )
 

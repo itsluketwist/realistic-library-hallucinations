@@ -1,4 +1,4 @@
-"""Methods for querying library names for tasks via LLMs."""
+"""Methods for generating library names for tasks via LLMs."""
 
 from typing import Literal, get_args
 
@@ -15,7 +15,7 @@ DEFAULT_LIST_MODEL = "o4-mini-2025-04-16"
 TypoSize = Literal["small", "medium"]
 
 
-def query_library_typos(
+def generate_library_typos(
     typo_size: TypoSize,
     library: str,
     model: str = DEFAULT_LIST_MODEL,
@@ -76,7 +76,7 @@ def query_library_typos(
     return typos[:limit]
 
 
-def query_library_fabrications(
+def generate_library_fabrications(
     task: str,
     model: str = DEFAULT_LIST_MODEL,
     limit: int = 5,
@@ -116,7 +116,7 @@ def query_library_fabrications(
     return typos[:limit]
 
 
-def query_member_typos(
+def generate_member_typos(
     typo_size: TypoSize,
     library: str,
     member: str,
@@ -162,21 +162,18 @@ def query_member_typos(
         model=model,
         user=user_prompt,
     )
-    print(typos)
 
     # add module path to the typos
     typos = [
         _typo if _typo.startswith(f"{module}.") else f"{module}.{_typo}"
         for _typo in typos
     ]
-    print(typos)
 
     # format the typos and check invalid
     typos = format_python_list(
         libraries=typos,
         normalise=False,  # don't normalise the member names
     )
-    print(typos)
     typos = [
         _typo
         for _typo in typos
@@ -186,7 +183,6 @@ def query_member_typos(
             documentation_file=documentation_file,
         )
     ]
-    print(typos)
 
     if typo_size == "small":
         # ensure small typos are a single edit away from the library name
@@ -195,11 +191,10 @@ def query_member_typos(
         # need to be more than one edit away from the library name to differentiate from typos
         typos = [mem for mem in typos if 1 < Levenshtein.distance(mem, member) <= 8]
 
-    print(typos)
     return typos[:limit]
 
 
-def query_member_fabrications(
+def generate_member_fabrications(
     library: str,
     task: str,
     model: str = DEFAULT_LIST_MODEL,
