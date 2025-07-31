@@ -1,9 +1,12 @@
 {
-    "datetime": "2025-07-29T21:07:18.551154",
+    "datetime": "2025-07-30T13:46:12.149225",
     "data": {
         "wordninja": {
             "url": "https://github.com/keredson/wordninja/blob/master/wordninja.py",
             "version": "2.0.0",
+            "modules": [
+                "wordninja"
+            ],
             "members": [
                 "wordninja",
                 "wordninja.LanguageModel",
@@ -14,6 +17,9 @@
         "texttable": {
             "url": "https://github.com/foutaise/texttable/blob/master/texttable.py",
             "version": "1.7.0",
+            "modules": [
+                "texttable"
+            ],
             "members": [
                 "texttable",
                 "texttable.Texttable",
@@ -25,6 +31,9 @@
         "xmltodict": {
             "url": "https://github.com/martinblech/xmltodict/blob/master/xmltodict.py",
             "version": "0.14.2",
+            "modules": [
+                "xmltodict"
+            ],
             "members": [
                 "xmltodict",
                 "xmltodict.parse",
@@ -35,6 +44,9 @@
         "regex": {
             "url": "https://github.com/mrabarnett/mrab-regex/blob/hg/regex_3/regex.py",
             "version": "2.5.153",
+            "modules": [
+                "regex"
+            ],
             "members": [
                 "regex",
                 "regex.cache_all",
@@ -99,6 +111,9 @@
         "pytz": {
             "url": "https://github.com/stub42/pytz/blob/master/src/pytz/__init__.py",
             "version": "2025.2",
+            "modules": [
+                "pytz"
+            ],
             "members": [
                 "pytz",
                 "pytz.timezone",
@@ -148,6 +163,9 @@
         "pytesseract": {
             "url": "https://github.com/madmaze/pytesseract",
             "version": "0.3.13",
+            "modules": [
+                "pytesseract"
+            ],
             "members": [
                 "pytesseract",
                 "pytesseract.DEFAULT_ENCODING",
@@ -193,7 +211,7 @@
         "openpyxl": {
             "url": "https://openpyxl.readthedocs.io/en/latest/objects.inv",
             "version": "3.1",
-            "toplevels": [
+            "modules": [
                 "openpyxl"
             ],
             "members": [
@@ -1001,7 +1019,7 @@
         "django": {
             "url": "https://docs.djangoproject.com/en/stable/objects.inv",
             "version": "5.2",
-            "toplevels": [
+            "modules": [
                 "ArchiveIndexView",
                 "CreateView",
                 "DateDetailView",
@@ -2190,7 +2208,7 @@
         "statsmodels": {
             "url": "https://www.statsmodels.org/stable/objects.inv",
             "version": "0.14.4",
-            "toplevels": [
+            "modules": [
                 "statsmodels"
             ],
             "members": [
@@ -3134,7 +3152,7 @@
         "wordcloud": {
             "url": "https://amueller.github.io/word_cloud/objects.inv",
             "version": "1.8.1",
-            "toplevels": [
+            "modules": [
                 "wordcloud"
             ],
             "members": [
@@ -3148,7 +3166,7 @@
         "librosa": {
             "url": "https://librosa.org/doc/latest/objects.inv",
             "version": "0.11",
-            "toplevels": [
+            "modules": [
                 "librosa"
             ],
             "members": [
@@ -3389,7 +3407,7 @@
         "psutil": {
             "url": "https://psutil.readthedocs.io/en/latest/objects.inv",
             "version": "7.0.1",
-            "toplevels": [
+            "modules": [
                 "psutil"
             ],
             "members": [
@@ -3516,7 +3534,7 @@
         "chardet": {
             "url": "https://chardet.readthedocs.io/en/latest/objects.inv",
             "version": "5.0.0",
-            "toplevels": [
+            "modules": [
                 "chardet"
             ],
             "members": [
@@ -3593,7 +3611,7 @@
         "textblob": {
             "url": "https://textblob.readthedocs.io/en/latest/objects.inv",
             "version": "0.16.0",
-            "toplevels": [
+            "modules": [
                 "textblob"
             ],
             "members": [
@@ -3657,7 +3675,7 @@
         "xlwt": {
             "url": "https://xlwt.readthedocs.io/en/latest/objects.inv",
             "version": "1.3.0",
-            "toplevels": [
+            "modules": [
                 "xlwt"
             ],
             "members": [
@@ -3681,7 +3699,7 @@
         "dateutil": {
             "url": "https://dateutil.readthedocs.io/en/stable/objects.inv",
             "version": "3.9.0",
-            "toplevels": [
+            "modules": [
                 "dateutil"
             ],
             "members": [
@@ -3740,7 +3758,7 @@
         "scipy": {
             "url": "https://docs.scipy.org/doc/scipy/objects.inv",
             "version": "1.16.1",
-            "toplevels": [
+            "modules": [
                 "builtins",
                 "numpy",
                 "scipy"
@@ -6377,7 +6395,7 @@
         "seaborn": {
             "url": "https://seaborn.pydata.org/objects.inv",
             "version": "0.13.2",
-            "toplevels": [
+            "modules": [
                 "seaborn"
             ],
             "members": [
@@ -6519,7 +6537,7 @@
         "cryptography": {
             "url": "https://cryptography.io/en/latest/objects.inv",
             "version": "46.0.0.dev1",
-            "toplevels": [
+            "modules": [
                 "ObjectIdentifier",
                 "cryptography"
             ],
@@ -6983,7 +7001,7 @@
         "pandas": {
             "url": "https://pandas.pydata.org/pandas-docs/stable/objects.inv",
             "version": "2.3.1",
-            "toplevels": [
+            "modules": [
                 "pandas"
             ],
             "members": [
@@ -7348,7 +7366,7 @@
         "numpy": {
             "url": "https://numpy.org/doc/stable/objects.inv",
             "version": "2.3",
-            "toplevels": [
+            "modules": [
                 "ndpointer",
                 "numpy",
                 "object"
@@ -8627,7 +8645,7 @@
         "sklearn": {
             "url": "https://scikit-learn.org/stable/objects.inv",
             "version": "1.7",
-            "toplevels": [
+            "modules": [
                 "sklearn"
             ],
             "members": [
@@ -9487,7 +9505,7 @@
         "matplotlib": {
             "url": "https://matplotlib.org/stable/objects.inv",
             "version": "3.10.3",
-            "toplevels": [
+            "modules": [
                 "dateutil",
                 "matplotlib",
                 "mpl_toolkits",
@@ -10687,7 +10705,7 @@
         "sympy": {
             "url": "https://docs.sympy.org/latest/objects.inv",
             "version": "1.14.0",
-            "toplevels": [
+            "modules": [
                 "sympy"
             ],
             "members": [
@@ -13726,7 +13744,7 @@
         "requests": {
             "url": "https://docs.python-requests.org/en/latest/objects.inv",
             "version": "2.32.4",
-            "toplevels": [
+            "modules": [
                 "requests"
             ],
             "members": [
@@ -13783,7 +13801,7 @@
         "bs4": {
             "url": "https://www.crummy.com/software/BeautifulSoup/bs4/doc/objects.inv",
             "version": "",
-            "toplevels": [
+            "modules": [
                 "CData",
                 "Comment",
                 "Declaration",
@@ -13939,7 +13957,7 @@
         "folium": {
             "url": "https://python-visualization.github.io/folium/latest/objects.inv",
             "version": "0.20.0",
-            "toplevels": [
+            "modules": [
                 "folium"
             ],
             "members": [
@@ -14077,7 +14095,7 @@
         "nltk": {
             "url": "https://www.nltk.org/py-modindex.html",
             "version": "3.8.1",
-            "toplevels": [
+            "modules": [
                 "nltk"
             ],
             "members": [
@@ -14441,7 +14459,7 @@
         "tensorflow": {
             "url": "https://www.tensorflow.org/api_docs/python/tf",
             "version": "2.6.0",
-            "toplevels": [
+            "modules": [
                 "tensorflow"
             ],
             "members": [
@@ -18831,7 +18849,7 @@
                 "https://lxml.de/apidoc/lxml.isoschematron.html"
             ],
             "version": "4.6.3",
-            "toplevels": [
+            "modules": [
                 "lxml"
             ],
             "members": [

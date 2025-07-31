@@ -55,6 +55,8 @@ def extract_members(response: str) -> set[str]:
             # only check Python code blocks
             continue
 
+        members.update(code.lib_imports)
+
         for lib, usages in code.lib_usage.items():
             members.update(f"{lib}.{usage['member']}" for usage in usages)
 

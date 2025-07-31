@@ -9,7 +9,7 @@ def python_normalise(name: str) -> str:
 
     Source: https://packaging.python.org/en/latest/specifications/name-normalization/
     """
-    return re.sub(r"[-_. ]+", "_", name).lower().strip()
+    return re.sub(r"[-_. ]+", "_", name.strip()).lower().strip("_")
 
 
 def format_python_list(
@@ -23,7 +23,7 @@ def format_python_list(
     """
     # clean up each object name
     if normalise:
-        libraries = [python_normalise(lib).strip("_") for lib in libraries]
+        libraries = [python_normalise(lib) for lib in libraries]
 
     # remove duplicates and empty strings (preserving order)
     libraries = list(dict.fromkeys([lib for lib in libraries if lib]))
