@@ -13,9 +13,9 @@ SPECIFY_RUN_ID = "specify/{run_id}"
 
 SpecifyRunTypes = Literal[
     "base",
-    "typo",
-    "nearmiss",
-    "fabricated",
+    "typo_small",
+    "typo_medium",
+    "fabrication",
 ]
 
 

@@ -61,7 +61,8 @@ def check_for_member(
     Returns a boolean indicating if the member is used.
     """
     members = extract_members(response=response)
-    return bool(member in members)  # todo: is this enough of a check?
+    present = bool(member in members)
+    return present
 
 
 def check_for_unknown_libraries(
@@ -104,15 +105,15 @@ def check_for_unknown_members(
     Returns a set of unknown members of the given library.
     """
     response_members = extract_members(response=response)
-    all_members = load_known_members(
+    library_members = load_known_members(
         file_path=documentation_file,
     )
 
-    if library not in all_members:
+    if library not in library_members:
         raise ValueError(f"Library {library} is not documented.")
 
-    valid_modules = all_members[library]["modules"]
-    valid_members = all_members[library]["members"]
+    valid_modules = library_members[library]["modules"]
+    valid_members = library_members[library]["members"]
 
     invalid = set()
     for member in response_members:

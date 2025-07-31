@@ -24,7 +24,7 @@ def run_experiment(
     timeout_seconds: int = 60,
     output_dir: str = "output",
     start_index: int = 0,
-    pypi_packages_file: str | None = None,
+    ground_truth_file: str | None = None,
     system_prompt: str | None = None,
     post_prompt: str | None = None,
     check_installs_only: bool = False,
@@ -91,5 +91,5 @@ def run_experiment(
     evaluate_hallucinations(
         results_file=results_file,
         check_installs_only=check_installs_only,
-        pypi_packages_file=pypi_packages_file,
+        ground_truth_file=ground_truth_file,
     )

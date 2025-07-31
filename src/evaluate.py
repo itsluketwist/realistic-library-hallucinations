@@ -1,17 +1,17 @@
-"""Code to identify hallucinations in responses."""
+"""Code to identify hallucinations in responses and calculate metrics."""
 
 from collections import defaultdict
 
 from llm_cgr import load_json, save_json
 
 from src.constants import HallucinationLevel
-from src.libraries.check import check_for_unknown_libraries
+from src.libraries.check import check_for_unknown_libraries, check_for_unknown_members
 
 
 def evaluate_hallucinations(
     results_file: str,
     check_installs_only: bool = False,
-    pypi_packages_file: str | None = None,
+    ground_truth_file: str | None = None,
 ) -> dict:
     """
     Evaluate the libraries found in model responses, identifying any hallucinations.
@@ -20,9 +20,9 @@ def evaluate_hallucinations(
     # load the generations to evaluate
     results_data = load_json(file_path=results_file)
     generations = results_data["generations"]
-    tasks = results_data["metadata"]["total_tasks"]
-    samples = results_data["metadata"]["samples"]
-    run_level = results_data["metadata"]["run_level"]
+    tasks: int = results_data["metadata"]["total_tasks"]
+    samples: int = results_data["metadata"]["samples"]
+    run_level: HallucinationLevel = results_data["metadata"]["run_level"]
 
     # extract models from generations
     models = []
@@ -51,48 +51,41 @@ def evaluate_hallucinations(
                     _hallus = check_for_unknown_libraries(
                         response=_response,
                         installs_only=check_installs_only,
-                        pypi_packages_file=pypi_packages_file,
+                        pypi_packages_file=ground_truth_file,
                     )
-
-                    # save responses with hallucinations
-                    hallus_per_model[model].update(_hallus)
-                    for _hallu in _hallus:
-                        responses_per_hallu[_hallu].append(_response)
-
-                    if _fake_library := _task_data.get("target_library"):
-                        # update stats if the given library is hallucinated
-                        if _fake_library in _hallus:
-                            response_ids[model].add(f"{task_id} | {_idx}")
-                            task_ids[model].add(task_id)
-
-                    else:
-                        # otherwise update stats if any library is hallucinated
-                        if _hallus:
-                            response_ids[model].add(f"{task_id} | {_idx}")
-                            task_ids[model].add(task_id)
 
                 # handle member hallucinations
                 elif run_level == HallucinationLevel.MEMBER:
-                    # member runs require a base library
-                    # base_library = _task_data["base_library"]
-
                     # check for hallucinated members of the base library
-                    # _hallus = check_for_unknown_members(
-                    #     response=_response,
-                    #     base_library=base_library,
-                    # )
-
-                    # save responses with hallucinations
-
-                    # update hallucination stats
-
-                    pass
+                    _hallus = check_for_unknown_members(
+                        response=_response,
+                        library=_task_data["base_library"],
+                        documentation_file=ground_truth_file,
+                    )
 
                 # handle errors
                 else:
                     raise ValueError(
                         f"Invalid {run_level=}, must be one of: {HallucinationLevel.options()}"
                     )
+
+                # save all responses with hallucinations
+                hallus_per_model[model].update(_hallus)
+                for _hallu in _hallus:
+                    responses_per_hallu[_hallu].append(_response)
+
+                # check if a target fabrication is provided
+                if _target := _task_data.get(f"target_{run_level}"):
+                    # update stats if the target library/member is hallucinated
+                    if _target in _hallus:
+                        response_ids[model].add(f"{task_id} | {_idx}")
+                        task_ids[model].add(task_id)
+
+                else:
+                    # otherwise update stats if any library/member is hallucinated
+                    if _hallus:
+                        response_ids[model].add(f"{task_id} | {_idx}")
+                        task_ids[model].add(task_id)
 
     # save the evaluation data
     results_data["evaluations"] = {
