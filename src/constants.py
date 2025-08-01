@@ -1,21 +1,15 @@
 """Constants used across the project."""
 
-from enum import StrEnum
+from enum import auto
+
+from llm_cgr import OptionsEnum
 
 
-class HallucinationLevel(StrEnum):
+class HallucinationLevel(OptionsEnum):
     """Enum for the different levels of hallucinations to be tested."""
 
-    LIBRARY = "library"
-    MEMBER = "member"
-
-    def __str__(self) -> str:
-        return str.__str__(self)
-
-    @classmethod
-    def options(cls) -> str:
-        """Return a list of all experiment types."""
-        return ", ".join([type.value for type in cls])
+    LIBRARY = auto()
+    MEMBER = auto()
 
 
 # the default model parameters for the experiments

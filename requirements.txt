@@ -225,7 +225,7 @@ lark==1.2.2
     # via rfc3987-syntax
 levenshtein==0.27.1
     # via -r requirements.in
-llm-codegen-research==2.0
+llm-codegen-research==2.1
     # via -r requirements.in
 markdown-it-py==3.0.0
     # via rich

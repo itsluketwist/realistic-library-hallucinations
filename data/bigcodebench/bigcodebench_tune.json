@@ -25,6 +25,7 @@
             ]
         },
         "member": {
+            "library": "psutil",
             "base": "psutil.process_iter",
             "typo_small": [
                 "psutil.proces_iter",
@@ -77,6 +78,7 @@
             ]
         },
         "member": {
+            "library": "sklearn",
             "base": "sklearn.preprocessing.StandardScaler",
             "typo_small": [
                 "sklearn.preprocessing.StandardScalar",
@@ -129,6 +131,7 @@
             ]
         },
         "member": {
+            "library": "seaborn",
             "base": "seaborn.heatmap",
             "typo_small": [
                 "seaborn.heatmp",
@@ -181,6 +184,7 @@
             ]
         },
         "member": {
+            "library": "matplotlib",
             "base": "matplotlib.pyplot.savefig",
             "typo_small": [
                 "matplotlib.pyplot.savfig",
@@ -231,6 +235,7 @@
             ]
         },
         "member": {
+            "library": "regex",
             "base": "regex.findall",
             "typo_small": [
                 "regex.fndall",
@@ -279,6 +284,7 @@
             ]
         },
         "member": {
+            "library": "pandas",
             "base": "pandas.DataFrame",
             "typo_small": [
                 "pandas.DtataFrame",
@@ -328,6 +334,7 @@
             ]
         },
         "member": {
+            "library": "pandas",
             "base": "pandas.DataFrame",
             "typo_small": [
                 "pandas.DataFram",
@@ -377,6 +384,7 @@
             ]
         },
         "member": {
+            "library": "requests",
             "base": "requests.get",
             "typo_small": [
                 "requests.gt",
@@ -429,6 +437,7 @@
             ]
         },
         "member": {
+            "library": "matplotlib",
             "base": "matplotlib.pyplot.plot",
             "typo_small": [
                 "matplotlib.pyplot.pot",
@@ -479,6 +488,7 @@
             ]
         },
         "member": {
+            "library": "matplotlib",
             "base": "matplotlib.pyplot.subplots",
             "typo_small": [
                 "matplotlib.pyplot.subplts",
@@ -530,6 +540,7 @@
             ]
         },
         "member": {
+            "library": "scipy",
             "base": "scipy.fft.fft",
             "typo_small": [
                 "scipy.fft.ftt",
@@ -581,6 +592,7 @@
             ]
         },
         "member": {
+            "library": "sklearn",
             "base": "sklearn.preprocessing.StandardScaler",
             "typo_small": [
                 "sklearn.preprocessing.StandarScaler",
@@ -633,6 +645,7 @@
             ]
         },
         "member": {
+            "library": "matplotlib",
             "base": "matplotlib.pyplot.gca",
             "typo_small": [
                 "matplotlib.pyplot.ga",
@@ -682,6 +695,7 @@
             ]
         },
         "member": {
+            "library": "sklearn",
             "base": "sklearn.feature_extraction.text.TfidfVectorizer",
             "typo_small": [
                 "sklearn.feature_extraction.text.TfidfVectoriser",
@@ -734,6 +748,7 @@
             ]
         },
         "member": {
+            "library": "matplotlib",
             "base": "matplotlib.pyplot.subplots",
             "typo_small": [
                 "matplotlib.pyplot.subplts",
@@ -783,6 +798,7 @@
             ]
         },
         "member": {
+            "library": "nltk",
             "base": "nltk.probability.FreqDist",
             "typo_small": [
                 "nltk.probability.FeqDist",
@@ -833,6 +849,7 @@
             ]
         },
         "member": {
+            "library": "nltk",
             "base": "nltk.corpus.stopwords.words",
             "typo_small": [
                 "nltk.corpus.stopwords.wordss",
@@ -883,6 +900,7 @@
             ]
         },
         "member": {
+            "library": "pandas",
             "base": "pandas.DataFrame",
             "typo_small": [
                 "pandas.Dataframe",
@@ -930,6 +948,7 @@
             ]
         },
         "member": {
+            "library": "pandas",
             "base": "pandas.read_excel",
             "typo_small": [
                 "pandas.readexcel",
@@ -980,6 +999,7 @@
             ]
         },
         "member": {
+            "library": "pandas",
             "base": "pandas.read_csv",
             "typo_small": [
                 "pandas.readcsv",
@@ -1032,6 +1052,7 @@
             ]
         },
         "member": {
+            "library": "matplotlib",
             "base": "matplotlib.pyplot.figure",
             "typo_small": [
                 "matplotlib.pyplot.figre",
@@ -1084,6 +1105,7 @@
             ]
         },
         "member": {
+            "library": "pandas",
             "base": "pandas.DataFrame",
             "typo_small": [
                 "pandas.Dataframe",
@@ -1136,6 +1158,7 @@
             ]
         },
         "member": {
+            "library": "matplotlib",
             "base": "matplotlib.pyplot.subplots",
             "typo_small": [
                 "matplotlib.pyplot.subplts",
@@ -1186,6 +1209,7 @@
             ]
         },
         "member": {
+            "library": "numpy",
             "base": "numpy.random.choice",
             "typo_small": [
                 "numpy.random.choise",
@@ -1238,6 +1262,7 @@
             ]
         },
         "member": {
+            "library": "matplotlib",
             "base": "matplotlib.pyplot.ylim",
             "typo_small": [
                 "matplotlib.pyplot.yim",
@@ -1290,6 +1315,7 @@
             ]
         },
         "member": {
+            "library": "nltk",
             "base": "nltk.download",
             "typo_small": [
                 "nltk.downlod",
@@ -1342,6 +1368,7 @@
             ]
         },
         "member": {
+            "library": "numpy",
             "base": "numpy.random.seed",
             "typo_small": [
                 "numpy.random.sed",
@@ -1392,6 +1419,7 @@
             ]
         },
         "member": {
+            "library": "numpy",
             "base": "numpy.sort",
             "typo_small": [
                 "numpy.sot",
@@ -1442,6 +1470,7 @@
             ]
         },
         "member": {
+            "library": "numpy",
             "base": "numpy.random.randint",
             "typo_small": [
                 "numpy.random.randit",
@@ -1494,6 +1523,7 @@
             ]
         },
         "member": {
+            "library": "requests",
             "base": "requests.RequestException",
             "typo_small": [
                 "requests.RequestExeption",
@@ -1544,6 +1574,7 @@
             ]
         },
         "member": {
+            "library": "requests",
             "base": "requests.exceptions.RequestException",
             "typo_small": [
                 "requests.exceptions.ReqestException",
@@ -1596,6 +1627,7 @@
             ]
         },
         "member": {
+            "library": "chardet",
             "base": "chardet.detect",
             "typo_small": [
                 "chardet.detectt",
@@ -1648,6 +1680,7 @@
             ]
         },
         "member": {
+            "library": "matplotlib",
             "base": "matplotlib.pyplot.subplots",
             "typo_small": [
                 "matplotlib.pyplot.subplts",
@@ -1700,6 +1733,7 @@
             ]
         },
         "member": {
+            "library": "sklearn",
             "base": "sklearn.linear_model.LinearRegression",
             "typo_small": [
                 "sklearn.linear_model.LinearRegresion",
@@ -1752,6 +1786,7 @@
             ]
         },
         "member": {
+            "library": "requests",
             "base": "requests.get",
             "typo_small": [
                 "requests.getr",

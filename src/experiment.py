@@ -11,9 +11,12 @@ from src.evaluate import evaluate_hallucinations
 from src.generate import generate_model_responses
 
 
+DEFAULT_OUTPUT_DIR = "output"
+
+
 def run_experiment(
     run_id: str,
-    run_level: HallucinationLevel,
+    hallucination_level: HallucinationLevel,
     models: list[str],
     prompts: dict[str, dict[str, str]],  # prompt_id -> {"prompt": str, **prompt_data}
     dataset_file: str,
@@ -22,7 +25,7 @@ def run_experiment(
     top_p: float | None = None,
     max_tokens: int | None = None,
     timeout_seconds: int = 60,
-    output_dir: str = "output",
+    output_dir: str | None = None,
     start_index: int = 0,
     ground_truth_file: str | None = None,
     system_prompt: str | None = None,
@@ -41,11 +44,13 @@ def run_experiment(
     print(f"Processing data: {len(tasks)} prompts from {dataset_file=}.")
 
     _start = datetime.now().isoformat()
-    results_file = str(Path(output_dir) / f"{run_id}_{_start}.json")
+    results_file = str(
+        Path(output_dir or DEFAULT_OUTPUT_DIR) / f"{run_id}_{_start}.json"
+    )
     results: dict[str, dict] = {
         "metadata": {
             "run_id": run_id,
-            "run_level": run_level,
+            "hallucination_type": hallucination_level,
             "dataset_file": dataset_file,
             "dataset_size": len(prompts),
             "start_index": start_index,
