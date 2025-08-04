@@ -32,7 +32,7 @@ def check_member_valid(
     )
     if library not in valid_members:
         raise ValueError(f"Library {library} is not documented.")
-    return bool(member in valid_members[library]["members"])
+    return bool(member.lower() in valid_members[library]["members"])
 
 
 def check_for_library(
@@ -61,7 +61,8 @@ def check_for_member(
     Returns a boolean indicating if the member is used.
     """
     members = extract_members(response=response)
-    present = bool(member in members)
+    members = {_m.lower() for _m in members}
+    present = bool(member.lower() in members)
     return present
 
 
@@ -120,7 +121,7 @@ def check_for_unknown_members(
         # check if the member is from a module of the given library
         if any(member.startswith(module + ".") for module in valid_modules):
             # check if member is valid within the library
-            if member not in valid_members:
+            if member.lower() not in valid_members:
                 invalid.add(member)
 
     return invalid

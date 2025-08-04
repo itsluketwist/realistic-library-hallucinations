@@ -12,6 +12,11 @@ PIP_INSTALL_REGEX = re.compile(
     pattern=r"[\n`]pip[^\S\n\r]+install[^\S\n\r]+([A-Za-z0-9_.-]+(?:[^\S\n\r]+[A-Za-z0-9_.-]+)*)",
 )
 
+# regex to ensure member paths end at a class name
+TRIM_MEMBER_PATH_REGEX = re.compile(
+    pattern=r"^((?:[A-Za-z_][A-Za-z0-9_]*\.)*?[A-Z][A-Za-z0-9_]*)(?:\..*)?$",
+)
+
 
 def extract_libraries(response: str) -> tuple[set[str], set[str], set[str]]:
     """
@@ -58,6 +63,9 @@ def extract_members(response: str) -> set[str]:
         members.update(code.lib_imports)
 
         for lib, usages in code.lib_usage.items():
-            members.update(f"{lib}.{usage['member']}" for usage in usages)
+            for _usage in usages:
+                _member = f"{lib}.{_usage['member']}"
+                _trimmed = TRIM_MEMBER_PATH_REGEX.match(_member)
+                members.add(_trimmed.group(1) if _trimmed else _member)
 
     return members

@@ -61,5 +61,5 @@ def test_load_known_members():
         assert isinstance(data["members"], set)
 
     # check some common library members
-    assert "numpy.array" in full_members["numpy"]["members"]  # common
-    assert "pandas.DataFrame" in full_members["pandas"]["members"]  # stdlib
+    assert "numpy.array" in full_members["numpy"]["members"]
+    assert "pandas.dataframe" in full_members["pandas"]["members"]

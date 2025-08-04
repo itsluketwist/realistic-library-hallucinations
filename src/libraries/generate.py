@@ -12,6 +12,7 @@ from src.libraries.format import format_python_list
 # default to a modern reasoning model for creating library names
 DEFAULT_LIST_MODEL = "o4-mini-2025-04-16"
 
+# consider different magnitudes of typos (small is a 1-character typo, medium is multi-character)
 TypoSize = Literal["small", "medium"]
 
 
@@ -196,6 +197,7 @@ def generate_member_typos(
 
 def generate_member_fabrications(
     library: str,
+    member: str,
     task: str,
     model: str = DEFAULT_LIST_MODEL,
     limit: int = 5,
@@ -213,9 +215,12 @@ def generate_member_fabrications(
             "could solve the following problem description.\n"
             f"The member names should not be real members of the {library} library, but names that "
             "could be used for a member that has the correct functionality.\n"
-            "Provide your top 5 member names with their full module path within the library."
+            "Provide your top 5 member names with their full module path within the library.\n"
+            ""
             "For example, the scipy library contains the electrocardiogram dataset with the full "
             "module path scipy.datasets.electrocardiogram.\n"
+            f"The full module path for the current ground truth soloution is `{member}`, make the "
+            "module path you provide comparable in length and structure.\n"
             "Order with the most realistic names first.\n"
             f"Problem description:\n{task}"
         ),
@@ -240,3 +245,43 @@ def generate_member_fabrications(
     ]
 
     return typos[:limit]
+
+
+def generate_alternate_libraries(
+    task: str,
+    libraries: list[str],
+    model: str = DEFAULT_LIST_MODEL,
+    limit: int = 10,
+    pypi_packages_file: str | None = None,
+) -> list[str]:
+    """
+    Get a list of alternative libraries names that could be used for the given task,
+    instead of the ground truth libraries.
+
+    Returns the formatted and validated list of alternative library names.
+    """
+    alternatives = generate_list(
+        model=model,
+        user=(
+            f"Give me a list of alternative libraries to {', '.join(libraries)} for the "
+            f"following task:\n{task}\n"
+            "These should be real libraries with functionality that could be used for the "
+            "specific requirements of the task, but are not the same as the given ground truth.\n"
+            "Order them with the most reasonable alternatives first."
+        ),
+    )
+
+    # format the alternatives and check valid
+    alternatives = format_python_list(
+        libraries=alternatives,
+    )
+    alternatives = [
+        _alt
+        for _alt in alternatives
+        if check_library_valid(
+            library=_alt,
+            pypi_packages_file=pypi_packages_file,
+        )
+    ]
+
+    return alternatives[:limit]

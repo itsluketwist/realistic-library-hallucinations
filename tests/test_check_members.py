@@ -71,9 +71,11 @@ def test_check_for_unknown_members():
         "Here is some code that uses a many library members:\n"
         "```python\n"
         "import numpy as np\n"
+        "import pandas as pd\n"
         "from numpy.hallucinated_module import do_thing\n"
         "from pandas import DataFramingStuff\n"
         "x = np.hallucinated_member(DataFramingStuff([1, 2, 3]))\n"
+        "y = pd.DataFramez.to_dict(x)\n"
         "print(x)\n"
         "```\n"
     )
@@ -89,6 +91,7 @@ def test_check_for_unknown_members():
         library="pandas",
     ) == {
         "pandas.DataFramingStuff",
+        "pandas.DataFramez",
     }
 
     # check for unknown member when module is different than expected

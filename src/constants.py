@@ -11,6 +11,10 @@ class HallucinationLevel(OptionsEnum):
     LIBRARY = auto()
     MEMBER = auto()
 
+    def lil(self) -> str:
+        """Return a short string representation of the enum value."""
+        return self.value[:3].lower()
+
 
 # the default model parameters for the experiments
 MODEL_DEFAULTS = {

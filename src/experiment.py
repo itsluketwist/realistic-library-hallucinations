@@ -50,7 +50,7 @@ def run_experiment(
     results: dict[str, dict] = {
         "metadata": {
             "run_id": run_id,
-            "hallucination_type": hallucination_level,
+            "hallucination_level": hallucination_level,
             "dataset_file": dataset_file,
             "dataset_size": len(prompts),
             "start_index": start_index,

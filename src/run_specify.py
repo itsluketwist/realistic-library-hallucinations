@@ -9,17 +9,9 @@ from src.experiment import run_experiment
 from src.prompts import SPECIFY_LIBRARY_PROMPT, SPECIFY_MEMBER_PROMPT
 
 
-SPECIFY_RUN_ID = "specify_{run_level}_{run_type}"
+SPECIFY_RUN_ID = "spec_{run_level}_{run_type}"
 
 SPECIFY_OUTPUT_DIR = "output/specify"
-
-
-class SpecifyRunLevel(OptionsEnum):
-    """Enum for the different levels of hallucinations to be tested."""
-
-    LIBRARY = auto()
-    ALTERNATIVE = auto()
-    MEMBER = auto()
 
 
 class SpecifyRunType(OptionsEnum):
@@ -34,7 +26,7 @@ class SpecifyRunType(OptionsEnum):
 @experiment
 def run_specify_experiment(
     run_type: SpecifyRunType,
-    run_level: SpecifyRunLevel,
+    run_level: HallucinationLevel,
     models: list[str],
     dataset_file: str,
     n: int = 2,
@@ -61,8 +53,7 @@ def run_specify_experiment(
 
         for _target in targets:
             # get the corresponding description for the run level
-            if run_level in (SpecifyRunLevel.LIBRARY, SpecifyRunLevel.ALTERNATIVE):
-                hallucination_level = HallucinationLevel.LIBRARY
+            if run_level == HallucinationLevel.LIBRARY:
                 prompt_data = {
                     "target_library": _target,
                     "prompt": SPECIFY_LIBRARY_PROMPT.format(
@@ -71,14 +62,12 @@ def run_specify_experiment(
                     ),
                 }
 
-            elif run_level == SpecifyRunLevel.MEMBER:
-                hallucination_level = HallucinationLevel.MEMBER
-                _library = item["member"]["library"]
+            elif run_level == HallucinationLevel.MEMBER:
                 prompt_data = {
-                    "base_library": _library,
+                    "base_library": item["member"]["library"],
                     "target_member": _target,
                     "prompt": SPECIFY_MEMBER_PROMPT.format(
-                        library=_library,
+                        library=item["member"]["library"],
                         member=_target,
                         task=item["task"],
                     ),
@@ -86,15 +75,15 @@ def run_specify_experiment(
 
             else:
                 raise ValueError(
-                    f"Invalid {run_level=}, must be one of: {SpecifyRunLevel.options()}"
+                    f"Invalid {run_level=}, must be one of: {HallucinationLevel.options()}"
                 )
 
             # save the prompt data
             prompts[f"{_id} | {_target}"] = prompt_data
 
     run_experiment(
-        run_id=SPECIFY_RUN_ID.format(run_type=run_type, run_level=run_level),
-        hallucination_level=HallucinationLevel(hallucination_level),
+        run_id=SPECIFY_RUN_ID.format(run_level=run_level.lil(), run_type=run_type),
+        hallucination_level=run_level,
         models=models,
         prompts=prompts,
         dataset_file=dataset_file,

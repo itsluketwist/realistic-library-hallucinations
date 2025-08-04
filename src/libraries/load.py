@@ -78,7 +78,10 @@ def load_known_members(
     documentation = file_data["data"]
 
     members = {
-        _lib: {"modules": set(_data["modules"]), "members": set(_data["members"])}
+        _lib: {
+            "modules": set(_data["modules"]),
+            "members": {_m.lower() for _m in _data["members"]},
+        }
         for _lib, _data in documentation.items()
     }
     return members
