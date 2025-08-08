@@ -107,11 +107,5 @@ def evaluate_hallucinations(
         for model in models
     }
     results_data["hallucinations"] = dict(responses_per_hallu)
-    {
-        # todo: actually run the evaluate and DELETE these keys
-        # "task_ids": {k: sorted(v) for k, v in task_ids.items()},
-        # "response_ids": {k: sorted(v) for k, v in response_ids.items()},
-        "responses": dict(responses_per_hallu),
-    }
     save_json(data=results_data, file_path=results_file)
     return results_data
