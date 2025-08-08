@@ -17,6 +17,7 @@ DESCRIBE_OUTPUT_DIR = "output/describe"
 class DescribeRunType(OptionsEnum):
     """Enum for the different types of describe runs."""
 
+    # the core descriptions generated from StackOverflow
     BASE = auto()
     OPEN = auto()
     FREE = auto()
@@ -28,12 +29,19 @@ class DescribeRunType(OptionsEnum):
     FAST = auto()
     MODERN = auto()
 
+    # year-based descriptions
+    YEAR_FROM = auto()
+    YEAR_VERSION = auto()
+
+    # extended analysis descriptions
+    EXT_HIDDEN = auto()
+
 
 LIBRARY_DESCRIPTIONS = {
     DescribeRunType.BASE: {
         # for control runs, no specific descriptions
         HallucinationLevel.LIBRARY: "using an external library",
-        HallucinationLevel.MEMBER: "using the {library} external library",
+        HallucinationLevel.MEMBER: "using the {library} library",
     },
     DescribeRunType.OPEN: {
         # 35554 - "C++ open source library for curve fitting"
@@ -78,6 +86,19 @@ LIBRARY_DESCRIPTIONS = {
         HallucinationLevel.LIBRARY: "using a modern, up to date library",
         HallucinationLevel.MEMBER: "write modern, up to date code using the {library} library.",
     },
+    # year-based descriptions
+    DescribeRunType.YEAR_FROM: {
+        HallucinationLevel.LIBRARY: "using a new library, from {year} or later",
+    },
+    DescribeRunType.YEAR_VERSION: {
+        HallucinationLevel.LIBRARY: "using an updated library, with a version from {year} or later",
+    },
+    # extended analysis descriptions
+    # todo: THIS???
+    DescribeRunType.EXT_HIDDEN: {
+        HallucinationLevel.LIBRARY: "using a high quality library that is not well known or widely used - find a hidden gem of a library",
+        HallucinationLevel.MEMBER: "use the {library} library but use a method that is not well known or widely used - use a hidden gem",
+    },
 }
 
 
@@ -87,6 +108,7 @@ def run_describe_experiment(
     run_level: HallucinationLevel,
     models: list[str],
     dataset_file: str,
+    year: int | None = None,
     output_dir: str | None = None,
     **kwargs,  # see run_experiment for details
 ):
@@ -96,6 +118,8 @@ def run_describe_experiment(
     Each dataset record must have a "task" key for the task description.
     e.g. {"id": {"task": "description", ... }, ... }
     """
+    run_type = DescribeRunType(run_type)
+    run_level = HallucinationLevel(run_level)
     dataset = load_json(file_path=dataset_file)
 
     # get the corresponding description for the run id and run level
@@ -103,6 +127,12 @@ def run_describe_experiment(
         description = LIBRARY_DESCRIPTIONS[run_type][run_level]
     except KeyError:
         raise ValueError(f"Invalid {run_type=} or {run_level=}.")
+
+    # format with year if applicable
+    if run_type in {DescribeRunType.YEAR_FROM, DescribeRunType.YEAR_VERSION}:
+        if year is None:
+            raise ValueError(f"{run_type=} requires a valid year argument.")
+        description = description.format(year=year)
 
     # build the prompts based on the description and run level
     prompts = {}

@@ -41,12 +41,14 @@ def evaluate_hallucinations(
     hallus_per_model: dict[str, set] = {
         m: set() for m in models
     }  # libraries hallucinated by each model
-    responses_per_hallu: defaultdict[str, list[str]] = defaultdict(list)
+    responses_per_hallu: defaultdict[str, dict[str, str]] = defaultdict(dict)
 
     # loop through models and tasks, checking for hallucinations
     for task_id, _task_data in generations.items():
         for model, _responses in _task_data["responses"].items():
             for _idx, _response in enumerate(_responses):
+                response_id = f"{task_id} | {_idx}"
+
                 # handle library hallucinations
                 if hallucination_level == HallucinationLevel.LIBRARY:
                     # check for any hallucinated libraries
@@ -75,19 +77,19 @@ def evaluate_hallucinations(
                 # save all responses with hallucinations
                 hallus_per_model[model].update(_hallus)
                 for _hallu in _hallus:
-                    responses_per_hallu[_hallu].append(_response)
+                    responses_per_hallu[_hallu][response_id] = _response
 
                 # check if a target fabrication is provided
                 if _target := _task_data.get(f"target_{hallucination_level}"):
                     # update stats if the target library/member is hallucinated
                     if _target in _hallus:
-                        response_ids[model].add(f"{task_id} | {_idx}")
+                        response_ids[model].add(response_id)
                         task_ids[model].add(task_id)
 
                 else:
                     # otherwise update stats if any library/member is hallucinated
                     if _hallus:
-                        response_ids[model].add(f"{task_id} | {_idx}")
+                        response_ids[model].add(response_id)
                         task_ids[model].add(task_id)
 
     # save the evaluation data
@@ -104,9 +106,11 @@ def evaluate_hallucinations(
         }
         for model in models
     }
-    results_data["hallucinations"] = {
-        "task_ids": {k: sorted(v) for k, v in task_ids.items()},
-        "response_ids": {k: sorted(v) for k, v in response_ids.items()},
+    results_data["hallucinations"] = dict(responses_per_hallu)
+    {
+        # todo: actually run the evaluate and DELETE these keys
+        # "task_ids": {k: sorted(v) for k, v in task_ids.items()},
+        # "response_ids": {k: sorted(v) for k, v in response_ids.items()},
         "responses": dict(responses_per_hallu),
     }
     save_json(data=results_data, file_path=results_file)

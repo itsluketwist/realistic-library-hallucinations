@@ -40,6 +40,8 @@ def run_specify_experiment(
     containing a dictionary of library names for each run_id.
     e.g. {"task_id": {"task": "description", "libraries": {"typo": ["numpi", ... ], ...}}, ...}
     """
+    run_type = SpecifyRunType(run_type)
+    run_level = HallucinationLevel(run_level)
     dataset = load_json(file_path=dataset_file)
 
     # build the prompts based on the description, run id and run level
