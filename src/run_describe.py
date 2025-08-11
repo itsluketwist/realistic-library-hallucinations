@@ -35,6 +35,7 @@ class DescribeRunType(OptionsEnum):
 
     # extended analysis descriptions
     EXT_HIDDEN = auto()
+    EXT_DIAMOND = auto()
 
 
 LIBRARY_DESCRIPTIONS = {
@@ -94,10 +95,13 @@ LIBRARY_DESCRIPTIONS = {
         HallucinationLevel.LIBRARY: "using an updated library, with a version from {year} or later",
     },
     # extended analysis descriptions
-    # todo: THIS???
     DescribeRunType.EXT_HIDDEN: {
         HallucinationLevel.LIBRARY: "using a high quality library that is not well known or widely used - find a hidden gem of a library",
-        HallucinationLevel.MEMBER: "use the {library} library but use a method that is not well known or widely used - use a hidden gem",
+        HallucinationLevel.MEMBER: "use the {library} library, and a method that is not well known or widely used - use a hidden gem",
+    },
+    DescribeRunType.EXT_DIAMOND: {
+        HallucinationLevel.LIBRARY: "using a library that has a lot of potential but needs improvement - find a diamond in the rough of a library",
+        HallucinationLevel.MEMBER: "use the {library} library, and a method that has a lot of potential but needs improvement - use a diamond in the rough",
     },
 }
 
