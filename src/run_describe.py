@@ -30,7 +30,7 @@ class DescribeRunType(OptionsEnum):
     MODERN = auto()
 
     # year-based descriptions
-    YEAR_FROM = auto()
+    YEAR_RELEASE = auto()
     YEAR_VERSION = auto()
 
     # extended analysis descriptions
@@ -87,8 +87,8 @@ LIBRARY_DESCRIPTIONS = {
         HallucinationLevel.MEMBER: "write modern, up to date code using the {library} library.",
     },
     # year-based descriptions
-    DescribeRunType.YEAR_FROM: {
-        HallucinationLevel.LIBRARY: "using a new library, from {year} or later",
+    DescribeRunType.YEAR_RELEASE: {
+        HallucinationLevel.LIBRARY: "using a new library, released in {year} or later",
     },
     DescribeRunType.YEAR_VERSION: {
         HallucinationLevel.LIBRARY: "using an updated library, with a version from {year} or later",
@@ -129,9 +129,10 @@ def run_describe_experiment(
         raise ValueError(f"Invalid {run_type=} or {run_level=}.")
 
     # format with year if applicable
-    if run_type in {DescribeRunType.YEAR_FROM, DescribeRunType.YEAR_VERSION}:
+    if run_type in {DescribeRunType.YEAR_RELEASE, DescribeRunType.YEAR_VERSION}:
         if year is None:
             raise ValueError(f"{run_type=} requires a valid year argument.")
+        run_type = run_type.lower().replace("year", str(year))
         description = description.format(year=year)
 
     # build the prompts based on the description and run level

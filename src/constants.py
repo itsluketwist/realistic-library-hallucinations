@@ -50,6 +50,10 @@ MODEL_DEFAULTS = {
         "temperature": 0.3,
         "top_p": 1.0,
     },
+    "ministral-8b-2410": {
+        "temperature": 0.3,
+        "top_p": 1.0,
+    },
     "qwen/qwen2.5-coder-32b-instruct": {
         "temperature": 0.7,
         "top_p": 0.8,
