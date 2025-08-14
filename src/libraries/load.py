@@ -38,6 +38,7 @@ KNOWN_VALID_IMPORTS = [
     "gnuplot",
     "pyximport",
     "scikitplot",
+    "dateutil",
 ]
 
 
@@ -66,7 +67,7 @@ def load_known_libraries(
 
 
 @cache
-def load_known_members(
+def load_library_documentation(
     file_path: str | None = None,
 ) -> dict[str, dict[str, set[str]]]:
     """
@@ -81,6 +82,8 @@ def load_known_members(
         _lib: {
             "modules": set(_data["modules"]),
             "members": {_m.lower() for _m in _data["members"]},
+            "latest": _data["latest"],
+            "versions": _data["versions"],
         }
         for _lib, _data in documentation.items()
     }

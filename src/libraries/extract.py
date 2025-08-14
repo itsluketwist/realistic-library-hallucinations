@@ -2,7 +2,7 @@
 
 import re
 
-from llm_cgr import Markdown
+from llm_cgr import CodeBlock, Markdown
 
 from src.libraries.format import python_normalise
 
@@ -16,6 +16,26 @@ PIP_INSTALL_REGEX = re.compile(
 TRIM_MEMBER_PATH_REGEX = re.compile(
     pattern=r"^((?:[A-Za-z_][A-Za-z0-9_]*\.)*?[A-Z][A-Za-z0-9_]*)(?:\..*)?$",
 )
+
+
+def extract_python(response: str) -> list[CodeBlock]:
+    """
+    Extract the python code blocks from the model response.
+
+    Returns a list of text from the python code blocks.
+    """
+    # first try to parse the response as markdown
+    _markdown = Markdown(text=response)
+
+    if len(_markdown.code_blocks) > 0:
+        return _markdown.code_blocks
+    else:
+        # if no code blocks are found, try to parse the whole response as a codeblock
+        _block = CodeBlock(language="python", text=response)
+        if _block.valid:
+            return [_block]
+
+    return []
 
 
 def extract_libraries(response: str) -> tuple[set[str], set[str], set[str]]:
@@ -32,11 +52,7 @@ def extract_libraries(response: str) -> tuple[set[str], set[str], set[str]]:
 
     # then look for imports in python code blocks
     imports, usages = set(), set()
-    for code in Markdown(text=response).code_blocks:
-        if code.language != "python":
-            # only check Python code blocks
-            continue
-
+    for code in extract_python(response=response):
         imports.update(code.ext_libs)
         imports.update(code.std_libs)
         usages.update(code.lib_usage.keys())
@@ -55,11 +71,7 @@ def extract_members(response: str) -> set[str]:
     Returns a set of members used in the response.
     """
     members: set[str] = set()
-    for code in Markdown(text=response).code_blocks:
-        if code.language != "python":
-            # only check Python code blocks
-            continue
-
+    for code in extract_python(response=response):
         members.update(code.lib_imports)
 
         for lib, usages in code.lib_usage.items():

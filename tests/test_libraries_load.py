@@ -1,7 +1,7 @@
 """Test methods from the src.libraries.load module."""
 
 from src.constants import DOCUMENTED_LIBRARIES
-from src.libraries.load import load_known_libraries, load_known_members
+from src.libraries.load import load_known_libraries, load_library_documentation
 
 
 def test_load_known_libraries():
@@ -47,7 +47,7 @@ def test_load_known_libraries():
 
 def test_load_known_members():
     """Test the load_known_members function."""
-    full_members = load_known_members()
+    full_members = load_library_documentation()
 
     # check all expected libraries are present
     assert set(full_members.keys()) == set(DOCUMENTED_LIBRARIES)

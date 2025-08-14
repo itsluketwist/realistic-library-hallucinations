@@ -1,7 +1,5 @@
 """Code to look for hallucinations when certain libraries are specified."""
 
-from enum import auto
-
 from llm_cgr import OptionsEnum, experiment, load_json
 
 from src.constants import HallucinationLevel
@@ -17,10 +15,10 @@ SPECIFY_OUTPUT_DIR = "output/specify"
 class SpecifyRunType(OptionsEnum):
     """Enum for the different types of specify runs."""
 
-    BASE = auto()
-    TYPO_SMALL = auto()
-    TYPO_MEDIUM = auto()
-    FABRICATION = auto()
+    BASE = "base"
+    TYPO_SMALL = "typo_small"
+    TYPO_MEDIUM = "typo_medium"
+    FABRICATION = "fabrication"
 
 
 @experiment

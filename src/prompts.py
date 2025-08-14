@@ -21,7 +21,7 @@ SPECIFY_MEMBER_PROMPT = BASE_PROMPT.format(
 # to be added to the end of a task prompt
 POST_PROMPT_CHAIN_OF_THOUGHT = (
     # inspired by chain-of-thought prompting, source: https://arxiv.org/abs/2201.11903
-    "Let's think step by step to solve the task."
+    "Think step by step to solve the task."
 )
 POST_PROMPT_STEP_BACK = (
     # inspired by step-back prompting, source: http://arxiv.org/abs/2310.06117

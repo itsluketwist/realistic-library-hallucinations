@@ -5,7 +5,12 @@ from collections import defaultdict
 from llm_cgr import load_json, save_json
 
 from src.constants import HallucinationLevel
-from src.libraries.check import check_for_unknown_libraries, check_for_unknown_members
+from src.libraries.check import (
+    check_for_unknown_libraries,
+    check_for_unknown_members,
+    check_for_versions,
+)
+from src.libraries.extract import extract_python
 
 
 def evaluate_hallucinations(
@@ -43,11 +48,19 @@ def evaluate_hallucinations(
     }  # libraries hallucinated by each model
     responses_per_hallu: defaultdict[str, dict[str, str]] = defaultdict(dict)
 
+    responses_with_version: dict[str, list[str]] = {m: list() for m in models}
+    no_code_responses: dict[str, list[str]] = {m: list() for m in models}
+
     # loop through models and tasks, checking for hallucinations
     for task_id, _task_data in generations.items():
         for model, _responses in _task_data["responses"].items():
             for _idx, _response in enumerate(_responses):
                 response_id = f"{task_id} | {_idx}"
+
+                # check the response contains python code
+                if len(extract_python(response=_response)) == 0:
+                    no_code_responses[model].append(response_id)
+                    continue
 
                 # handle library hallucinations
                 if hallucination_level == HallucinationLevel.LIBRARY:
@@ -66,6 +79,15 @@ def evaluate_hallucinations(
                         library=_task_data["base_library"],
                         documentation_file=ground_truth_file,
                     )
+                    _versions = check_for_versions(
+                        response=_response,
+                        library=_task_data["base_library"],
+                        documentation_file=ground_truth_file,
+                    )
+                    if _hallus and _versions:
+                        responses_with_version[model].append(
+                            f"{response_id} | {_versions}"
+                        )
 
                 # handle errors
                 else:
@@ -103,9 +125,12 @@ def evaluate_hallucinations(
             # library details
             "hallucination_count": len(hallus_per_model[model]),
             "hallucinations": sorted(hallus_per_model[model]),
+            # version details
+            "version_count": responses_with_version[model],
         }
         for model in models
     }
     results_data["hallucinations"] = dict(responses_per_hallu)
+    results_data["no_code_responses"] = dict(no_code_responses)
     save_json(data=results_data, file_path=results_file)
     return results_data

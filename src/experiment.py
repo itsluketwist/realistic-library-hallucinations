@@ -9,6 +9,7 @@ from tqdm import tqdm
 from src.constants import HallucinationLevel
 from src.evaluate import evaluate_hallucinations
 from src.generate import generate_model_responses
+from src.mitigation import MITIGATION_PROMPTS
 
 
 DEFAULT_OUTPUT_DIR = "output"
@@ -29,7 +30,7 @@ def run_experiment(
     start_index: int = 0,
     ground_truth_file: str | None = None,
     system_prompt: str | None = None,
-    post_prompt: str | None = None,
+    mitigation_strategy: str | None = None,
     check_installs_only: bool = False,
 ) -> None:
     """
@@ -44,6 +45,7 @@ def run_experiment(
     print(f"Processing data: {len(tasks)} prompts from {dataset_file=}.")
 
     _start = datetime.now().isoformat()
+    post_prompt = MITIGATION_PROMPTS.get(mitigation_strategy, None)
     results_file = str(
         Path(output_dir or DEFAULT_OUTPUT_DIR) / f"{run_id}_{_start}.json"
     )
@@ -62,17 +64,20 @@ def run_experiment(
             "start_datetime": _start,
             "end_datetime": datetime.now().isoformat(),
             "system_prompt": system_prompt,
-            "post_prompt": post_prompt,
+            "mitigation_strategy": mitigation_strategy,
         },
         "evaluations": {},
         "generations": {},
         "errors": {},
     }
 
+    print(f"Saving to file: {results_file=}")
     for prompt_id, prompt_data in tqdm(tasks):
-        prompt = prompt_data["prompt"] + (f"\n{post_prompt}" if post_prompt else "")
+        prompt_data["prompt"] = prompt_data["prompt"] + (
+            f"\n{post_prompt}" if post_prompt else ""
+        )
         responses, errors = generate_model_responses(
-            prompt=prompt,
+            prompt=prompt_data["prompt"],
             models=models,
             samples=samples,
             system_prompt=system_prompt,

@@ -1,7 +1,5 @@
 """Code to look for hallucinations when certain descriptions are used."""
 
-from enum import auto
-
 from llm_cgr import OptionsEnum, experiment, load_json
 
 from src.constants import HallucinationLevel
@@ -18,24 +16,25 @@ class DescribeRunType(OptionsEnum):
     """Enum for the different types of describe runs."""
 
     # the core descriptions generated from StackOverflow
-    BASE = auto()
-    OPEN = auto()
-    FREE = auto()
-    BEST = auto()
-    SIMPLE = auto()
-    ALTERNATIVE = auto()
-    EASY = auto()
-    LIGHTWEIGHT = auto()
-    FAST = auto()
-    MODERN = auto()
+    BASE = "base"
+    OPEN = "open"
+    FREE = "free"
+    BEST = "best"
+    SIMPLE = "simple"
+    ALTERNATIVE = "alternative"
+    EASY = "easy"
+    LIGHTWEIGHT = "lightweight"
+    FAST = "fast"
+    MODERN = "modern"
 
     # year-based descriptions
-    YEAR_RELEASE = auto()
-    YEAR_VERSION = auto()
+    YEAR_RELEASE = "year_release"
+    YEAR_FROM = "year_from"
+    YEAR_VERSION = "year_version"
 
     # extended analysis descriptions
-    EXT_HIDDEN = auto()
-    EXT_DIAMOND = auto()
+    EXT_HIDDEN = "ext_hidden"
+    EXT_DIAMOND = "ext_diamond"
 
 
 LIBRARY_DESCRIPTIONS = {
@@ -91,6 +90,9 @@ LIBRARY_DESCRIPTIONS = {
     DescribeRunType.YEAR_RELEASE: {
         HallucinationLevel.LIBRARY: "using a new library, released in {year} or later",
     },
+    DescribeRunType.YEAR_FROM: {
+        HallucinationLevel.LIBRARY: "using a new library, from {year} or later",
+    },
     DescribeRunType.YEAR_VERSION: {
         HallucinationLevel.LIBRARY: "using an updated library, with a version from {year} or later",
     },
@@ -133,7 +135,11 @@ def run_describe_experiment(
         raise ValueError(f"Invalid {run_type=} or {run_level=}.")
 
     # format with year if applicable
-    if run_type in {DescribeRunType.YEAR_RELEASE, DescribeRunType.YEAR_VERSION}:
+    if run_type in {
+        DescribeRunType.YEAR_RELEASE,
+        DescribeRunType.YEAR_VERSION,
+        DescribeRunType.YEAR_FROM,
+    }:
         if year is None:
             raise ValueError(f"{run_type=} requires a valid year argument.")
         run_type = run_type.lower().replace("year", str(year))

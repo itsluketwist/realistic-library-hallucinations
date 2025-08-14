@@ -1,8 +1,8 @@
 """Methods to check for library hallucinations in model responses."""
 
-from src.libraries.extract import extract_libraries, extract_members
+from src.libraries.extract import extract_libraries, extract_members, extract_python
 from src.libraries.format import python_normalise
-from src.libraries.load import load_known_libraries, load_known_members
+from src.libraries.load import load_known_libraries, load_library_documentation
 
 
 def check_library_valid(
@@ -28,7 +28,7 @@ def check_member_valid(
     """
     Check if a member is valid within a library, return a boolean where valid = True.
     """
-    library_members = load_known_members(
+    library_members = load_library_documentation(
         file_path=documentation_file,
     )
     if library not in library_members:
@@ -110,7 +110,7 @@ def check_for_unknown_members(
     Returns a set of unknown members of the given library.
     """
     response_members = extract_members(response=response)
-    library_members = load_known_members(
+    library_members = load_library_documentation(
         file_path=documentation_file,
     )
 
@@ -129,3 +129,33 @@ def check_for_unknown_members(
                 invalid.add(member)
 
     return invalid
+
+
+def check_for_versions(
+    response: str,
+    library: str,
+    documentation_file: str | None = None,
+) -> list[str]:
+    """
+    Check model response for use of a specific library version.
+
+    Returns a boolean indicating if the version is used.
+    """
+
+    documentation = load_library_documentation(
+        file_path=documentation_file,
+    )
+
+    if library not in documentation:
+        raise ValueError(f"Library {library} is not documented.")
+
+    valid_versions = documentation[library]["versions"]
+
+    # extract versions found in the python code that are false positives
+    code_blocks = extract_python(response=response)
+    _python = "\n".join([block.text for block in code_blocks])
+    _false = {_v for _v in valid_versions if _v in _python}
+
+    # check for library versions in the text response
+    versions = [_v for _v in valid_versions if _v in response and _v not in _false]
+    return versions
