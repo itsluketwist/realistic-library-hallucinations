@@ -1,5 +1,7 @@
 # **library-hallucinations**
 
+Todo: fix up the test here...
+
 <div>
     <!-- badges from : https://shields.io/ -->
     <!-- logos available : https://simpleicons.org/ -->
@@ -7,7 +9,19 @@
         <img alt="CC-BY-SA-4.0 License" src="https://img.shields.io/badge/Licence-CC_BY_SA_4.0-yellow?style=for-the-badge&logo=docs&logoColor=white" />
     </a>
     <a href="https://www.python.org/">
-        <img alt="Python 3" src="https://img.shields.io/badge/Python_3-blue?style=for-the-badge&logo=python&logoColor=white" />
+        <img alt="Python 3.11" src="https://img.shields.io/badge/Python_3.11-blue?style=for-the-badge&logo=python&logoColor=white" />
+    </a>
+    <a href="https://openai.com/blog/openai-api/">
+        <img alt="OpenAI API" src="https://img.shields.io/badge/OpenAI_API-412991?style=for-the-badge&logo=openai&logoColor=white" />
+    </a>
+    <a href="https://docs.mistral.ai/api/">
+        <img alt="Mistral API" src="https://img.shields.io/badge/Mistral_API-FA520F?style=for-the-badge&logo=mistralai&logoColor=white" />
+    </a>
+    <a href="https://api-docs.deepseek.com/">
+        <img alt="DeepSeek API" src="https://img.shields.io/badge/DeepSeek_API-4E6CFA?style=for-the-badge&logoColor=white" />
+    </a>
+    <a href="https://api.together.ai/">
+        <img alt="together.ai API" src="https://img.shields.io/badge/together.ai_API-B5B5B5?style=for-the-badge&logoColor=white" />
     </a>
 </div>
 
