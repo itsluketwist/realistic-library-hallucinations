@@ -15,8 +15,9 @@ DESCRIBE_OUTPUT_DIR = "output/describe"
 class DescribeRunType(OptionsEnum):
     """Enum for the different types of describe runs."""
 
-    # the core descriptions generated from StackOverflow
     BASE = "base"
+
+    # the core adjective-based descriptions generated from StackOverflow
     OPEN = "open"
     FREE = "free"
     BEST = "best"
@@ -33,8 +34,9 @@ class DescribeRunType(OptionsEnum):
     YEAR_VERSION = "year_version"
 
     # extended analysis descriptions
+    EXT_LESSER = "ext_lesser"
+    EXT_UNKNOWN = "ext_unknown"
     EXT_HIDDEN = "ext_hidden"
-    EXT_DIAMOND = "ext_diamond"
 
 
 LIBRARY_DESCRIPTIONS = {
@@ -43,6 +45,7 @@ LIBRARY_DESCRIPTIONS = {
         HallucinationLevel.LIBRARY: "using an external library",
         HallucinationLevel.MEMBER: "using the {library} library",
     },
+    # adjective-based descriptions
     DescribeRunType.OPEN: {
         # 35554 - "C++ open source library for curve fitting"
         HallucinationLevel.LIBRARY: "using an open source library",
@@ -63,7 +66,7 @@ LIBRARY_DESCRIPTIONS = {
     },
     DescribeRunType.ALTERNATIVE: {
         # 48838 - "Alternative to Plot.ly"
-        HallucinationLevel.LIBRARY: "using an alternative, lesser known library.",  # 72002
+        HallucinationLevel.LIBRARY: "using an alternative library",  # 72002
         HallucinationLevel.MEMBER: "write an alternative solution using the {library} library.",  # 38180
     },
     DescribeRunType.EASY: {
@@ -97,13 +100,14 @@ LIBRARY_DESCRIPTIONS = {
         HallucinationLevel.LIBRARY: "using an updated library, with a version from {year} or later",
     },
     # extended analysis descriptions
+    DescribeRunType.EXT_LESSER: {
+        HallucinationLevel.LIBRARY: "using an alternative, lesser known library.",
+    },
+    DescribeRunType.EXT_UNKNOWN: {
+        HallucinationLevel.LIBRARY: "using a high quality library that is not well known or widely used",
+    },
     DescribeRunType.EXT_HIDDEN: {
         HallucinationLevel.LIBRARY: "using a high quality library that is not well known or widely used - find a hidden gem of a library",
-        HallucinationLevel.MEMBER: "use the {library} library, and a method that is not well known or widely used - use a hidden gem",
-    },
-    DescribeRunType.EXT_DIAMOND: {
-        HallucinationLevel.LIBRARY: "using a library that has a lot of potential but needs improvement - find a diamond in the rough of a library",
-        HallucinationLevel.MEMBER: "use the {library} library, and a method that has a lot of potential but needs improvement - use a diamond in the rough",
     },
 }
 

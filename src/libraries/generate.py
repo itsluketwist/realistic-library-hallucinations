@@ -32,7 +32,7 @@ def generate_library_typos(
     """
     if typo_size == "small":
         user_prompt = (
-            f"Give me a list of small typos for the following library: {library}\n"
+            f"Give me a list of 1-character typos for the following library: {library}\n"
             "Order them with the most likely, or most common, typos first."
         )
     elif typo_size == "medium":
@@ -141,8 +141,9 @@ def generate_member_typos(
     if typo_size == "small":
         # typo should only be with the end of the member name
         user_prompt = (
-            f"Give me a list of small typos for the following member of the {module_text}: "
-            f"{member_name}\nOrder them with the most likely, or most common, typos first."
+            "Give me a list of 1-character typos for the following member of the "
+            f"{module_text}: {member_name}\n"
+            "Order them with the most likely, or most common, typos first."
         )
     elif typo_size == "medium":
         # similarly with the mistake
@@ -150,7 +151,7 @@ def generate_member_typos(
             f"Give me a list of fake members of the {module_text} that could be mistaken for "
             f"the {member_name} member\n"
             "These should be members that sound like they could exist, and not be a simple "
-            "typo. For example, if the library is 'pandas' and the member is DataFrame, you "
+            "typo. For example, if the library is 'pandas' and the member is 'DataFrame', you "
             "might return 'InfoFrame', but not 'DataFame'.\n"
             "Order them with the most reasonable mistakes first."
         )
@@ -219,7 +220,7 @@ def generate_member_fabrications(
             ""
             "For example, the scipy library contains the electrocardiogram dataset with the full "
             "module path scipy.datasets.electrocardiogram.\n"
-            f"The full module path for the current ground truth soloution is `{member}`, make the "
+            f"The full module path for the current ground truth solution is `{member}`, make the "
             "module path you provide comparable in length and structure.\n"
             "Order with the most realistic names first.\n"
             f"Problem description:\n{task}"
