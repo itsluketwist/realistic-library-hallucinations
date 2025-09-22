@@ -134,7 +134,7 @@ def run_describe_experiment(
 
     # get the corresponding description for the run id and run level
     try:
-        description = LIBRARY_DESCRIPTIONS[run_type][run_level]
+        base_description = LIBRARY_DESCRIPTIONS[run_type][run_level]
     except KeyError:
         raise ValueError(f"Invalid {run_type=} or {run_level=}.")
 
@@ -147,7 +147,7 @@ def run_describe_experiment(
         if year is None:
             raise ValueError(f"{run_type=} requires a valid year argument.")
         run_type = run_type.lower().replace("year", str(year))
-        description = description.format(year=year)
+        base_description = base_description.format(year=year)
 
     # build the prompts based on the description and run level
     prompts = {}
@@ -155,8 +155,10 @@ def run_describe_experiment(
         prompt_data = {}
         if run_level == HallucinationLevel.MEMBER:
             base_library = item["library"]["base"]
-            description = description.format(library=base_library)
+            description = base_description.format(library=base_library)
             prompt_data["base_library"] = base_library
+        else:
+            description = base_description
 
         prompt_data["prompt"] = BASE_PROMPT.format(
             description=description,
