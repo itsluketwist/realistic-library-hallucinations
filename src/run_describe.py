@@ -57,37 +57,37 @@ LIBRARY_DESCRIPTIONS = {
     DescribeRunType.BEST: {
         # 15103 - "Best Python Library for a GUI with Graph + Checkbox List"
         HallucinationLevel.LIBRARY: "using the best possible library",  # 15103
-        HallucinationLevel.MEMBER: "write the best possible code using the {library} library.",  # 91127
+        HallucinationLevel.MEMBER: "write the best possible code using the {library} library",  # 91127
     },
     DescribeRunType.SIMPLE: {
         # 55242 - "Simplest C++ screen capture library for Windows"
         HallucinationLevel.LIBRARY: "using the simplest library you can",
-        HallucinationLevel.MEMBER: "write the simplest code you can using the {library} library.",  # 85011
+        HallucinationLevel.MEMBER: "write the simplest code you can using the {library} library",  # 85011
     },
     DescribeRunType.ALTERNATIVE: {
         # 48838 - "Alternative to Plot.ly"
         HallucinationLevel.LIBRARY: "using an alternative library",  # 72002
-        HallucinationLevel.MEMBER: "write an alternative solution using the {library} library.",  # 38180
+        HallucinationLevel.MEMBER: "write an alternative solution using the {library} library",  # 38180
     },
     DescribeRunType.EASY: {
         # 11906 - "Barebone easy to use framework for not such basic site"
         HallucinationLevel.LIBRARY: "with an easy to use library",
-        HallucinationLevel.MEMBER: "write easy to use code with the {library} library.",  # 58475
+        HallucinationLevel.MEMBER: "write easy to use code with the {library} library",  # 58475
     },
     DescribeRunType.LIGHTWEIGHT: {
         # 49656 - "Lightweight 3D Python library"
         HallucinationLevel.LIBRARY: "using a lightweight library",
-        HallucinationLevel.MEMBER: "write lightweight code using the {library} library.",  # 20560
+        HallucinationLevel.MEMBER: "write lightweight code using the {library} library",  # 20560
     },
     DescribeRunType.FAST: {
         # 19681 - "Fast real-time plotting software in python"
         HallucinationLevel.LIBRARY: "using a fast, high performance library",
-        HallucinationLevel.MEMBER: "write fast, high performance code using the {library} library.",
+        HallucinationLevel.MEMBER: "write fast, high performance code using the {library} library",
     },
     DescribeRunType.MODERN: {
         # 3460 - "Modern front end web development framework"
         HallucinationLevel.LIBRARY: "using a modern, up to date library",
-        HallucinationLevel.MEMBER: "write modern, up to date code using the {library} library.",
+        HallucinationLevel.MEMBER: "write modern, up to date code using the {library} library",
     },
     # year-based descriptions
     DescribeRunType.YEAR_RELEASE: {
