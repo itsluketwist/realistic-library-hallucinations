@@ -6,7 +6,7 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
-packages = ["src"]
+packages = ["src", "benchmark"]
 
 [project]
 name = "src"
@@ -32,4 +32,4 @@ dev = [
 ]
 
 [project.scripts]
-run = "src.cli:main"
+eval = "benchmark.cli:main"
