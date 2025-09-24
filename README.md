@@ -81,7 +81,7 @@ from src import (
 )
 ```
 
-All other non-experiment code (such as downloading or processing data) that likely only needed to be ran a single time is explained in, and can be interfaced with, via it's corresponding Jupyter notebook.
+All other non-experiment code (such as downloading or processing data) that likely only needed to be run a single time is explained in, and can be interfaced with, via it's corresponding Jupyter notebook.
 These notebooks are contained in the [`notebooks/`](notebooks/) directory, and are described in the
 [*structure*](#structure) section below.
 
@@ -110,11 +110,11 @@ It has the following directory structure:
     - [`benchmark/README.md`](benchmark/README.md) - full documentation for LibraryHalluBench.
 - [`data/`](data/) - The data used in the project.
     - [`bigcodebench/`](data/bigcodebench/) - our versions and splits of the [BigCodeBench](https://bigcode-bench.github.io/) dataset.
-        - [`bigcodebench_eval/`](data/bigcodebench/bigcodebench_eval/) - evaluation split used for our final experiments (*len=321*).
-        - [`bigcodebench_full/`](data/bigcodebench/bigcodebench_full/) - our full dataset of processed BigCodeBench records (*len=356*).
-        - [`bigcodebench_raw/`](data/bigcodebench/bigcodebench_raw/) - the fields we need from all records of the base [BigCodeBench](https://bigcode-bench.github.io/) dataset (*len=1140*).
-        - [`bigcodebench_test/`](data/bigcodebench/bigcodebench_test/) - test split used for initial further testing, subset of the eval split (*len=100*).
-        - [`bigcodebench_tune/`](data/bigcodebench/bigcodebench_tune/) - tune split used for initial prompt development, no overlap with the eval split (*len=35*).
+        - [`bigcodebench_eval/`](data/bigcodebench/bigcodebench_eval/) - evaluation split used for our final experiments (*321 records*).
+        - [`bigcodebench_full/`](data/bigcodebench/bigcodebench_full/) - our full dataset of processed BigCodeBench records (*356 records*).
+        - [`bigcodebench_raw/`](data/bigcodebench/bigcodebench_raw/) - the fields we need from all records of the base [BigCodeBench](https://bigcode-bench.github.io/) dataset (*1140 records*).
+        - [`bigcodebench_test/`](data/bigcodebench/bigcodebench_test/) - test split used for initial further testing, subset of the eval split (*100 records*).
+        - [`bigcodebench_tune/`](data/bigcodebench/bigcodebench_tune/) - tune split used for initial prompt development, no overlap with the eval split (*35 records*).
     - [`libraries/`](data/libraries/) - ground truth library data used to detect hallucinations.
         - [`pypi_data.json`](data/libraries/pypi_data.json) - list of libraries available for download via [PyPI](https://pypi.org/).
         - [`documentation.json`](data/libraries/documentation.json) - library documentation data containing all members of the libraries used in the study.
@@ -133,9 +133,11 @@ It has the following directory structure:
     - [`process_bigcodebench.ipynb`](notebooks/process_bigcodebench.ipynb) - code to download and process the [BigCodeBench](https://bigcode-bench.github.io/) dataset to suit our requirements.
     - [`query_stackexchange.ipynb`](notebooks/query_stackexchange.ipynb) - code that queries the [StackExchange API](https://api.stackexchange.com/) for library questions (*experiment 1*).
 - [`output/`](output/) - The generated results.
-    - todo
-- [`src/`](src/) - The main project code that runs the experiments.
-    - todo
+    - [`describe/`](output/describe/) - results from experiments using various user-inspired descriptions, experiment 1 of the paper.
+    - [`induce/`](output/induce/) - results from the additional experiments trying to induce hallucinations with rarity-based prompts.
+    - [`mitigate/`](output/mitigate/) - results from experiments investigating prompt-engineering mitigation strategies, experiment 1 of the paper.
+    - [`specify/`](output/specify/) - results from generating code with non-existent libraries and members, experiment 2 of the paper.
+- [`src/`](src/) - The main project code that runs the experiments. Each file has a docstring to explain its contents.
 - [`main.ipynb`](main.ipynb) - The main entrypoint for project code, allowing easy reproduction of all experiments.
 
 ## *development*

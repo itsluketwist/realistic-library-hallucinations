@@ -6,7 +6,7 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
-packages = ["src", "benchmark"]
+packages = ["src", "benchmark", "src.libraries"]
 
 [project]
 name = "src"
