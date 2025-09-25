@@ -6,7 +6,7 @@ This repository contains the artifacts and full results for the research paper *
     <!-- badges from : https://shields.io/ -->
     <!-- logos available : https://simpleicons.org/ -->
     <a href="https://creativecommons.org/licenses/by/4.0/">
-        <img alt="CC-BY-4.0 License" src="https://img.shields.io/badge/Licence-CC_BY_SA_4.0-yellow?style=for-the-badge&logo=docs&logoColor=white" />
+        <img alt="CC-BY-4.0 License" src="https://img.shields.io/badge/Licence-CC_BY_4.0-yellow?style=for-the-badge&logo=docs&logoColor=white" />
     </a>
     <a href="https://www.python.org/">
         <img alt="Python 3.11" src="https://img.shields.io/badge/Python_3.11-blue?style=for-the-badge&logo=python&logoColor=white" />
