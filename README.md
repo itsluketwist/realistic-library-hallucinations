@@ -53,12 +53,24 @@ Now clone the repository code:
 git clone https://github.com/itsluketwist/realistic-library-hallucinations
 ```
 
-Once cloned, install the requirements locally in a virtual environment:
+Once cloned, install the requirements locally in a virtual environment.
+
+For mac or linux:
 
 ```shell
 python -m venv .venv
 
 . .venv/bin/activate
+
+pip install .
+```
+
+For windows:
+
+```shell
+python -m venv .venv
+
+.\venv\Scripts\Activate.ps1
 
 pip install .
 ```
@@ -138,6 +150,7 @@ It has the following directory structure:
     - [`mitigate/`](output/mitigate/) - results from experiments investigating prompt-engineering mitigation strategies, experiment 1 of the paper.
     - [`specify/`](output/specify/) - results from generating code with non-existent libraries and members, experiment 2 of the paper.
 - [`src/`](src/) - The main project code that runs the experiments. Each file has a docstring to explain its contents.
+- [`tests/`](tests/) - Unit tests for core project functionality.
 - [`main.ipynb`](main.ipynb) - The main entrypoint for project code, allowing easy reproduction of all experiments.
 
 ## *development*
