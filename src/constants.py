@@ -15,7 +15,7 @@ class HallucinationLevel(OptionsEnum):
 
 
 # the default model parameters for the experiments
-MODEL_DEFAULTS = {
+MODEL_DEFAULTS: dict[str, dict[str, float | None]] = {
     "gpt-4o-mini-2024-07-18": {
         "temperature": 1.0,
         "top_p": 1.0,
@@ -39,6 +39,19 @@ MODEL_DEFAULTS = {
     "deepseek-chat": {  # deepseek-v3.1 (non-thinking mode)
         "temperature": 0.6,
         "top_p": 0.5,
+    },
+    "claude-haiku-4-5-20251001": {
+        "temperature": 1.0,
+        "top_p": None,  # defaults to 1.0, api does not allow configuration of both
+    },
+    # our finetuned versions of ministral-8b
+    "ft:ministral-8b-latest:7da9de33:20251113:d36adf52": {  # 5 epochs
+        "temperature": 0.3,
+        "top_p": 1.0,
+    },
+    "ft:ministral-8b-latest:7da9de33:20251114:90da8eec": {  # 10 epochs
+        "temperature": 0.3,
+        "top_p": 1.0,
     },
 }
 

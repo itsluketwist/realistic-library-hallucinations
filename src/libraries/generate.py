@@ -248,28 +248,37 @@ def generate_member_fabrications(
     return typos[:limit]
 
 
-def generate_alternate_libraries(
+def generate_possible_libraries(
     task: str,
-    libraries: list[str],
+    ground_truth_libraries: list[str] | None = None,
     model: str = DEFAULT_LIST_MODEL,
     limit: int = 10,
     pypi_packages_file: str | None = None,
 ) -> list[str]:
     """
-    Get a list of alternative libraries names that could be used for the given task,
-    instead of the ground truth libraries.
+    Get a list of libraries that could be used for the given task, requesting alternatives if
+    ground truth libraries are provided.
 
     Returns the formatted and validated list of alternative library names.
     """
-    alternatives = generate_list(
-        model=model,
-        user=(
-            f"Give me a list of alternative libraries to {', '.join(libraries)} for the "
-            f"following task:\n{task}\n"
+    if ground_truth_libraries is None or len(ground_truth_libraries) == 0:
+        prompt = (
+            f"Give me a list of libraries that could be used for the following task:\n{task}\n"
+            "These should be real libraries with functionality that could be used for the specific "
+            "requirements of the task. Order them with the most reasonable alternatives first."
+        )
+    else:
+        prompt = (
+            f"Give me a list of alternative libraries to {', '.join(ground_truth_libraries)} "
+            f"for the following task:\n{task}\n"
             "These should be real libraries with functionality that could be used for the "
             "specific requirements of the task, but are not the same as the given ground truth.\n"
             "Order them with the most reasonable alternatives first."
-        ),
+        )
+
+    alternatives = generate_list(
+        model=model,
+        user=prompt,
     )
 
     # format the alternatives and check valid
