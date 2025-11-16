@@ -23,6 +23,9 @@ This repository contains the artifacts and full results for the research paper *
     <a href="https://api.together.ai/">
         <img alt="together.ai API" src="https://img.shields.io/badge/together.ai_API-B5B5B5?style=for-the-badge&logoColor=white" />
     </a>
+    <a href="https://www.anthropic.com/api/">
+        <img alt="Anthropic API" src="https://img.shields.io/badge/Claude_API-D97757?style=for-the-badge&logo=claude&logoColor=white" />
+    </a>
 </div>
 
 ## *abstract*
@@ -127,9 +130,15 @@ It has the following directory structure:
         - [`bigcodebench_raw/`](data/bigcodebench/bigcodebench_raw/) - the fields we need from all records of the base [BigCodeBench](https://bigcode-bench.github.io/) dataset (*1140 records*).
         - [`bigcodebench_test/`](data/bigcodebench/bigcodebench_test/) - test split used for initial further testing, subset of the eval split (*100 records*).
         - [`bigcodebench_tune/`](data/bigcodebench/bigcodebench_tune/) - tune split used for initial prompt development, no overlap with the eval split (*35 records*).
+    - [`codeinsight/codeinsight.json`](data/codeinsight/codeinsight.json) - additional dataset used for preliminary investigations into the generalisation of the results to the wider Python ecosystem.
+    - [`finetuning/`](data/finetuning/) - additional subsets of BigCodeBench used for preliminary finetuning experiments.
+        - [`bigcodebench_finetune_test.json`](data/finetuning/bigcodebench_finetune_test.json) - dataset records used to test finetuned models/
+        - [`bigcodebench_finetune_train.json`](data/finetuning/bigcodebench_finetune_test.json) - dataset records used to train finetuned models/
+        - [`library_mistake_correction_data.jsonl`](data/finetuning/bigcodebench_finetune_test.json) - the actual dataset used for finetuning, with formatted `instruction` and `response` entries.
     - [`libraries/`](data/libraries/) - ground truth library data used to detect hallucinations.
         - [`pypi_data.json`](data/libraries/pypi_data.json) - list of libraries available for download via [PyPI](https://pypi.org/).
         - [`documentation.json`](data/libraries/documentation.json) - library documentation data containing all members of the libraries used in the study.
+        - [`pypi_top_1000.txt`](data/libraries/pypi_top_1000.txt) - data dump of the top 1000 libraries from [Top PyPI Packages](https://hugovk.github.io/top-pypi-packages/) (November 2025).
     - [`stackexchange/`](data/stackexchange/) - question data from [Software Recommendations StackExchange](https://softwarerecs.stackexchange.com/), to determine common library descriptions by developers.
         - [`clusters_2025-07-06.json`](data/stackexchange/clusters_2025-07-06.json) - question ids clustered by their descriptive words, to determine the most common library descriptions.
         - [`library_questions_2025-07-04.json`](data/stackexchange/library_questions_2025-07-04.json) - questions related to libraries.
@@ -138,14 +147,19 @@ It has the following directory structure:
         - [`recent_questions_2025-06-30.json`](data/stackexchange/recent_questions_2025-06-30.json) - the 2500 most recent questions.
 - [`notebooks/`](notebooks/) - Jupyter notebooks containing one-time code and processes used to download and process data for experiments.
     - [`create_benchmark.ipynb`](notebooks/create_benchmark.ipynb) - code to gather prompts and create our library hallucination benchmark dataset.
+    - [`domain_analysis.ipynb`](notebooks/domain_analysis.ipynb) - code that performs analysis of results over the BigCodeBench task domains.
     - [`download_documentation.ipynb`](notebooks/download_documentation.ipynb) - code to download all library documentation containing their members.
-    - [`download_python_libraries.ipynb`](notebooks/download_python_libraries.ipynb) - code to download all available libraries from [PyPI](https://pypi.org/).
+    - [`future_finetuning.ipynb`](notebooks/future_finetuning.ipynb) - code to set up our initial experiments into mitigating hallucinations via finetuning.
+    - [`future_generalisability.ipynb`](notebooks/future_generalisability.ipynb) - code to set up our initial experiments into checking the generalisability of our results to the wider Python ecosystem.
     - [`generate_clusters.ipynb`](notebooks/generate_clusters.ipynb) - code to process the library questions and generate the clusters of questions based on the descriptive words they use (*experiment 1*).
     - [`generate_fabrications.ipynb`](notebooks/generate_fabrications.ipynb) - code to generate library/member typos and fabrications that could be used to solve tasks (*experiment 2*).
     - [`process_bigcodebench.ipynb`](notebooks/process_bigcodebench.ipynb) - code to download and process the [BigCodeBench](https://bigcode-bench.github.io/) dataset to suit our requirements.
     - [`query_stackexchange.ipynb`](notebooks/query_stackexchange.ipynb) - code that queries the [StackExchange API](https://api.stackexchange.com/) for library questions (*experiment 1*).
 - [`output/`](output/) - The generated results.
     - [`describe/`](output/describe/) - results from experiments using various user-inspired descriptions, experiment 1 of the paper.
+    - [`describe/`](output/domain_analysis/) - results from the domain analysis of the main results.
+    - [`future_finetuning/`](output/future_finetuning/) - results from our initial experiments into mitigating hallucinations via finetuning.
+    - [`future_generalisability/`](output/future_generalisability/) - results from our initial experiments into checking the generalisability of our results to the wider Python ecosystem.
     - [`induce/`](output/induce/) - results from the additional experiments trying to induce hallucinations with rarity-based prompts.
     - [`mitigate/`](output/mitigate/) - results from experiments investigating prompt-engineering mitigation strategies, experiment 1 of the paper.
     - [`specify/`](output/specify/) - results from generating code with non-existent libraries and members, experiment 2 of the paper.
