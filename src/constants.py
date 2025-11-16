@@ -45,11 +45,19 @@ MODEL_DEFAULTS: dict[str, dict[str, float | None]] = {
         "top_p": None,  # defaults to 1.0, api does not allow configuration of both
     },
     # our finetuned versions of ministral-8b
-    "ft:ministral-8b-latest:7da9de33:20251113:d36adf52": {  # 5 epochs
+    "ft:ministral-8b-latest:7da9de33:20251113:d36adf52": {  # 5 epochs, 0.0001 lr
         "temperature": 0.3,
         "top_p": 1.0,
     },
-    "ft:ministral-8b-latest:7da9de33:20251114:90da8eec": {  # 10 epochs
+    "ft:ministral-8b-latest:7da9de33:20251114:90da8eec": {  # 10 epochs, 0.0001 lr
+        "temperature": 0.3,
+        "top_p": 1.0,
+    },
+    "ft:ministral-8b-latest:7da9de33:20251115:6eb2304d": {  # 5 epochs, 0.00001 lr
+        "temperature": 0.3,
+        "top_p": 1.0,
+    },
+    "ft:ministral-8b-latest:7da9de33:20251115:993ca18f": {  # 10 epochs, 0.00001 lr
         "temperature": 0.3,
         "top_p": 1.0,
     },
