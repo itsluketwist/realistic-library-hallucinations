@@ -92,6 +92,10 @@ def evaluate_hallucinations(
                             f"{response_id} | {_versions}"
                         )
 
+                    # can't be certain of hallucinations if a version is given
+                    if _versions:
+                        _hallus = set()
+
                 # handle errors
                 else:
                     raise ValueError(
