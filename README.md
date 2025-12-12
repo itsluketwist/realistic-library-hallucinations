@@ -40,6 +40,9 @@ Our findings reveal systemic vulnerabilities: one-character misspellings trigger
 Prompt engineering shows promise for mitigating hallucinations, but remains inconsistent and LLM-dependent.
 Our results underscore the fragility of LLMs to natural prompt variation and highlight the urgent need for safeguards against library-related hallucinations and their potential exploitation.
 
+
+![Our hallucination detection and evaluation pipeline.](output/paper_figures/hallucination_pipeline.png)
+
 ## *installation*
 
 The code requires Python 3.11 or later to run.
