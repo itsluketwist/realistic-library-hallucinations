@@ -45,12 +45,20 @@ def run_specify_experiment(
 
     # build the prompts based on the description, run id and run level
     prompts = {}
-    for _id, item in dataset.items():
-        # extract the target libraries or members
-        if run_type == SpecifyRunType.BASE:
-            targets = [item[run_level][SpecifyRunType.BASE]]
+    for _id, item in list(dataset.items()):
+        # first get the library/member options for the item
+        if run_level == HallucinationLevel.MEMBER:
+            options = item[run_level]
+        elif item.get(language):
+            options = item[language]
         else:
-            targets = item[run_level][run_type][:n]
+            options = item[run_level]
+
+        # now extract the target libraries or members
+        if run_type == SpecifyRunType.BASE:
+            targets = [options[SpecifyRunType.BASE]]
+        else:
+            targets = options[run_type][:n]
 
         for _target in targets:
             # get the corresponding description for the run level
