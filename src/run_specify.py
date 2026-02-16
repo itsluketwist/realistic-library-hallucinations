@@ -29,6 +29,7 @@ def run_specify_experiment(
     dataset_file: str,
     n: int = 2,
     output_dir: str | None = None,
+    language: str = "python",
     **kwargs,  # see run_experiment for details
 ):
     """
@@ -57,6 +58,7 @@ def run_specify_experiment(
                 prompt_data = {
                     "target_library": _target,
                     "prompt": SPECIFY_LIBRARY_PROMPT.format(
+                        language=language,
                         library=_target,
                         task=item["task"],
                     ),
@@ -67,6 +69,7 @@ def run_specify_experiment(
                     "base_library": item["member"]["library"],
                     "target_member": _target,
                     "prompt": SPECIFY_MEMBER_PROMPT.format(
+                        language=language,
                         library=item["member"]["library"],
                         member=_target,
                         task=item["task"],
@@ -88,5 +91,6 @@ def run_specify_experiment(
         prompts=prompts,
         dataset_file=dataset_file,
         output_dir=output_dir or SPECIFY_OUTPUT_DIR,
+        language=language,
         **kwargs,
     )

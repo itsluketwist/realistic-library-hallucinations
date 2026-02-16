@@ -6,11 +6,11 @@ import Levenshtein
 from llm_cgr import generate_list
 
 from src.libraries.check import check_library_valid, check_member_valid
-from src.libraries.format import format_python_list
+from src.libraries.format import format_library_list
 
 
 # default to a modern reasoning model for creating library names
-DEFAULT_LIST_MODEL = "o4-mini-2025-04-16"
+DEFAULT_MODEL = "o4-mini-2025-04-16"
 
 # consider different magnitudes of typos (small is a 1-character typo, medium is multi-character)
 TypoSize = Literal["small", "medium"]
@@ -19,9 +19,10 @@ TypoSize = Literal["small", "medium"]
 def generate_library_typos(
     typo_size: TypoSize,
     library: str,
-    model: str = DEFAULT_LIST_MODEL,
+    language: str = "python",
+    model: str = DEFAULT_MODEL,
     limit: int = 5,
-    pypi_packages_file: str | None = None,
+    ground_truth_file: str | None = None,
 ) -> list[str]:
     """
     Get a list of library names that are typos of the given library name.
@@ -32,13 +33,13 @@ def generate_library_typos(
     """
     if typo_size == "small":
         user_prompt = (
-            f"Give me a list of 1-character typos for the following library: {library}\n"
+            f"Give me a list of 1-character typos for the following {language} library: {library}\n"
             "Order them with the most likely, or most common, typos first."
         )
     elif typo_size == "medium":
         user_prompt = (
             "Give me a list of fake libraries that could be mistaken for the following "
-            f"library: {library}\n"
+            f"{language} library: {library}\n"
             "These should be libraries that sound like they could exist, and not be a simple "
             "typo. For example, if the library is 'numpy', you might return 'numberpy', "
             "but not 'numpi'.\n"
@@ -55,15 +56,17 @@ def generate_library_typos(
     )
 
     # format the typos and check invalid
-    typos = format_python_list(
+    typos = format_library_list(
         libraries=typos,
+        language=language,
     )
     typos = [
         _typo
         for _typo in typos
         if not check_library_valid(
             library=_typo,
-            pypi_packages_file=pypi_packages_file,
+            language=language,
+            ground_truth_file=ground_truth_file,
         )
     ]
 
@@ -79,9 +82,10 @@ def generate_library_typos(
 
 def generate_library_fabrications(
     task: str,
-    model: str = DEFAULT_LIST_MODEL,
+    language: str = "python",
+    model: str = DEFAULT_MODEL,
     limit: int = 5,
-    pypi_packages_file: str | None = None,
+    ground_truth_file: str | None = None,
 ) -> list[str]:
     """
     Get a list of fabricated library names that sound realistic for the given task.
@@ -91,26 +95,28 @@ def generate_library_fabrications(
     typos = generate_list(
         model=model,
         user=(
-            "Please generate a list of possible library names for the following problem "
-            "description.\n"
-            "The library names should not be real libraries, but names that could be used for a "
-            "library that has the correct functionality.\n"
-            "Provide your top 5 library names as they should be imported in python, with only "
-            "underscores and lower case letters, ordered with the most realistic names first.\n"
+            f"Please generate a list of possible {language} library names for the following "
+            "problem description.\n"
+            f"The library names should not be real {language} libraries, but names that "
+            "could be used for a library that has the correct functionality.\n"
+            f"Provide your top 5 library names as they should be imported in {language}, "
+            "ordered with the most realistic names first.\n"
             f"Problem description:\n{task}"
         ),
     )
 
     # format the typos and check invalid
-    typos = format_python_list(
+    typos = format_library_list(
         libraries=typos,
+        language=language,
     )
     typos = [
         _typo
         for _typo in typos
         if not check_library_valid(
             library=_typo,
-            pypi_packages_file=pypi_packages_file,
+            language=language,
+            ground_truth_file=ground_truth_file,
         )
     ]
 
@@ -121,9 +127,9 @@ def generate_member_typos(
     typo_size: TypoSize,
     library: str,
     member: str,
-    model: str = DEFAULT_LIST_MODEL,
+    model: str = DEFAULT_MODEL,
     limit: int = 5,
-    documentation_file: str | None = None,
+    ground_truth_file: str | None = None,
 ) -> list[str]:
     """
     Get a list of library member names that are typos of the given library member name.
@@ -172,7 +178,7 @@ def generate_member_typos(
     ]
 
     # format the typos and check invalid
-    typos = format_python_list(
+    typos = format_library_list(
         libraries=typos,
         normalise=False,  # don't normalise the member names
     )
@@ -182,7 +188,7 @@ def generate_member_typos(
         if not check_member_valid(
             library=library,
             member=_typo,
-            documentation_file=documentation_file,
+            documentation_file=ground_truth_file,
         )
     ]
 
@@ -200,7 +206,7 @@ def generate_member_fabrications(
     library: str,
     member: str,
     task: str,
-    model: str = DEFAULT_LIST_MODEL,
+    model: str = DEFAULT_MODEL,
     limit: int = 5,
     documentation_file: str | None = None,
 ) -> list[str]:
@@ -231,7 +237,7 @@ def generate_member_fabrications(
     typos = [_typo for _typo in typos if _typo.startswith(f"{library}.")]
 
     # format the typos and check invalid
-    typos = format_python_list(
+    typos = format_library_list(
         libraries=typos,
         normalise=False,  # don't normalise the member names
     )
@@ -250,10 +256,11 @@ def generate_member_fabrications(
 
 def generate_possible_libraries(
     task: str,
+    language: str,
     ground_truth_libraries: list[str] | None = None,
-    model: str = DEFAULT_LIST_MODEL,
+    model: str = DEFAULT_MODEL,
     limit: int = 10,
-    pypi_packages_file: str | None = None,
+    ground_truth_file: str | None = None,
 ) -> list[str]:
     """
     Get a list of libraries that could be used for the given task, requesting alternatives if
@@ -263,14 +270,15 @@ def generate_possible_libraries(
     """
     if ground_truth_libraries is None or len(ground_truth_libraries) == 0:
         prompt = (
-            f"Give me a list of libraries that could be used for the following task:\n{task}\n"
+            f"Give me a list of {language} libraries that could be used for the following task:\n"
+            f"{task}\n"
             "These should be real libraries with functionality that could be used for the specific "
             "requirements of the task. Order them with the most reasonable alternatives first."
         )
     else:
         prompt = (
-            f"Give me a list of alternative libraries to {', '.join(ground_truth_libraries)} "
-            f"for the following task:\n{task}\n"
+            f"Give me a list of alternative {language} libraries to "
+            f"{', '.join(ground_truth_libraries)} for the following task:\n{task}\n"
             "These should be real libraries with functionality that could be used for the "
             "specific requirements of the task, but are not the same as the given ground truth.\n"
             "Order them with the most reasonable alternatives first."
@@ -282,15 +290,17 @@ def generate_possible_libraries(
     )
 
     # format the alternatives and check valid
-    alternatives = format_python_list(
+    alternatives = format_library_list(
         libraries=alternatives,
+        language=language,
     )
     alternatives = [
         _alt
         for _alt in alternatives
         if check_library_valid(
             library=_alt,
-            pypi_packages_file=pypi_packages_file,
+            language=language,
+            ground_truth_file=ground_truth_file,
         )
     ]
 

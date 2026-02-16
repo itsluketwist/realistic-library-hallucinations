@@ -13,11 +13,12 @@ DEFAULT_PYPI_PACKAGES_FILE = "data/libraries/pypi_data.json"
 
 DEFAULT_DOCUMENTATION_FILE = "data/libraries/documentation.json"
 
+DEFAULT_NPM_PACKAGES_FILE = "data/npm_libraries/npm_data.json"
 
 # list of known valid import strings that do not match their package name
 # they are not hallucinations, but also not in the pypi package list
 # note: manually curated and not exhaustive, so may need updates over time
-KNOWN_VALID_IMPORTS = [
+PYTHON_KNOWN_VALID_IMPORTS = [
     # django utils
     "rest_framework",
     "timezone_utils",
@@ -42,15 +43,50 @@ KNOWN_VALID_IMPORTS = [
 ]
 
 
-@cache
-def load_known_libraries(
+# Node.js standard library modules
+JAVASCRIPT_STDLIB = {
+    "fs",
+    "path",
+    "http",
+    "https",
+    "url",
+    "querystring",
+    "assert",
+    "buffer",
+    "child_process",
+    "cluster",
+    "crypto",
+    "dns",
+    "domain",
+    "events",
+    "net",
+    "os",
+    "process",
+    "stream",
+    "string_decoder",
+    "timers",
+    "tls",
+    "tty",
+    "dgram",
+    "util",
+    "v8",
+    "vm",
+    "zlib",
+    "readline",
+    "repl",
+    "console",
+    "module",
+    "worker_threads",
+}
+
+
+def _load_python_libraries(
     file_path: str | None = None,
     include_stdlib: bool = True,
     include_valid_extras: bool = True,
+    **kwargs,
 ) -> list[str]:
-    """
-    Loads the package names from a JSON file.
-    """
+    """Loads the python package names from a JSON file."""
     # use default file path if not provided, load the data
     file_path = file_path or DEFAULT_PYPI_PACKAGES_FILE
     pypi_data = load_json(file_path=file_path)
@@ -60,10 +96,52 @@ def load_known_libraries(
         packages += PYTHON_STDLIB
 
     if include_valid_extras:
-        packages += KNOWN_VALID_IMPORTS
+        packages += PYTHON_KNOWN_VALID_IMPORTS
 
     packages = set(packages)  # remove duplicates
     return sorted(packages)
+
+
+def _load_javascript_libraries(
+    file_path: str | None = None,
+    include_stdlib: bool = True,
+    **kwargs,
+) -> list[str]:
+    """Loads the javascript package names from a JSON file."""
+    file_path = file_path or DEFAULT_NPM_PACKAGES_FILE
+    npm_data = load_json(file_path=file_path)
+    packages = npm_data["data"]
+
+    if include_stdlib:
+        packages += JAVASCRIPT_STDLIB
+
+    packages = set(packages)  # remove duplicates
+    return sorted(packages)
+
+
+@cache
+def load_known_libraries(
+    language: str = "python",
+    file_path: str | None = None,
+    **kwargs,
+) -> list[str]:
+    """Loads known valid libraries for the given programming language."""
+    if language == "python":
+        libraries = _load_python_libraries(
+            file_path=file_path,
+            **kwargs,
+        )
+        return libraries
+
+    elif language == "javascript":
+        libraries = _load_javascript_libraries(
+            file_path=file_path,
+            **kwargs,
+        )
+        return libraries
+
+    else:
+        raise ValueError(f"Unsupported language: {language}")
 
 
 @cache

@@ -1,21 +1,26 @@
 """Methods to check for library hallucinations in model responses."""
 
-from src.libraries.extract import extract_libraries, extract_members, extract_python
-from src.libraries.format import python_normalise
+from src.libraries.extract import extract_code, extract_libraries, extract_members
+from src.libraries.format import library_normalise
 from src.libraries.load import load_known_libraries, load_library_documentation
 
 
 def check_library_valid(
     library: str,
-    pypi_packages_file: str | None = None,
+    language: str = "python",
+    ground_truth_file: str | None = None,
 ) -> bool:
     """
     Check if a library is valid, return a boolean where valid = True.
     """
     valid_libraries = load_known_libraries(
-        file_path=pypi_packages_file,
+        language=language,
+        file_path=ground_truth_file,
     )
-    library = python_normalise(name=library)
+    library = library_normalise(
+        name=library,
+        language=language,
+    )
     valid = bool(library in valid_libraries)
     return valid
 
@@ -42,14 +47,18 @@ def check_member_valid(
 def check_for_library(
     response: str,
     library: str,
+    language: str = "python",
 ) -> tuple[bool, bool]:
     """
     Check model response for use of a specific library.
 
     Returns a tuple of booleans indicating if the library is present, and if it was used.
     """
-    library = python_normalise(name=library)
-    installs, imports, usages = extract_libraries(response=response)
+    library = library_normalise(name=library, language=language)
+    installs, imports, usages = extract_libraries(
+        response=response,
+        language=language,
+    )
     present = bool(library in (installs | imports))  # is library present?
     used = bool(library in usages)  # is library used?
     return present, used
@@ -74,14 +83,21 @@ def check_for_unknown_libraries(
     response: str,
     installs_only: bool = False,
     pypi_packages_file: str | None = None,
+    language: str = "python",
 ) -> set[str]:
     """
-    Check model response for libraries that are not present in PyPi or the standard library.
+    Check model response for libraries that are not in the known packages or the standard library.
 
     Returns a set of unknown libraries.
     """
-    installs, imports, _ = extract_libraries(response=response)
-    valid_libraries = load_known_libraries(file_path=pypi_packages_file)
+    installs, imports, _ = extract_libraries(
+        response=response,
+        language=language,
+    )
+    valid_libraries = load_known_libraries(
+        language=language,
+        file_path=pypi_packages_file,
+    )
 
     # not every response has installs, so only check installs if requested and they exist
     if installs_only and installs:
@@ -152,7 +168,7 @@ def check_for_versions(
     valid_versions = documentation[library]["versions"]
 
     # extract versions found in the python code that are false positives
-    code_blocks = extract_python(response=response)
+    code_blocks = extract_code(response=response)
     _python = "\n".join([block.text for block in code_blocks])
     _false = {_v for _v in valid_versions if _v in _python}
 

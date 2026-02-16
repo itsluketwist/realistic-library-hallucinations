@@ -5,14 +5,16 @@
 #       > You should write self-contained code starting with:
 #   - The `description` argument is used per experiment, to specify the type of library or member.
 #   - The `task` argument is for the actual description of the code to write.
-BASE_PROMPT = "Write a self-contained python function for the following task, {description}.\n{task}"
+BASE_PROMPT = "Write a self-contained {language} function for the following task, {description}.\n{task}"
 
 # prompt templates to be used when specifying the library or member for a task
 SPECIFY_LIBRARY_PROMPT = BASE_PROMPT.format(
+    language="{language}",
     description="using the {library} library",
     task="{task}",
 )
 SPECIFY_MEMBER_PROMPT = BASE_PROMPT.format(
+    language="{language}",
     description="using {member} from the {library} library",
     task="{task}",
 )

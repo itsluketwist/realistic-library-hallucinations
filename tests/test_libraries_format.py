@@ -2,22 +2,22 @@
 
 import pytest
 
-from src.libraries.format import format_python_list, python_normalise
+from src.libraries.format import format_library_list, python_normalise
 
 
-def test_format_python_list():
-    """Test the format_python_list function."""
+def test_format_library_list():
+    """Test the format_library_list function."""
     libraries = ["numpy_", ".pandas", "matplotlib", "matplotlib"]
 
     # with normalisation
-    formatted = format_python_list(
+    formatted = format_library_list(
         libraries=libraries,
         normalise=True,
     )
     assert formatted == ["numpy", "pandas", "matplotlib"]
 
     # only remove duplicates
-    formatted = format_python_list(
+    formatted = format_library_list(
         libraries=libraries,
         normalise=False,
     )

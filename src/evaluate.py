@@ -12,13 +12,17 @@ from src.libraries.check import (
     check_for_unknown_members,
     check_for_versions,
 )
-from src.libraries.extract import extract_python
+from src.libraries.extract import extract_code
+
+
+# TODO: update with language specific logic!
 
 
 def evaluate_hallucinations(
     results_file: str,
     check_installs_only: bool = False,
     ground_truth_file: str | None = None,
+    language: str = "python",
 ) -> dict:
     """
     Evaluate the libraries found in model responses, identifying any hallucinations.
@@ -32,6 +36,11 @@ def evaluate_hallucinations(
     hallucination_level: HallucinationLevel = results_data["metadata"][
         "hallucination_level"
     ]
+
+    if hallucination_level == HallucinationLevel.MEMBER and language != "python":
+        raise NotImplementedError(
+            "Member hallucination evaluation is only for python code."
+        )
 
     # extract models from generations
     models = []
@@ -61,7 +70,15 @@ def evaluate_hallucinations(
                 response_id = f"{task_id} | {_idx}"
 
                 # check the response contains python code
-                if len(extract_python(response=_response)) == 0:
+                if (
+                    len(
+                        extract_code(
+                            response=_response,
+                            language=language,
+                        )
+                    )
+                    == 0
+                ):
                     no_code_responses[model].append(response_id)
                     continue
 
@@ -72,6 +89,7 @@ def evaluate_hallucinations(
                         response=_response,
                         installs_only=check_installs_only,
                         pypi_packages_file=ground_truth_file,
+                        language=language,
                     )
 
                 # handle member hallucinations
@@ -115,6 +133,7 @@ def evaluate_hallucinations(
                         present, _ = check_for_library(
                             response=_response,
                             library=_target,
+                            language=language,
                         )
                     else:
                         present = check_for_member(

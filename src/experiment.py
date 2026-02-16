@@ -21,6 +21,7 @@ def run_experiment(
     models: list[str],
     prompts: dict[str, dict[str, str]],  # prompt_id -> {"prompt": str, **prompt_data}
     dataset_file: str,
+    language: str,
     samples: int = 3,
     temperature: float | None = None,
     top_p: float | None = None,
@@ -42,7 +43,7 @@ def run_experiment(
 
     # trim the prompts as requested
     tasks = list(prompts.items())[start_index:]
-    print(f"Processing data: {len(tasks)} prompts from {dataset_file=}.")
+    print(f"Processing data: {len(tasks)} {language} prompts from {dataset_file=}.")
 
     _start = datetime.now().isoformat()
     post_prompt = MITIGATION_PROMPTS.get(mitigation_strategy, None)
@@ -65,6 +66,7 @@ def run_experiment(
             "end_datetime": datetime.now().isoformat(),
             "system_prompt": system_prompt,
             "mitigation_strategy": mitigation_strategy,
+            "language": language,
         },
         "evaluations": {},
         "generations": {},
@@ -102,4 +104,5 @@ def run_experiment(
         results_file=results_file,
         check_installs_only=check_installs_only,
         ground_truth_file=ground_truth_file,
+        language=language,
     )

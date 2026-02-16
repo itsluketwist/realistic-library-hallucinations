@@ -120,6 +120,7 @@ def run_describe_experiment(
     dataset_file: str,
     year: int | None = None,
     output_dir: str | None = None,
+    language: str = "python",
     **kwargs,  # see run_experiment for details
 ):
     """
@@ -161,6 +162,7 @@ def run_describe_experiment(
             description = base_description
 
         prompt_data["prompt"] = BASE_PROMPT.format(
+            language=language,
             description=description,
             task=item["task"],
         )
@@ -176,5 +178,6 @@ def run_describe_experiment(
         prompts=prompts,
         dataset_file=dataset_file,
         output_dir=output_dir or DESCRIBE_OUTPUT_DIR,
+        language=language,
         **kwargs,
     )
