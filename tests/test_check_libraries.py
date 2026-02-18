@@ -100,7 +100,7 @@ def test_check_for_unknown_libraries(test_pypi_packages_file):
         check_for_unknown_libraries(
             response=response,
             installs_only=False,
-            pypi_packages_file=test_pypi_packages_file,
+            ground_truth_file=test_pypi_packages_file,
         )
         == set()
     )
@@ -108,7 +108,7 @@ def test_check_for_unknown_libraries(test_pypi_packages_file):
         check_for_unknown_libraries(
             response=response,
             installs_only=True,
-            pypi_packages_file=test_pypi_packages_file,
+            ground_truth_file=test_pypi_packages_file,
         )
         == set()
     )
@@ -128,14 +128,14 @@ def test_check_for_unknown_libraries(test_pypi_packages_file):
     assert check_for_unknown_libraries(
         response=response,
         installs_only=False,
-        pypi_packages_file=test_pypi_packages_file,
+        ground_truth_file=test_pypi_packages_file,
     ) == {
         "hallucinated_lib",
     }
     assert check_for_unknown_libraries(
         response=response,
         installs_only=True,
-        pypi_packages_file=test_pypi_packages_file,
+        ground_truth_file=test_pypi_packages_file,
     ) == {
         "hallucinated_lib",
     }
@@ -162,7 +162,7 @@ def test_check_for_unknown_libraries(test_pypi_packages_file):
     assert check_for_unknown_libraries(
         response=response,
         installs_only=False,
-        pypi_packages_file=test_pypi_packages_file,
+        ground_truth_file=test_pypi_packages_file,
     ) == {
         "hallucinated_lib",
         "really_bad_hallucination",
@@ -173,7 +173,7 @@ def test_check_for_unknown_libraries(test_pypi_packages_file):
     assert check_for_unknown_libraries(
         response=response,
         installs_only=True,
-        pypi_packages_file=test_pypi_packages_file,
+        ground_truth_file=test_pypi_packages_file,
     ) == {
         "hallucinated_lib",
         "really_bad_hallucination",

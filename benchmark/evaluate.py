@@ -69,7 +69,7 @@ def evaluate_benchmark_responses(
         for _idx, _response in enumerate(responses):
             _hallus = check_for_unknown_libraries(
                 response=_response,
-                pypi_packages_file=pypi_file,
+                ground_truth_file=pypi_file,
             )
 
             # update hallucinations

@@ -82,7 +82,7 @@ def check_for_member(
 def check_for_unknown_libraries(
     response: str,
     installs_only: bool = False,
-    pypi_packages_file: str | None = None,
+    ground_truth_file: str | None = None,
     language: str = "python",
 ) -> set[str]:
     """
@@ -96,7 +96,7 @@ def check_for_unknown_libraries(
     )
     valid_libraries = load_known_libraries(
         language=language,
-        file_path=pypi_packages_file,
+        file_path=ground_truth_file,
     )
 
     # not every response has installs, so only check installs if requested and they exist

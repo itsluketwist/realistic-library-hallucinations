@@ -15,14 +15,11 @@ from src.libraries.check import (
 from src.libraries.extract import extract_code
 
 
-# TODO: update with language specific logic!
-
-
 def evaluate_hallucinations(
     results_file: str,
     check_installs_only: bool = False,
     ground_truth_file: str | None = None,
-    language: str = "python",
+    language: str | None = None,
 ) -> dict:
     """
     Evaluate the libraries found in model responses, identifying any hallucinations.
@@ -36,6 +33,9 @@ def evaluate_hallucinations(
     hallucination_level: HallucinationLevel = results_data["metadata"][
         "hallucination_level"
     ]
+
+    # read the language from the results file metadata if not provided
+    language = language or results_data["metadata"].get("language", "python")
 
     if hallucination_level == HallucinationLevel.MEMBER and language != "python":
         raise NotImplementedError(
@@ -69,7 +69,7 @@ def evaluate_hallucinations(
             for _idx, _response in enumerate(_responses):
                 response_id = f"{task_id} | {_idx}"
 
-                # check the response contains python code
+                # check the response contains code
                 if (
                     len(
                         extract_code(
@@ -88,7 +88,7 @@ def evaluate_hallucinations(
                     _hallus = check_for_unknown_libraries(
                         response=_response,
                         installs_only=check_installs_only,
-                        pypi_packages_file=ground_truth_file,
+                        ground_truth_file=ground_truth_file,
                         language=language,
                     )
 
