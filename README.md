@@ -223,4 +223,8 @@ To update the lock file after changing `benchmark/pyproject.toml`:
 cd benchmark && uv lock
 ```
 
-Releases to PyPI and Hugging Face are handled automatically via GitHub Actions on a new release.
+To release a new version to PyPI and Hugging Face:
+
+1. bump the `version` in [`benchmark/pyproject.toml`](benchmark/pyproject.toml)
+2. commit and push
+3. trigger the `release` workflow manually from the [Actions tab](https://github.com/itsluketwist/realistic-library-hallucinations/actions/workflows/release.yaml)

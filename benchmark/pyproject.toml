@@ -14,7 +14,8 @@ lhab = ["lhab-*.jsonl"]
 [project]
 name = "lhab"
 readme = "PYPI_README.md"
-version = "1.0.0"
+# bump the version here before triggering the release workflow
+version = "0.1"
 description = "Library Hallucinations Adversarial Benchmark — evaluate LLM code generation for hallucinated libraries."
 authors = [{ name = "Lukas Twist", email = "itsluketwist@gmail.com" }]
 license-files = ["LICENSE"]
