@@ -1,6 +1,6 @@
 # **realistic-library-hallucinations**
 
-This repository contains the artifacts and full results for the research paper **Library Hallucinations in LLMs: Risk Analysis Grounded in Developer Queries**, along with the companion benchmark dataset [**LibraryHalluBench**](benchmark/README.md).
+This repository contains the artifacts and full results for the research paper **Library Hallucinations in LLMs: Risk Analysis Grounded in Developer Queries**, along with the companion benchmark dataset [**LHAB**](benchmark/HF_README.md).
 
 <div>
     <!-- badges from : https://shields.io/ -->
@@ -85,7 +85,7 @@ pip install .
 
 There are two main uses of this repository:
 - to reproduce or build upon the code and results from the main paper - *details below*;
-- or to access and use the [**LibraryHalluBench**](benchmark/) benchmark dataset - *see the dedicated [**README**](benchmark/README.md)*.
+- or to access and use the [**LHAB**](benchmark/) benchmark dataset - *see the dedicated [**README**](benchmark/HF_README.md)*.
 
 
 The easiest way to reproduce the experiments is via the the [`main.ipynb`](main.ipynb) notebook, which fully describes each experiment and provides the methods and setup to run them.
@@ -123,9 +123,7 @@ export TOGETHER_API_KEY=...
 This repository contains all of the code used for the project, to allow easy reproduction and encourage further investigation into LLM coding preferences.
 It has the following directory structure:
 
-- [`benchmark/`](benchmark/) - The data, code and documentation for the LibraryHalluBench benchmark dataset.
-    - [`benchmark/LibraryHalluBench.json`](data/benchmark/LibraryHalluBench.json) - our library hallucination benchmark dataset.
-    - [`benchmark/README.md`](benchmark/README.md) - full documentation for LibraryHalluBench.
+- [`benchmark/`](benchmark/) - The standalone LHAB benchmark package, see [*benchmark*](#benchmark) below.
 - [`data/`](data/) - The data used in the project.
     - [`bigcodebench/`](data/bigcodebench/) - our versions and splits of the [BigCodeBench](https://bigcode-bench.github.io/) dataset.
         - [`bigcodebench_eval/`](data/bigcodebench/bigcodebench_eval.json) - evaluation split used for our final experiments (*321 records*).
@@ -207,3 +205,22 @@ Then version lock with [`uv`](https://astral.sh/blog/uv) using:
 ```shell
 uv pip compile requirements.in --output-file requirements.txt --upgrade
 ```
+
+## *benchmark*
+
+The companion benchmark dataset **LHAB** (Library Hallucinations Adversarial Benchmark) is published as a standalone package from the [`benchmark/`](benchmark/) directory.
+
+- [PyPI](https://pypi.org/p/lhab) - `pip install lhab`
+- [Hugging Face](https://huggingface.co/datasets/itsluketwist/LHAB) - `load_dataset("itsluketwist/LHAB")`
+- [Documentation](benchmark/HF_README.md)
+
+### *benchmark development*
+
+Dependencies are pinned via [`uv`](https://astral.sh/blog/uv).
+To update the lock file after changing `benchmark/pyproject.toml`:
+
+```shell
+cd benchmark && uv lock
+```
+
+Releases to PyPI and Hugging Face are handled automatically via GitHub Actions on a new release.
