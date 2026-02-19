@@ -48,14 +48,15 @@ jobs:
       - name: 1. Checkout the code...
         uses: actions/checkout@v4
 
-      - name: 2. Install huggingface_hub...
-        run: pip install huggingface_hub
+      - name: 2. Configure uv...
+        uses: astral-sh/setup-uv@v6
 
       - name: 3. Upload dataset to Hugging Face Hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          huggingface-cli upload itsluketwist/LHAB benchmark/HF_README.md README.md --repo-type dataset
-          huggingface-cli upload itsluketwist/LHAB benchmark/lhab/lhab-control.jsonl control.jsonl --repo-type dataset
-          huggingface-cli upload itsluketwist/LHAB benchmark/lhab/lhab-describe.jsonl describe.jsonl --repo-type dataset
-          huggingface-cli upload itsluketwist/LHAB benchmark/lhab/lhab-specify.jsonl specify.jsonl --repo-type dataset
+          uvx --from huggingface_hub hf upload itsluketwist/LHAB benchmark/HF_README.md README.md --repo-type dataset
+          uvx --from huggingface_hub hf upload itsluketwist/LHAB benchmark/dataset_infos.json dataset_infos.json --repo-type dataset
+          uvx --from huggingface_hub hf upload itsluketwist/LHAB benchmark/lhab/lhab-control.jsonl control.jsonl --repo-type dataset
+          uvx --from huggingface_hub hf upload itsluketwist/LHAB benchmark/lhab/lhab-describe.jsonl describe.jsonl --repo-type dataset
+          uvx --from huggingface_hub hf upload itsluketwist/LHAB benchmark/lhab/lhab-specify.jsonl specify.jsonl --repo-type dataset
