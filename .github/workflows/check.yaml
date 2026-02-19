@@ -1,4 +1,4 @@
-name: check
+name: lint and test project
 
 on:
   push:

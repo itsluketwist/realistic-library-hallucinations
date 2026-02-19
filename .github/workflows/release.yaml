@@ -1,4 +1,4 @@
-name: release
+name: lhab release to pypi and hf
 on:
   workflow_dispatch:
 
@@ -39,6 +39,10 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: benchmark
+
     environment:
       name: release
       url: https://huggingface.co/datasets/itsluketwist/LHAB
@@ -55,8 +59,8 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          uvx --from huggingface_hub hf upload itsluketwist/LHAB benchmark/HF_README.md README.md --repo-type dataset
-          uvx --from huggingface_hub hf upload itsluketwist/LHAB benchmark/dataset_infos.json dataset_infos.json --repo-type dataset
-          uvx --from huggingface_hub hf upload itsluketwist/LHAB benchmark/lhab/lhab-control.jsonl control.jsonl --repo-type dataset
-          uvx --from huggingface_hub hf upload itsluketwist/LHAB benchmark/lhab/lhab-describe.jsonl describe.jsonl --repo-type dataset
-          uvx --from huggingface_hub hf upload itsluketwist/LHAB benchmark/lhab/lhab-specify.jsonl specify.jsonl --repo-type dataset
+          uvx --from huggingface_hub hf upload itsluketwist/LHAB HF_README.md README.md --repo-type dataset
+          uvx --from huggingface_hub hf upload itsluketwist/LHAB dataset_infos.json dataset_infos.json --repo-type dataset
+          uvx --from huggingface_hub hf upload itsluketwist/LHAB lhab/lhab-control.jsonl control.jsonl --repo-type dataset
+          uvx --from huggingface_hub hf upload itsluketwist/LHAB lhab/lhab-describe.jsonl describe.jsonl --repo-type dataset
+          uvx --from huggingface_hub hf upload itsluketwist/LHAB lhab/lhab-specify.jsonl specify.jsonl --repo-type dataset

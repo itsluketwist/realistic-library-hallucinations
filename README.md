@@ -171,6 +171,8 @@ It has the following directory structure:
 
 ## *development*
 
+[![check](https://github.com/itsluketwist/realistic-library-hallucinations/actions/workflows/check.yaml/badge.svg)](https://github.com/itsluketwist/realistic-library-hallucinations/actions/workflows/check.yaml)
+
 We use a few extra processes to ensure the code maintains a high quality.
 First clone the project and create a virtual environment - as described above.
 Now install the editable version of the project, with the development dependencies.
@@ -207,6 +209,8 @@ uv pip compile requirements.in --output-file requirements.txt --upgrade
 ```
 
 ## *benchmark*
+
+[![release](https://github.com/itsluketwist/realistic-library-hallucinations/actions/workflows/release.yaml/badge.svg)](https://github.com/itsluketwist/realistic-library-hallucinations/actions/workflows/release.yaml)
 
 The companion benchmark dataset **LHAB** (Library Hallucinations Adversarial Benchmark) is published as a standalone package from the [`benchmark/`](benchmark/) directory.
 
