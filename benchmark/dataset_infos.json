@@ -1,5 +1,5 @@
 {
-  "default": {
+  "python": {
     "features": {
       "id": {"dtype": "string", "_type": "Value"},
       "split": {"dtype": "string", "_type": "Value"},

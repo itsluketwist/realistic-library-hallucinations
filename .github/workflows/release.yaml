@@ -61,6 +61,6 @@ jobs:
         run: |
           uvx --from huggingface_hub hf upload itsluketwist/LHAB HF_README.md README.md --repo-type dataset
           uvx --from huggingface_hub hf upload itsluketwist/LHAB dataset_infos.json dataset_infos.json --repo-type dataset
-          uvx --from huggingface_hub hf upload itsluketwist/LHAB lhab/lhab-control.jsonl control.jsonl --repo-type dataset
-          uvx --from huggingface_hub hf upload itsluketwist/LHAB lhab/lhab-describe.jsonl describe.jsonl --repo-type dataset
-          uvx --from huggingface_hub hf upload itsluketwist/LHAB lhab/lhab-specify.jsonl specify.jsonl --repo-type dataset
+          uvx --from huggingface_hub hf upload itsluketwist/LHAB lhab/lhab-control.jsonl python/control.jsonl --repo-type dataset
+          uvx --from huggingface_hub hf upload itsluketwist/LHAB lhab/lhab-describe.jsonl python/describe.jsonl --repo-type dataset
+          uvx --from huggingface_hub hf upload itsluketwist/LHAB lhab/lhab-specify.jsonl python/specify.jsonl --repo-type dataset
