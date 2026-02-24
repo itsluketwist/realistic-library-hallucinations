@@ -180,7 +180,7 @@ wheels = [
 
 [[package]]
 name = "lhab"
-version = "0.4"
+version = "0.5"
 source = { editable = "." }
 dependencies = [
     { name = "bs4" },
@@ -208,14 +208,14 @@ provides-extras = ["dev"]
 
 [[package]]
 name = "llm-codegen-research"
-version = "2.9"
+version = "2.9.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "esprima" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/c4/54/98d3223de209a3ec1c91f30a1634d86e2b1e63cd03a4066beee55106af89/llm_codegen_research-2.9.tar.gz", hash = "sha256:7dcb849d4177001bfe9ffaa697a16db7fcaa3d178dc835a5b6bfe10dc6b310cf", size = 21051, upload-time = "2026-02-24T14:14:23.27Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/4e/af/4dfb1e53db4bff539f7e8a8624084e8f06e0b8867f8f13065c014f9f2144/llm_codegen_research-2.9.1.tar.gz", hash = "sha256:5d1dc876302c35b235be44626f5adfff53c14196036c55ebe78321e30573c8f9", size = 21160, upload-time = "2026-02-24T14:46:16.363Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/bf/05/785d556187f96feb19de3dcb380ea566611a2119b5736b85a88ed70e1914/llm_codegen_research-2.9-py3-none-any.whl", hash = "sha256:dfb8028e8fc0cfbd83f3d3b4888ac7fbdd17309b3630555b34f2ffc3a820c718", size = 26055, upload-time = "2026-02-24T14:14:23.924Z" },
+    { url = "https://files.pythonhosted.org/packages/4e/c1/24198b75d2ab1be4d2ae7f25213b73346f8cc8df07192b33130b2a046021/llm_codegen_research-2.9.1-py3-none-any.whl", hash = "sha256:d72809839aa36cf2f81e3f1c99beb8907042193a4fbd99f18a180263a1500323", size = 26208, upload-time = "2026-02-24T14:46:15.217Z" },
 ]
 
 [[package]]

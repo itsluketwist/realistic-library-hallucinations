@@ -55,12 +55,16 @@ jobs:
       - name: 2. Configure uv...
         uses: astral-sh/setup-uv@v6
 
-      - name: 3. Upload dataset to Hugging Face Hub
+      - name: 3. Generate VERSION file from pyproject.toml...
+        run: python3 -c "import tomllib; print(tomllib.load(open('pyproject.toml', 'rb'))['project']['version'])" > VERSION
+
+      - name: 4. Upload dataset to Hugging Face Hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           uvx --from huggingface_hub hf upload itsluketwist/LHAB HF_README.md README.md --repo-type dataset
           uvx --from huggingface_hub hf upload itsluketwist/LHAB dataset_infos.json dataset_infos.json --repo-type dataset
+          uvx --from huggingface_hub hf upload itsluketwist/LHAB VERSION VERSION --repo-type dataset
           uvx --from huggingface_hub hf upload itsluketwist/LHAB lhab/lhab-control.jsonl python/control.jsonl --repo-type dataset
           uvx --from huggingface_hub hf upload itsluketwist/LHAB lhab/lhab-describe.jsonl python/describe.jsonl --repo-type dataset
           uvx --from huggingface_hub hf upload itsluketwist/LHAB lhab/lhab-specify.jsonl python/specify.jsonl --repo-type dataset
