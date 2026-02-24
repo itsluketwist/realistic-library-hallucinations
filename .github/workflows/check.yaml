@@ -1,4 +1,4 @@
-name: lint and test project
+name: project linters and testing
 
 on:
   push:

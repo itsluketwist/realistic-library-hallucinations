@@ -1,4 +1,4 @@
-name: lhab release to pypi and hf
+name: benchmark release to pypi and hf
 on:
   workflow_dispatch:
 
