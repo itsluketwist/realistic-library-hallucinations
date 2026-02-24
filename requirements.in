@@ -2,7 +2,7 @@ bs4
 datasets
 Jupyter
 levenshtein
-llm-codegen-research
+llm-codegen-research[api]
 scikit-learn
 sentence-transformers
 stackapi
