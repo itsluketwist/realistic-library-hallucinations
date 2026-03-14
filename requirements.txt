@@ -10,7 +10,7 @@ annotated-doc==0.0.4
     # via typer
 annotated-types==0.7.0
     # via pydantic
-anthropic==0.83.0
+anthropic==0.84.0
     # via llm-codegen-research
 anyio==4.12.1
     # via
@@ -46,14 +46,14 @@ bleach==6.3.0
     # via nbconvert
 bs4==0.0.2
     # via -r requirements.in
-certifi==2026.1.4
+certifi==2026.2.25
     # via
     #   httpcore
     #   httpx
     #   requests
 cffi==2.0.0
     # via argon2-cffi-bindings
-charset-normalizer==3.4.4
+charset-normalizer==3.4.5
     # via requests
 click==8.3.1
     # via
@@ -63,7 +63,7 @@ comm==0.2.3
     # via
     #   ipykernel
     #   ipywidgets
-datasets==4.5.0
+datasets==4.7.0
     # via -r requirements.in
 debugpy==1.8.20
     # via ipykernel
@@ -90,7 +90,7 @@ executing==2.2.1
     # via stack-data
 fastjsonschema==2.21.2
     # via nbformat
-filelock==3.24.3
+filelock==3.25.2
     # via
     #   datasets
     #   huggingface-hub
@@ -102,16 +102,14 @@ frozenlist==1.8.0
     # via
     #   aiohttp
     #   aiosignal
-fsspec==2025.10.0
+fsspec==2026.2.0
     # via
     #   datasets
     #   huggingface-hub
     #   torch
-googleapis-common-protos==1.72.0
-    # via opentelemetry-exporter-otlp-proto-http
 h11==0.16.0
     # via httpcore
-hf-xet==1.3.0
+hf-xet==1.4.2
     # via huggingface-hub
 httpcore==1.0.9
     # via httpx
@@ -124,7 +122,7 @@ httpx==0.28.1
     #   mistralai
     #   openai
     #   together
-huggingface-hub==1.4.1
+huggingface-hub==1.7.1
     # via
     #   datasets
     #   sentence-transformers
@@ -139,8 +137,6 @@ idna==3.11
     #   yarl
 importlib-metadata==8.7.1
     # via opentelemetry-api
-invoke==2.2.1
-    # via mistralai
 ipykernel==7.2.0
     # via
     #   jupyter
@@ -216,7 +212,7 @@ jupyter-server==2.17.0
     #   notebook-shim
 jupyter-server-terminals==0.5.4
     # via jupyter-server
-jupyterlab==4.5.5
+jupyterlab==4.5.6
     # via
     #   jupyter
     #   notebook
@@ -232,7 +228,7 @@ lark==1.3.1
     # via rfc3987-syntax
 levenshtein==0.27.3
     # via -r requirements.in
-llm-codegen-research==2.9
+llm-codegen-research==2.11
     # via -r requirements.in
 markdown-it-py==4.0.0
     # via rich
@@ -246,7 +242,7 @@ matplotlib-inline==0.2.1
     #   ipython
 mdurl==0.1.2
     # via markdown-it-py
-mistralai==1.12.4
+mistralai==2.0.2
     # via llm-codegen-research
 mistune==3.2.0
     # via nbconvert
@@ -273,13 +269,13 @@ nest-asyncio==1.6.0
     # via ipykernel
 networkx==3.6.1
     # via torch
-notebook==7.5.4
+notebook==7.5.5
     # via jupyter
 notebook-shim==0.2.4
     # via
     #   jupyterlab
     #   notebook
-numpy==2.4.2
+numpy==2.4.3
     # via
     #   datasets
     #   pandas
@@ -287,28 +283,14 @@ numpy==2.4.2
     #   scipy
     #   sentence-transformers
     #   transformers
-openai==2.23.0
+openai==2.28.0
     # via llm-codegen-research
 opentelemetry-api==1.39.1
     # via
     #   mistralai
-    #   opentelemetry-exporter-otlp-proto-http
-    #   opentelemetry-sdk
     #   opentelemetry-semantic-conventions
-opentelemetry-exporter-otlp-proto-common==1.39.1
-    # via opentelemetry-exporter-otlp-proto-http
-opentelemetry-exporter-otlp-proto-http==1.39.1
-    # via mistralai
-opentelemetry-proto==1.39.1
-    # via
-    #   opentelemetry-exporter-otlp-proto-common
-    #   opentelemetry-exporter-otlp-proto-http
-opentelemetry-sdk==1.39.1
-    # via
-    #   mistralai
-    #   opentelemetry-exporter-otlp-proto-http
 opentelemetry-semantic-conventions==0.60b1
-    # via opentelemetry-sdk
+    # via mistralai
 overrides==7.7.0
     # via jupyter-server
 packaging==26.0
@@ -332,7 +314,7 @@ pexpect==4.9.0
     # via ipython
 pillow==12.1.1
     # via together
-platformdirs==4.9.2
+platformdirs==4.9.4
     # via jupyter-core
 prometheus-client==0.24.1
     # via jupyter-server
@@ -344,10 +326,6 @@ propcache==0.4.1
     # via
     #   aiohttp
     #   yarl
-protobuf==6.33.5
-    # via
-    #   googleapis-common-protos
-    #   opentelemetry-proto
 psutil==7.2.2
     # via ipykernel
 ptyprocess==0.7.0
@@ -388,7 +366,6 @@ pyyaml==6.0.3
     #   datasets
     #   huggingface-hub
     #   jupyter-events
-    #   mistralai
     #   transformers
 pyzmq==27.1.0
     # via
@@ -403,13 +380,12 @@ referencing==0.37.0
     #   jsonschema
     #   jsonschema-specifications
     #   jupyter-events
-regex==2026.2.19
+regex==2026.2.28
     # via transformers
 requests==2.32.5
     # via
     #   datasets
     #   jupyterlab-server
-    #   opentelemetry-exporter-otlp-proto-http
     #   stackapi
 rfc3339-validator==0.1.4
     # via
@@ -441,14 +417,12 @@ scipy==1.17.1
     #   sentence-transformers
 send2trash==2.1.0
     # via jupyter-server
-sentence-transformers==5.2.3
+sentence-transformers==5.3.0
     # via -r requirements.in
-setuptools==82.0.0
+setuptools==82.0.1
     # via jupyterlab
 shellingham==1.5.4
-    # via
-    #   huggingface-hub
-    #   typer
+    # via typer
 six==1.17.0
     # via
     #   python-dateutil
@@ -467,7 +441,7 @@ stackapi==0.3.1
     # via -r requirements.in
 sympy==1.14.0
     # via torch
-tabulate==0.9.0
+tabulate==0.10.0
     # via together
 terminado==0.18.1
     # via
@@ -477,13 +451,13 @@ threadpoolctl==3.6.0
     # via scikit-learn
 tinycss2==1.4.0
     # via bleach
-together==2.2.0
+together==2.4.0
     # via llm-codegen-research
 tokenizers==0.22.2
     # via transformers
 torch==2.10.0
     # via sentence-transformers
-tornado==6.5.4
+tornado==6.5.5
     # via
     #   ipykernel
     #   jupyter-client
@@ -514,11 +488,9 @@ traitlets==5.14.3
     #   nbclient
     #   nbconvert
     #   nbformat
-transformers==5.2.0
+transformers==5.3.0
     # via sentence-transformers
 typer==0.24.1
-    # via typer-slim
-typer-slim==0.24.0
     # via
     #   huggingface-hub
     #   transformers
@@ -526,9 +498,9 @@ types-pyyaml==6.0.12.20250915
     # via together
 types-requests==2.32.4.20260107
     # via types-tqdm
-types-tabulate==0.9.0.20241207
+types-tabulate==0.10.0.20260308
     # via together
-types-tqdm==4.67.3.20260205
+types-tqdm==4.67.3.20260303
     # via together
 typing-extensions==4.15.0
     # via
@@ -540,8 +512,6 @@ typing-extensions==4.15.0
     #   ipython
     #   openai
     #   opentelemetry-api
-    #   opentelemetry-exporter-otlp-proto-http
-    #   opentelemetry-sdk
     #   opentelemetry-semantic-conventions
     #   pydantic
     #   pydantic-core
@@ -576,7 +546,7 @@ widgetsnbextension==4.0.15
     # via ipywidgets
 xxhash==3.6.0
     # via datasets
-yarl==1.22.0
+yarl==1.23.0
     # via aiohttp
 zipp==3.23.0
     # via importlib-metadata
