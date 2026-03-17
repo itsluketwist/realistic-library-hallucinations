@@ -2,7 +2,7 @@
 
 import re
 
-from lhab.pypi import _normalise, load_known_libraries
+from libhallubench.pypi import _normalise, load_known_libraries
 from llm_cgr import CodeBlock, Markdown
 
 

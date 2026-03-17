@@ -176,7 +176,7 @@ prototype.ipynb
 my_notebooks/
 src/backup/
 data/npm_libraries/node_modules/*
-benchmark/lhab/pypi_data.json
+benchmark/libhallubench/pypi_data.json
 
 # too large to upload to github
 data/stackexchange/ngram_embeddings_2025-07-04.json

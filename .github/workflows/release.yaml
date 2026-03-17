@@ -15,7 +15,7 @@ jobs:
 
     environment:
       name: release
-      url: https://pypi.org/p/lhab
+      url: https://pypi.org/p/libhallubench
 
     permissions:
       id-token: write
@@ -45,7 +45,7 @@ jobs:
 
     environment:
       name: release
-      url: https://huggingface.co/datasets/itsluketwist/LHAB
+      url: https://huggingface.co/datasets/itsluketwist/LibHalluBench
 
     steps:
 
@@ -62,9 +62,9 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          uvx --from huggingface_hub hf upload itsluketwist/LHAB HF_README.md README.md --repo-type dataset
-          uvx --from huggingface_hub hf upload itsluketwist/LHAB dataset_infos.json dataset_infos.json --repo-type dataset
-          uvx --from huggingface_hub hf upload itsluketwist/LHAB VERSION VERSION --repo-type dataset
-          uvx --from huggingface_hub hf upload itsluketwist/LHAB lhab/lhab-control.jsonl python/control.jsonl --repo-type dataset
-          uvx --from huggingface_hub hf upload itsluketwist/LHAB lhab/lhab-describe.jsonl python/describe.jsonl --repo-type dataset
-          uvx --from huggingface_hub hf upload itsluketwist/LHAB lhab/lhab-specify.jsonl python/specify.jsonl --repo-type dataset
+          uvx --from huggingface_hub hf upload itsluketwist/LibHalluBench HF_README.md README.md --repo-type dataset
+          uvx --from huggingface_hub hf upload itsluketwist/LibHalluBench dataset_infos.json dataset_infos.json --repo-type dataset
+          uvx --from huggingface_hub hf upload itsluketwist/LibHalluBench VERSION VERSION --repo-type dataset
+          uvx --from huggingface_hub hf upload itsluketwist/LibHalluBench libhallubench/libhallubench-control.jsonl python/control.jsonl --repo-type dataset
+          uvx --from huggingface_hub hf upload itsluketwist/LibHalluBench libhallubench/libhallubench-describe.jsonl python/describe.jsonl --repo-type dataset
+          uvx --from huggingface_hub hf upload itsluketwist/LibHalluBench libhallubench/libhallubench-specify.jsonl python/specify.jsonl --repo-type dataset
