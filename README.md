@@ -30,15 +30,15 @@ This repository contains the artifacts and full results for the research paper *
 
 ## *abstract*
 
-Large language models (LLMs) are increasingly used to generate code, yet they continue to hallucinate, often inventing non-existent libraries.
-Such library hallucinations are not just benign errors: they can mislead developers, break builds, and expose systems to supply chain threats such as slopsquatting.
-Despite increasing awareness of these risks, little is known about how real-world prompt variations affect hallucination rates.
-Therefore, we present the first systematic study of how realistic user-level prompt variations impact library hallucinations in LLM-generated code.
-We evaluate six diverse LLMs across two hallucination types: library name hallucinations (invalid imports) and library member hallucinations (invalid calls from valid libraries).
-We investigate how realistic user language extracted from developer forums and how user errors of varying degrees (one- or multi-character misspellings and completely fake names/members) affect LLM hallucination rates.
-Our findings reveal systemic vulnerabilities: one-character misspellings trigger hallucinations in up to 26% of tasks, fake libraries are accepted in up to 99% of tasks, and time-related prompts lead to hallucinations in up to 84% of tasks.
-Prompt engineering shows promise for mitigating hallucinations, but remains inconsistent and LLM-dependent.
-Our results underscore the fragility of LLMs to natural prompt variation and highlight the urgent need for safeguards against library-related hallucinations and their potential exploitation.
+Large language models (LLMs) now play a central role in code generation, yet they continue to hallucinate, frequently inventing non-existent libraries.
+Such *library hallucinations* are not just benign errors: they can mislead developers, break builds, and expose systems to supply chain threats such as slopsquatting.
+Despite growing awareness of these risks, there is limited understanding of how library hallucinations manifest under realistic usage conditions.
+To fill this gap, we present the first systematic study of how user-level prompt variations influence library hallucinations in LLM-generated code.
+Across seven diverse LLMs, we analyse library name hallucinations (invalid imports) and library member hallucinations (invalid calls from valid libraries), examining the effects of realistic developer language and controlled user mistakes, including misspellings and fabricated libraries or members.
+Our findings expose systemic vulnerabilities:
+one-character misspellings trigger hallucinations in up to 26\% of tasks; fabricated library names are accepted in up to 99\%; and time-based prompts induce hallucinations in up to 84\%.
+Grounded in the highest-risk prompts identified in our study, we introduce ***LibHalluBench***, a benchmark that enables a systematic and reproducible evaluation of these library hallucinations.
+Our findings underscore the fragility of LLMs to natural prompt variation and highlight the urgent need for safeguards against library-related hallucinations and their downstream risks.
 
 ![Our hallucination detection and evaluation pipeline.](output/paper_figures/hallucination_pipeline.png)
 
