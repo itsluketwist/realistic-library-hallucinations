@@ -13,7 +13,7 @@
       "describe": {"name": "describe", "num_examples": 1926},
       "specify": {"name": "specify", "num_examples": 1926}
     },
-    "download_size": 0,
-    "dataset_size": 0
+    "download_size": 1924779,
+    "dataset_size": 1924779
   }
 }
