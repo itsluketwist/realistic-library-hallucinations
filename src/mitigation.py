@@ -5,6 +5,8 @@ from llm_cgr import OptionsEnum
 from src.prompts import (
     POST_PROMPT_CHAIN_OF_THOUGHT,
     POST_PROMPT_EXPLICIT_CHECK,
+    POST_PROMPT_FIX_MISTAKES,
+    POST_PROMPT_FIX_TEMPORAL,
     POST_PROMPT_SELF_ANALYSIS,
     POST_PROMPT_STEP_BACK,
 )
@@ -17,6 +19,8 @@ class MitigationStrategy(OptionsEnum):
     SELF_ANALYSIS = "self_analysis"
     STEP_BACK = "step_back"
     EXPLICIT_CHECK = "explicit_check"
+    FIX_MISTAKES = "fix_mistakes"
+    FIX_TEMPORAL = "fix_temporal"
 
 
 # mapping of mitigation strategies to their prompts
@@ -25,4 +29,6 @@ MITIGATION_PROMPTS: dict[str | None, str] = {
     MitigationStrategy.SELF_ANALYSIS: POST_PROMPT_SELF_ANALYSIS,
     MitigationStrategy.EXPLICIT_CHECK: POST_PROMPT_EXPLICIT_CHECK,
     MitigationStrategy.STEP_BACK: POST_PROMPT_STEP_BACK,
+    MitigationStrategy.FIX_MISTAKES: POST_PROMPT_FIX_MISTAKES,
+    MitigationStrategy.FIX_TEMPORAL: POST_PROMPT_FIX_TEMPORAL,
 }
