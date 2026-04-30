@@ -22,6 +22,17 @@ def javascript_normalise(name: str) -> str:
     return name
 
 
+def rust_normalise(name: str) -> str:
+    """
+    Normalise a rust crate name to a consistent, valid format.
+
+    Hyphens and underscores are interchangeable in crate names (e.g. serde_json == serde-json);
+    we canonicalise to hyphens to match crates.io convention.
+    """
+    # replace underscores and spaces with hyphens (crates.io canonical form)
+    return re.sub(r"[-_ ]+", "-", name.strip()).lower().strip("-")
+
+
 def library_normalise(
     name: str,
     language: str = "python",
@@ -31,6 +42,8 @@ def library_normalise(
         name = python_normalise(name=name)
     elif language == "javascript":
         name = javascript_normalise(name=name)
+    elif language == "rust":
+        name = rust_normalise(name=name)
 
     return name
 
@@ -52,6 +65,9 @@ def format_library_list(
         elif language == "javascript":
             libraries = [javascript_normalise(lib) for lib in libraries]
             libraries = [lib for lib in libraries if lib and lib[0] not in (".", "_")]
+        elif language == "rust":
+            libraries = [rust_normalise(lib) for lib in libraries]
+            libraries = [lib for lib in libraries if lib and lib[0] != "."]
 
     # remove duplicates and empty strings (preserving order)
     libraries = list(dict.fromkeys([lib for lib in libraries if lib]))

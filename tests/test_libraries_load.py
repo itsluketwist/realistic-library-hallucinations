@@ -45,6 +45,25 @@ def test_load_known_libraries():
     assert len(pypi_packages) < len(full_packages)
 
 
+def test_load_rust_libraries():
+    """Test the load_known_libraries function for rust."""
+    # load full crate list
+    crates = load_known_libraries(language="rust")
+    assert len(crates) > 250000
+    assert "serde" in crates  # extremely common crate
+    assert "tokio" in crates  # extremely common crate
+
+    # stdlib crates should be included by default
+    assert "std" in crates
+    assert "core" in crates
+
+    # load without stdlib, check std is excluded
+    no_stdlib = load_known_libraries(language="rust", include_stdlib=False)
+    assert "serde" in no_stdlib
+    assert "std" not in no_stdlib
+    assert len(no_stdlib) < len(crates)
+
+
 def test_load_known_members():
     """Test the load_known_members function."""
     full_members = load_library_documentation()

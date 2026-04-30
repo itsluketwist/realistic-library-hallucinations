@@ -22,6 +22,11 @@ NPM_VERSION_SUFFIX_REGEX = re.compile(
     pattern=r"^(@?[^@]+)@.*$",
 )
 
+# regex to extract crates from `cargo add ...` statements (modern idiomatic rust dependency management)
+CARGO_ADD_REGEX = re.compile(
+    pattern=r"[\n`]cargo[^\S\n\r]+add[^\S\n\r]+([A-Za-z0-9_.-]+(?:[^\S\n\r]+[A-Za-z0-9_.-]+)*)",
+)
+
 # regex to ensure member paths end at a class name
 TRIM_MEMBER_PATH_REGEX = re.compile(
     pattern=r"^((?:[A-Za-z_][A-Za-z0-9_]*\.)*?[A-Z][A-Za-z0-9_]*)(?:\..*)?$",
@@ -65,7 +70,12 @@ def extract_libraries(
     """
     # first look for package install commands
     installs = set()
-    install_regex = PIP_INSTALL_REGEX if language == "python" else NPM_INSTALL_REGEX
+    if language == "python":
+        install_regex = PIP_INSTALL_REGEX
+    elif language == "rust":
+        install_regex = CARGO_ADD_REGEX
+    else:
+        install_regex = NPM_INSTALL_REGEX
     matches = install_regex.findall(string=response)
     for match in matches:
         installs.update(match.strip().split())

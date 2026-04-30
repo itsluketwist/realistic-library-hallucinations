@@ -55,10 +55,12 @@ def run_specify_experiment(
             options = item[run_level]
 
         # now extract the target libraries or members
-        if run_type == SpecifyRunType.BASE:
+        if run_type == SpecifyRunType.BASE and SpecifyRunType.BASE in options:
             targets = [options[SpecifyRunType.BASE]]
-        else:
+        elif run_type in options:
             targets = options[run_type][:n]
+        else:
+            targets = []
 
         for _target in targets:
             # get the corresponding description for the run level

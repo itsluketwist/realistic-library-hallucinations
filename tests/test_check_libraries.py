@@ -1,6 +1,7 @@
 """Test library methods from the src.libraries.check module."""
 
 from src.libraries.check import check_for_library, check_for_unknown_libraries
+from src.libraries.extract import extract_libraries
 
 
 def test_check_for_library():
@@ -179,3 +180,101 @@ def test_check_for_unknown_libraries(test_pypi_packages_file):
         "really_bad_hallucination",
         "hallucinated_numpy",
     }
+
+
+def test_extract_rust_libraries():
+    """Test that extract_libraries correctly handles Rust cargo add commands and code blocks."""
+    # cargo add is the primary extraction signal for rust
+    response = (
+        "First add the dependencies:\n"
+        "`cargo add serde tokio`\n"
+        "Then write the code:\n"
+        "```rust\n"
+        "use serde::{Deserialize, Serialize};\n"
+        "use tokio::time::sleep;\n"
+        "```\n"
+    )
+    installs, imports, _ = extract_libraries(
+        response=response,
+        language="rust",
+    )
+
+    # cargo add should populate installs
+    assert "serde" in installs
+    assert "tokio" in installs
+
+    # use statements in rust code blocks should populate imports (via llm_cgr rust support)
+    assert "serde" in imports
+    assert "tokio" in imports
+
+
+def test_check_for_rust_library():
+    """Test check_for_library correctly identifies present and used Rust crates."""
+    response = (
+        "Add the dependency with `cargo add serde`\n"
+        "```rust\n"
+        "use serde::Deserialize;\n"
+        "\n"
+        "#[derive(Deserialize)]\n"
+        "struct Config { name: String }\n"
+        "```\n"
+    )
+
+    # serde is installed (cargo add) and imported (use statement), but only used via
+    # a derive macro — llm_cgr does not track derive macros as function-call usage
+    present, used = check_for_library(
+        response=response,
+        library="serde",
+        language="rust",
+    )
+    assert present is True
+    assert used is False
+
+    # rand is not mentioned at all
+    present, used = check_for_library(
+        response=response,
+        library="rand",
+        language="rust",
+    )
+    assert present is False
+    assert used is False
+
+
+def test_check_for_unknown_rust_libraries(test_crates_packages_file):
+    """Test check_for_unknown_libraries flags hallucinated Rust crates."""
+    # no hallucinations — serde and tokio are in the test fixture
+    response = (
+        "```bash\n"
+        "cargo add serde tokio\n"
+        "```\n"
+        "```rust\n"
+        "use serde::Deserialize;\n"
+        "use tokio::runtime::Runtime;\n"
+        "```\n"
+    )
+    assert (
+        check_for_unknown_libraries(
+            response=response,
+            language="rust",
+            ground_truth_file=test_crates_packages_file,
+        )
+        == set()
+    )
+
+    # hallucinated crate included via cargo add
+    response = (
+        "```bash\n"
+        "cargo add serde fake-hallucinated-crate\n"
+        "```\n"
+        "```rust\n"
+        "use serde::Deserialize;\n"
+        "use fake_hallucinated_crate::something;\n"
+        "```\n"
+    )
+    unknown = check_for_unknown_libraries(
+        response=response,
+        language="rust",
+        ground_truth_file=test_crates_packages_file,
+    )
+    assert "fake-hallucinated-crate" in unknown
+    assert "serde" not in unknown

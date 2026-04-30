@@ -2,7 +2,7 @@
 
 import pytest
 
-from src.libraries.format import format_library_list, python_normalise
+from src.libraries.format import format_library_list, python_normalise, rust_normalise
 
 
 def test_format_library_list():
@@ -37,3 +37,20 @@ def test_format_library_list():
 def test_python_normalise(name, expected):
     """Test the python_normalise function."""
     assert python_normalise(name=name) == expected
+
+
+@pytest.mark.parametrize(
+    "name,expected",
+    (
+        ("nochange", "nochange"),
+        ("MakeLower", "makelower"),
+        (" strip spaces ", "strip-spaces"),
+        # underscores canonicalised to hyphens (serde_json == serde-json on crates.io)
+        ("serde_json", "serde-json"),
+        # leading/trailing hyphens stripped
+        ("-strip-hyphens-", "strip-hyphens"),
+    ),
+)
+def test_rust_normalise(name, expected):
+    """Test the rust_normalise function."""
+    assert rust_normalise(name=name) == expected

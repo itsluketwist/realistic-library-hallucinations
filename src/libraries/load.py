@@ -15,6 +15,8 @@ DEFAULT_DOCUMENTATION_FILE = "data/libraries/documentation.json"
 
 DEFAULT_NPM_PACKAGES_FILE = "data/npm_libraries/npm_data.json"
 
+DEFAULT_RUST_CRATES_FILE = "data/rust_libraries/crates_data.json"
+
 # list of known valid import strings that do not match their package name
 # they are not hallucinations, but also not in the pypi package list
 # note: manually curated and not exhaustive, so may need updates over time
@@ -41,6 +43,10 @@ PYTHON_KNOWN_VALID_IMPORTS = [
     "scikitplot",
     "dateutil",
 ]
+
+
+# rust's built-in standard library crates (not distributed via crates.io)
+RUST_STDLIB: frozenset = frozenset({"std", "core", "alloc", "proc_macro"})
 
 
 # Node.js standard library modules
@@ -119,6 +125,23 @@ def _load_javascript_libraries(
     return sorted(packages)
 
 
+def _load_rust_libraries(
+    file_path: str | None = None,
+    include_stdlib: bool = True,
+    **kwargs,
+) -> list[str]:
+    """Loads the rust crate names from a JSON file."""
+    file_path = file_path or DEFAULT_RUST_CRATES_FILE
+    crates_data = load_json(file_path=file_path)
+    packages = crates_data["data"]
+
+    if include_stdlib:
+        packages += RUST_STDLIB
+
+    packages = set(packages)  # remove duplicates
+    return sorted(packages)
+
+
 @cache
 def load_known_libraries(
     language: str = "python",
@@ -135,6 +158,13 @@ def load_known_libraries(
 
     elif language == "javascript":
         libraries = _load_javascript_libraries(
+            file_path=file_path,
+            **kwargs,
+        )
+        return libraries
+
+    elif language == "rust":
+        libraries = _load_rust_libraries(
             file_path=file_path,
             **kwargs,
         )
