@@ -8,8 +8,10 @@ from pathlib import Path
 
 
 # paths relative to this script
-RAW_CSV = Path(__file__).parent / "raw" / "crates.csv"
 OUTPUT_JSON = Path(__file__).parent / "crates_data.json"
+
+# source: https://static.crates.io/db-dump.tar.gz
+RAW_CSV = Path(__file__).parent / "raw" / "crates.csv"
 
 
 def extract_crate_names() -> list[str]:
@@ -25,8 +27,12 @@ def extract_crate_names() -> list[str]:
         for row in reader:
             name = row["name"].strip()
             if name:
+                # normalise to lowercase with hyphens (crates.io canonical form)
+                name = name.lower().replace("_", "-")
                 names.append(name)
-    return sorted(names)
+
+    # deduplicate (normalisation may collapse e.g. my_crate and my-crate)
+    return sorted(set(names))
 
 
 def main() -> None:
