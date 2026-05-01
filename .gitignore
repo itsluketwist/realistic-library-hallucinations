@@ -178,6 +178,7 @@ src/backup/
 data/npm_libraries/node_modules/*
 data/rust_libraries/raw/*
 benchmark/libhallubench/pypi_data.json
+notebooks/*rebuttal*.ipynb
 
 # too large to upload to github
 data/stackexchange/ngram_embeddings_2025-07-04.json
