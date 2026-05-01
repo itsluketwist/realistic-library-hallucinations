@@ -30,6 +30,10 @@ PYTHON_KNOWN_VALID_IMPORTS = [
     "skdiscovery",
     "skbio",
     "autosklearn",
+    # windows toolkit
+    "pywintypes",
+    "win32con",
+    "win32file",
     # other mismatches
     "simplecrypt",
     "string_utils",

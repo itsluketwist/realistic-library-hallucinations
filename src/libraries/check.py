@@ -73,10 +73,13 @@ def check_for_member(
 
     Returns a boolean indicating if the member is used.
     """
-    members = extract_members(response=response)
-    members = {_m.lower() for _m in members}
-    present = any(_m.startswith(member.lower()) for _m in members)
-    return present
+    used_members = extract_members(response=response)
+    used_members = {_m.lower() for _m in used_members}
+    for _used in used_members:
+        if _used.lower() in used_members or _used.startswith(f"{member}.".lower()):
+            return True
+
+    return False
 
 
 def check_for_unknown_libraries(

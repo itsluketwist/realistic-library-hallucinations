@@ -27,8 +27,8 @@ class MitigationStrategy(OptionsEnum):
 MITIGATION_PROMPTS: dict[str | None, str] = {
     MitigationStrategy.CHAIN_OF_THOUGHT: POST_PROMPT_CHAIN_OF_THOUGHT,
     MitigationStrategy.SELF_ANALYSIS: POST_PROMPT_SELF_ANALYSIS,
-    MitigationStrategy.EXPLICIT_CHECK: POST_PROMPT_EXPLICIT_CHECK,
     MitigationStrategy.STEP_BACK: POST_PROMPT_STEP_BACK,
+    MitigationStrategy.EXPLICIT_CHECK: POST_PROMPT_EXPLICIT_CHECK,
     MitigationStrategy.FIX_MISTAKES: POST_PROMPT_FIX_MISTAKES,
     MitigationStrategy.FIX_TEMPORAL: POST_PROMPT_FIX_TEMPORAL,
 }
