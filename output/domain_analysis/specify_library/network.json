@@ -1,6 +1,5 @@
 {
     "metadata": {
-        "run_id": "network",
         "domain": "network",
         "run_ids": [
             "spec_lib_fabrication",

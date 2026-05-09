@@ -73,11 +73,14 @@ def check_for_member(
 
     Returns a boolean indicating if the member is used.
     """
+    _member = member.lower()
     used_members = extract_members(response=response)
     used_members = {_m.lower() for _m in used_members}
-    for _used in used_members:
-        if _used.lower() in used_members or _used.startswith(f"{member}.".lower()):
-            return True
+
+    if _member in used_members or any(
+        _m.startswith(f"{_member}.") for _m in used_members
+    ):
+        return True
 
     return False
 

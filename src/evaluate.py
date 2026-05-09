@@ -15,6 +15,110 @@ from src.libraries.check import (
 from src.libraries.extract import extract_code
 
 
+def evaluate_tool_calls(results_file: str) -> dict:
+    """
+    Analyse tool call data stored in a results file, cross-referencing with
+    the hallucination evaluation to measure how often the model respected tool
+    feedback vs hallucinated anyway.
+
+    Saves a "tool_call_analysis" section to the results file and returns the
+    updated results dict.
+    """
+    results_data = load_json(file_path=results_file)
+
+    if "tool_calls" not in results_data:
+        return results_data
+
+    tool_calls_data: dict = results_data["tool_calls"]
+    hallucinations_data: dict = results_data.get("hallucinations", {})
+    tasks: int = results_data["metadata"]["total_tasks"]
+    samples: int = results_data["metadata"]["samples"]
+
+    # build a lookup: (task_id, model, sample_idx) -> set of normalised hallucinated lib names
+    # response keys are stored as "{task_id} | {sample_idx} | {model}" in the hallucinations section
+    sample_hallus: defaultdict[tuple[str, str, int], set[str]] = defaultdict(set)
+    for lib, response_map in hallucinations_data.items():
+        for response_key in response_map:
+            # rsplit from the right to handle task_ids that may contain " | "
+            task_id, idx_str, model = response_key.rsplit(" | ", 2)
+            sample_hallus[(task_id, model, int(idx_str))].add(lib)
+
+    # extract models from the tool_calls section
+    models: set[str] = set()
+    for task_data in tool_calls_data.values():
+        models.update(task_data.keys())
+
+    analysis: dict[str, dict] = {}
+    for model in sorted(models):
+        total_calls: int = 0
+        responses_with_calls: int = 0
+        checked_real: int = 0
+        checked_fake: int = 0
+        # heeded: model called tool, got "false", and did NOT hallucinate that library
+        heeded: int = 0
+        # ignored: model called tool, got "false", but hallucinated the library anyway
+        ignored: int = 0
+        # hallucinated a library without ever querying the tool for it
+        unchecked_hallucinations: int = 0
+
+        for task_id, task_tool_calls in tool_calls_data.items():
+            model_samples: list[list[dict]] = task_tool_calls.get(model, [])
+            for sample_idx, sample_calls in enumerate(model_samples):
+                if sample_calls:
+                    responses_with_calls += 1
+
+                total_calls += len(sample_calls)
+
+                # normalised names of fake libraries the tool flagged this sample
+                # deduplicated so each (sample, lib) outcome is counted once
+                fake_checked_libs: set[str] = set()
+                for call in sample_calls:
+                    if call["exists"]:
+                        checked_real += 1
+                    else:
+                        checked_fake += 1
+                        fake_checked_libs.add(call["normalised"])
+
+                # compare fake-flagged libs against what was actually hallucinated
+                this_sample_hallus = sample_hallus.get(
+                    (task_id, model, sample_idx), set()
+                )
+                for lib in fake_checked_libs:
+                    if lib in this_sample_hallus:
+                        ignored += 1
+                    else:
+                        heeded += 1
+
+                # hallucinations that the model never queried the tool for
+                all_checked_libs = {call["normalised"] for call in sample_calls}
+                unchecked_hallucinations += len(this_sample_hallus - all_checked_libs)
+
+        total_responses = tasks * samples
+        analysis[model] = {
+            # usage stats
+            "total_calls": total_calls,
+            "responses_with_calls": responses_with_calls,
+            "responses_with_calls_rate": responses_with_calls / total_responses
+            if total_responses
+            else 0,
+            "calls_per_response": total_calls / total_responses
+            if total_responses
+            else 0,
+            # breakdown of what the tool was queried for
+            "checked_real": checked_real,
+            "checked_fake": checked_fake,
+            # tool effectiveness (only meaningful for fake libs that were flagged)
+            "heeded": heeded,
+            "ignored": ignored,
+            # hallucinations where the model never even asked the tool
+            "unchecked_hallucinations": unchecked_hallucinations,
+        }
+
+    results_data["tool_call_analysis"] = analysis
+    save_json(data=results_data, file_path=results_file)
+    return results_data
+
+
 def evaluate_hallucinations(
     results_file: str,
     check_installs_only: bool = False,

@@ -1,6 +1,5 @@
 {
     "metadata": {
-        "run_id": "time",
         "domain": "time",
         "run_ids": [
             "spec_lib_fabrication",

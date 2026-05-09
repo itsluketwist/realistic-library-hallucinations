@@ -7,7 +7,7 @@ from llm_cgr import save_json
 from tqdm import tqdm
 
 from src.constants import HallucinationLevel
-from src.evaluate import evaluate_hallucinations
+from src.evaluate import evaluate_hallucinations, evaluate_tool_calls
 from src.generate import generate_model_responses
 from src.mitigation import MITIGATION_PROMPTS
 
@@ -33,12 +33,16 @@ def run_experiment(
     system_prompt: str | None = None,
     mitigation_strategy: str | None = None,
     check_installs_only: bool = False,
+    tools: bool = False,
 ) -> None:
     """
     Base method to run the experiment to find hallucinations when generating code from prompts.
+
+    When tools=True, OpenAI models are given a PyPI-checking tool; tool call details are
+    stored in results["tool_calls"] keyed by prompt_id then model.
     """
     print(
-        f"Running experiment: {run_id=}, {samples=}, {temperature=}, {top_p=}, {models=}."
+        f"Running experiment: {run_id=}, {samples=}, {temperature=}, {top_p=}, {tools=}, {models=}."
     )
 
     # trim the prompts as requested
@@ -67,18 +71,23 @@ def run_experiment(
             "system_prompt": system_prompt,
             "mitigation_strategy": mitigation_strategy,
             "language": language,
+            "tools_enabled": tools,
         },
         "evaluations": {},
         "generations": {},
         "errors": {},
     }
 
+    # only include tool_calls section when tools are enabled, to keep result files clean
+    if tools:
+        results["tool_calls"] = {}
+
     print(f"Saving to file: {results_file=}")
     for prompt_id, prompt_data in tqdm(tasks):
         prompt_data["prompt"] = prompt_data["prompt"] + (
             f"\n{post_prompt}" if post_prompt else ""
         )
-        responses, errors = generate_model_responses(
+        responses, errors, prompt_tool_calls = generate_model_responses(
             prompt=prompt_data["prompt"],
             models=models,
             samples=samples,
@@ -87,6 +96,7 @@ def run_experiment(
             top_p=top_p,
             max_tokens=max_tokens,
             timeout_seconds=timeout_seconds,
+            tools=tools,
         )
 
         # update the results for this prompt
@@ -95,6 +105,8 @@ def run_experiment(
         results["metadata"]["end_datetime"] = datetime.now().isoformat()
         if errors:
             results["errors"][prompt_id] = errors
+        if tools:
+            results["tool_calls"][prompt_id] = prompt_tool_calls
 
         # save the results on each iteration to avoid losing data
         save_json(data=results, file_path=results_file)
@@ -106,3 +118,9 @@ def run_experiment(
         ground_truth_file=ground_truth_file,
         language=language,
     )
+
+    # tool call analysis must run after hallucination evaluation, since it
+    # cross-references the tool logs against the detected hallucinations
+    if tools:
+        print(f"Analysing tool calls: {results_file=}")
+        evaluate_tool_calls(results_file=results_file)

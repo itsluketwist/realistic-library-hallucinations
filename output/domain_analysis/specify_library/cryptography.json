@@ -1,6 +1,5 @@
 {
     "metadata": {
-        "run_id": "cryptography",
         "domain": "cryptography",
         "run_ids": [
             "spec_lib_fabrication",
