@@ -47,6 +47,10 @@ jobs:
       name: release
       url: https://huggingface.co/datasets/itsluketwist/LibHalluBench
 
+    permissions:
+      id-token: write
+      contents: read
+
     steps:
 
       - name: 1. Checkout the code...
@@ -60,11 +64,12 @@ jobs:
 
       - name: 4. Upload dataset to Hugging Face Hub
         env:
-          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          HF_OIDC_RESOURCE: datasets/itsluketwist/LibHalluBench
         run: |
-          uvx --from huggingface_hub hf upload itsluketwist/LibHalluBench HF_README.md README.md --repo-type dataset
-          uvx --from huggingface_hub hf upload itsluketwist/LibHalluBench dataset_infos.json dataset_infos.json --repo-type dataset
-          uvx --from huggingface_hub hf upload itsluketwist/LibHalluBench VERSION VERSION --repo-type dataset
-          uvx --from huggingface_hub hf upload itsluketwist/LibHalluBench libhallubench/libhallubench-control.jsonl python/control.jsonl --repo-type dataset
-          uvx --from huggingface_hub hf upload itsluketwist/LibHalluBench libhallubench/libhallubench-describe.jsonl python/describe.jsonl --repo-type dataset
-          uvx --from huggingface_hub hf upload itsluketwist/LibHalluBench libhallubench/libhallubench-specify.jsonl python/specify.jsonl --repo-type dataset
+          uvx --from 'huggingface_hub>=1.19.0' hf upload itsluketwist/LibHalluBench HF_README.md README.md --repo-type dataset
+          uvx --from 'huggingface_hub>=1.19.0' hf upload itsluketwist/LibHalluBench dataset_infos.json dataset_infos.json --repo-type dataset
+          uvx --from 'huggingface_hub>=1.19.0' hf upload itsluketwist/LibHalluBench VERSION VERSION --repo-type dataset
+          uvx --from 'huggingface_hub>=1.19.0' hf upload itsluketwist/LibHalluBench libhallubench/CANARY.txt CANARY.txt --repo-type dataset
+          uvx --from 'huggingface_hub>=1.19.0' hf upload itsluketwist/LibHalluBench libhallubench/libhallubench-control.jsonl python/control.jsonl --repo-type dataset
+          uvx --from 'huggingface_hub>=1.19.0' hf upload itsluketwist/LibHalluBench libhallubench/libhallubench-describe.jsonl python/describe.jsonl --repo-type dataset
+          uvx --from 'huggingface_hub>=1.19.0' hf upload itsluketwist/LibHalluBench libhallubench/libhallubench-specify.jsonl python/specify.jsonl --repo-type dataset
