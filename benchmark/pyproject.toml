@@ -10,7 +10,7 @@ packages = ["libhallubench"]
 
 [tool.setuptools.package-data]
 # ship the benchmark splits, plus the canary string marking them as eval-only data
-libhallubench = ["libhallubench-*.jsonl", "CANARY.txt"]
+libhallubench = ["data/libhallubench-*.jsonl", "data/CANARY.txt"]
 
 [project]
 name = "libhallubench"

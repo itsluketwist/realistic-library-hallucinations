@@ -7,7 +7,7 @@ from llm_cgr import load_jsonl, save_jsonl
 
 
 # directory containing the bundled dataset split files
-_DATASET_DIR = Path(__file__).parent
+_DATASET_DIR = Path(__file__).parent / "data"
 
 # available dataset splits
 _SPLITS = ("control", "describe", "specify")
