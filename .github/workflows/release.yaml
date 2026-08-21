@@ -48,7 +48,6 @@ jobs:
       url: https://huggingface.co/datasets/itsluketwist/LibHalluBench
 
     permissions:
-      id-token: write
       contents: read
 
     steps:
@@ -64,7 +63,7 @@ jobs:
 
       - name: 4. Upload dataset to Hugging Face Hub
         env:
-          HF_OIDC_RESOURCE: datasets/itsluketwist/LibHalluBench
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           uvx --from 'huggingface_hub>=1.19.0' hf upload itsluketwist/LibHalluBench HF_README.md README.md --repo-type dataset
           uvx --from 'huggingface_hub>=1.19.0' hf upload itsluketwist/LibHalluBench dataset_infos.json dataset_infos.json --repo-type dataset
