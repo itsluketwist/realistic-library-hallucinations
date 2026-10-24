@@ -1,6 +1,6 @@
 # **Library Hallucinations in LLM-Generated Code: A Risk Analysis Grounded in Developer Queries**
 
-This repository contains the artifacts and full results for the research paper [**Library Hallucinations in LLM-Generated Code: A Risk Analysis Grounded in Developer Queries**](https://arxiv.org/abs/2509.22202), accepted to the Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing: EMNLP 2026, Budapest, Hungary.
+This repository contains the artifacts and full results for the research paper [**Library Hallucinations in LLM-Generated Code: A Risk Analysis Grounded in Developer Queries**](https://aclanthology.org/2026.emnlp-main.78/), published in the Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing: EMNLP 2026, Budapest, Hungary.
 
 Including the code for the companion benchmark dataset [**LibHalluBench**](benchmark/HF_README.md) (also available on [PyPI](https://pypi.org/p/libhallubench) and [HuggingFace](https://huggingface.co/datasets/itsluketwist/LibHalluBench)).
 
@@ -24,6 +24,9 @@ Including the code for the companion benchmark dataset [**LibHalluBench**](bench
     </a>
     <a href="https://www.anthropic.com/api/">
         <img alt="Anthropic" src="https://img.shields.io/badge/Claude-D97757?style=for-the-badge&logo=claude&logoColor=white" />
+    </a>
+    <a href="https://aclanthology.org/2026.emnlp-main.78/">
+        <img alt="ACL Anthology" src="https://img.shields.io/badge/ACL_Anthology-2026.emnlp--main.78-ED1C24?style=for-the-badge&logoColor=white" />
     </a>
     <a href="https://arxiv.org/abs/2509.22202">
         <img alt="arXiv" src="https://img.shields.io/badge/arXiv-2509.22202-B31B1B?style=for-the-badge&logo=arxiv&logoColor=white" />
@@ -246,7 +249,7 @@ If you use this work in your research, please cite our paper:
 **ACL Reference Format:**
 
 ```
-Lukas Twist, Mark Harman, Helen Yannakoudakis, and Jie M. Zhang. 2026. Library Hallucinations in LLM-Generated Code: A Risk Analysis Grounded in Developer Queries. In Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing, Budapest, Hungary. ACL.
+Lukas Twist, Mark Harman, Helen Yannakoudakis, and Jie M. Zhang. 2026. Library Hallucinations in LLM-Generated Code: A Risk Analysis Grounded in Developer Queries. In Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing, pages 1785–1812, Budapest, Hungary. Association for Computational Linguistics.
 ```
 
 **BibTeX:**
@@ -260,7 +263,9 @@ Lukas Twist, Mark Harman, Helen Yannakoudakis, and Jie M. Zhang. 2026. Library H
   year = {2026},
   month = {October},
   publisher = {Association for Computational Linguistics},
-  url = {https://arxiv.org/abs/2509.22202},
+  url = {https://aclanthology.org/2026.emnlp-main.78/},
+  pages = {1785--1812},
+  isbn = {979-8-89176-459-0},
 }
 ```
 

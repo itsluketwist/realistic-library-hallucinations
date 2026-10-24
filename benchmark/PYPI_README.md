@@ -2,7 +2,7 @@
 
 Evaluate LLM code generation for hallucinated (non-existent) libraries.
 
-Part of the research paper *Library Hallucinations in LLMs: Risk Analysis Grounded in Developer Queries*.
+Part of the research paper *Library Hallucinations in LLM-Generated Code: A Risk Analysis Grounded in Developer Queries*.
 
 Full dataset and leaderboard available on [HuggingFace](https://huggingface.co/datasets/itsluketwist/LibHalluBench).
 Source code on [GitHub](https://github.com/itsluketwist/realistic-library-hallucinations).

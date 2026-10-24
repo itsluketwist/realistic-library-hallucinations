@@ -186,7 +186,7 @@ If you use this work in your research, please cite our paper:
 **ACL Reference Format:**
 
 ```
-Lukas Twist, Mark Harman, Helen Yannakoudakis, and Jie M. Zhang. 2026. Library Hallucinations in LLM-Generated Code: A Risk Analysis Grounded in Developer Queries. In Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing, Budapest, Hungary. ACL.
+Lukas Twist, Mark Harman, Helen Yannakoudakis, and Jie M. Zhang. 2026. Library Hallucinations in LLM-Generated Code: A Risk Analysis Grounded in Developer Queries. In Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing, pages 1785–1812, Budapest, Hungary. Association for Computational Linguistics.
 ```
 
 **BibTeX:**
@@ -200,7 +200,9 @@ Lukas Twist, Mark Harman, Helen Yannakoudakis, and Jie M. Zhang. 2026. Library H
   year = {2026},
   month = {October},
   publisher = {Association for Computational Linguistics},
-  url = {https://arxiv.org/abs/2509.22202},
+  url = {https://aclanthology.org/2026.emnlp-main.78/},
+  pages = {1785--1812},
+  isbn = {979-8-89176-459-0},
 }
 ```
 
