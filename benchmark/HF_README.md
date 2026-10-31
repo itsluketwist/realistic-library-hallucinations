@@ -200,6 +200,7 @@ Lukas Twist, Mark Harman, Helen Yannakoudakis, and Jie M. Zhang. 2026. Library H
   year = {2026},
   month = {October},
   publisher = {Association for Computational Linguistics},
+  doi = {10.18653/2026.emnlp-main.78},
   url = {https://aclanthology.org/2026.emnlp-main.78/},
   pages = {1785--1812},
   isbn = {979-8-89176-459-0},
